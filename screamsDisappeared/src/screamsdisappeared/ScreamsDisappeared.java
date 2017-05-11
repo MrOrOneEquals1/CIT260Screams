@@ -5,6 +5,7 @@
  */
 package screamsdisappeared;
 
+import byui.cit260.screamsDisappeared.model.Actor;
 import byui.cit260.screamsDisappeared.model.Player;
 
 /**
@@ -24,6 +25,17 @@ public class ScreamsDisappeared {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+     Actor actorOne= new Actor();   
+        
+       actorOne.setName(" DLH");
+       actorOne.setDescription("Description about DLH"); 
+       actorOne.setCoordinates("east, west, south.."); 
+        
+        String actorInfo = actorOne.toString();
+        System.out.println(actorInfo);
+        
+           
         
     }
     
