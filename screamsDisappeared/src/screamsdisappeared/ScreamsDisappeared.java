@@ -6,6 +6,7 @@
 package screamsdisappeared;
 
 import byui.cit260.screamsDisappeared.model.Actor;
+import byui.cit260.screamsDisappeared.model.Car;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
 import byui.cit260.screamsDisappeared.model.Player;
 
@@ -61,6 +62,14 @@ public class ScreamsDisappeared {
      String inventoryItemInfo3 = backpack.toString();
         System.out.println(inventoryItemInfo3);
      
+        
+   Car carOne= new Car();     
+        
+    carOne.setDrivenMiles(500);
+    carOne.setTankSize(14);
+   String carInfo = carOne.toString();
+        System.out.println(carInfo);     
+        
     }
     
 }
