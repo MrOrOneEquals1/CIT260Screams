@@ -5,11 +5,13 @@
  */
 package byui.cit260.screamsDisappeared.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author David Vera
  */
-public class EnemyScene {
+public class EnemyScene implements Serializable {
     
     private int roomSize;
     private int zombiesQuantity;
