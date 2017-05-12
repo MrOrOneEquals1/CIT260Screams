@@ -15,8 +15,7 @@ import java.io.Serializable;
 public class ResourceScene implements Serializable {
     private int amount;
 
-    public ResourceScene(int amount) {
-        this.amount = amount;
+    public ResourceScene() {
     }
        
    
@@ -58,6 +57,6 @@ public class ResourceScene implements Serializable {
         }
         return true;
     }
-    
+    public static void main(String[] args){}
    
 }
