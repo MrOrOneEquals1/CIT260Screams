@@ -15,6 +15,7 @@ import byui.cit260.screamsDisappeared.model.Map;
 import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.Question;
 import byui.cit260.screamsDisappeared.model.QuestionScene;
+import byui.cit260.screamsDisappeared.model.RegularScenePlan;
 import byui.cit260.screamsDisappeared.model.ResourceScene;
 
 /**
@@ -104,7 +105,14 @@ public class ScreamsDisappeared {
     carOne.setDrivenMiles(500);
     carOne.setTankSize(14);
    String carInfo = carOne.toString();
-        System.out.println(carInfo);   
+        System.out.println(carInfo); 
+        
+   RegularScenePlan regularScenePlan1 = new RegularScenePlan();
+   regularScenePlan1.setDescription (" Description of the scene");
+   regularScenePlan1.setBlocked (" Blocked");
+   regularScenePlan1.setSymbol (" Symbol");
+   String regularScenePlanInfo = regularScenePlan1.toString();
+        System.out.println(regularScenePlanInfo);
         
     ResourceScene sceneOne = new ResourceScene();
     sceneOne.setAmount(4);
@@ -122,6 +130,7 @@ public class ScreamsDisappeared {
     questionList.setNoToAnswer("You cannot get the amount needed");
     String questionInfo = questionList.toString();
     System.out.println(questionInfo);
+    
     
     
     Question questionOne = new Question();
