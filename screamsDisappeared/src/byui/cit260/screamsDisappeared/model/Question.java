@@ -72,5 +72,5 @@ public class Question implements Serializable{
         return true;
     }
     
-     public static void main(String[] args){}
+    
 }
