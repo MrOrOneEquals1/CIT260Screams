@@ -8,7 +8,10 @@ package screamsdisappeared;
 import byui.cit260.screamsDisappeared.model.Actor;
 import byui.cit260.screamsDisappeared.model.Car;
 import byui.cit260.screamsDisappeared.model.EnemyScene;
+import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
+import byui.cit260.screamsDisappeared.model.Location;
+import byui.cit260.screamsDisappeared.model.Map;
 import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.Question;
 import byui.cit260.screamsDisappeared.model.QuestionScene;
@@ -26,12 +29,41 @@ public class ScreamsDisappeared {
     public static void main(String[] args) {
         Player playerOne = new Player();
         
-        playerOne.setName("Hugo Vera");
-        playerOne.setBestTime(7.00);
+            playerOne.setName("Hugo Vera");
+            playerOne.setBestTime(7.00);
         
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
+            String playerInfo = playerOne.toString();
+            System.out.println(playerInfo);
         
+        Game gameOne = new Game();
+        
+            gameOne.setNoPeople(2);
+            gameOne.setTotalTime(114);
+        
+            String gameInfo = gameOne.toString();
+            System.out.println(gameInfo);
+            
+        Map mapOne = new Map();
+        
+            mapOne.setDescription("This is a descripton of the map");
+            mapOne.setRowCount(5);
+            mapOne.setColumnCount(5);
+            mapOne.setCurrentRow(2);
+            mapOne.setCurrentColumn(3);
+                  
+            String mapInfo = mapOne.toString();
+            System.out.println(mapInfo);
+         
+        Location locationOne = new Location();
+        
+            locationOne.setRow(1);
+            locationOne.setColumn(1);
+            locationOne.setVisited(false);
+            locationOne.setAmountRemaining(24.0);
+                             
+            String locationInfo = locationOne.toString();
+            System.out.println(locationInfo);  
+            
      Actor actorOne= new Actor();   
         
        actorOne.setName(" DLH");
