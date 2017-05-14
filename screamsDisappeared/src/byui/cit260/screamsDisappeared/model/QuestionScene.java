@@ -71,5 +71,5 @@ public class QuestionScene implements Serializable {
         return true;
     }
     
-     public static void main(String[] args){}
+    
 }

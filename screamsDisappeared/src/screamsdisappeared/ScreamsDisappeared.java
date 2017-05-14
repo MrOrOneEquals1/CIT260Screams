@@ -7,8 +7,12 @@ package screamsdisappeared;
 
 import byui.cit260.screamsDisappeared.model.Actor;
 import byui.cit260.screamsDisappeared.model.Car;
+import byui.cit260.screamsDisappeared.model.EnemyScene;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
 import byui.cit260.screamsDisappeared.model.Player;
+import byui.cit260.screamsDisappeared.model.Question;
+import byui.cit260.screamsDisappeared.model.QuestionScene;
+import byui.cit260.screamsDisappeared.model.ResourceScene;
 
 /**
  *
@@ -68,8 +72,31 @@ public class ScreamsDisappeared {
     carOne.setDrivenMiles(500);
     carOne.setTankSize(14);
    String carInfo = carOne.toString();
-        System.out.println(carInfo);     
+        System.out.println(carInfo);   
         
-    }
+    ResourceScene sceneOne = new ResourceScene();
+    sceneOne.setAmount(4);
+    String sceneInfo  = sceneOne.toString();
+    System.out.println(sceneInfo);
     
+    EnemyScene sceneEnemy = new EnemyScene();
+    sceneEnemy.setRoomSize(4);
+    sceneEnemy.setZombiesQuantity(2);
+    String enemyInfo = sceneEnemy.toString();
+    System.out.println(enemyInfo);
+    
+    QuestionScene questionList = new QuestionScene();
+    questionList.setBonus(400);
+    questionList.setNoToAnswer("You cannot get the amount needed");
+    String questionInfo = questionList.toString();
+    System.out.println(questionInfo);
+    
+    
+    Question questionOne = new Question();
+    questionOne.setQuestion("Do you want to go left or right");
+    questionOne.setAnswer("Yes");
+    String questionWork = questionOne.toString();
+    System.out.println(questionWork);
+    
+    } 
 }
