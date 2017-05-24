@@ -11,7 +11,9 @@ package screamsdisappeared.control;
  */
 public class MoneyEarned {
     
-    public double calcMoneyEarned (double zombiesKilled, double moneyPerZombie, double zombieDogsKilled, double moneyPerZombieDog) {
+    public double calcMoneyEarned (double zombiesKilled, double zombieDogsKilled) {
+        double moneyPerZombie = 1.0;
+        double moneyPerZombieDog=0.5;
         
         if (zombiesKilled<0) {  //zombies killed is negative
             return -1;
@@ -26,14 +28,6 @@ public class MoneyEarned {
         }
         
         if (zombieDogsKilled>25) {  //zombieDogs killed is more than 25
-            return -1;
-        }
-
-        if (moneyPerZombie != 1) {  //You only get 1 for a zombie
-            return -1;
-        }
-
-        if (moneyPerZombieDog != .5) {  //You only get .50 for a zombieDog
             return -1;
         }
 
