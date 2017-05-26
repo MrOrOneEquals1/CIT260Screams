@@ -27,7 +27,7 @@ public class TripNeededTest {
         double litersNeeded = 49.21;
         double bottlePerTrip = 1.0;
         TripNeeded instance = new TripNeeded();
-        double expResult = 24.61;
+        double expResult = 25;
         double result = instance.calcTripNeeded(gallonsNeeded, litersNeeded, bottlePerTrip);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
@@ -79,7 +79,7 @@ public class TripNeededTest {
         double litersNeeded = 56.78;
         double bottlePerTrip = 1.0;
         TripNeeded instance = new TripNeeded();
-        double expResult = 28.39;
+        double expResult = 29;
         double result = instance.calcTripNeeded(gallonsNeeded, litersNeeded, bottlePerTrip);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
@@ -92,7 +92,7 @@ public class TripNeededTest {
         double litersNeeded = 7.57;
         double bottlePerTrip = 1.0;
         TripNeeded instance = new TripNeeded();
-        double expResult = 3.79;
+        double expResult = 4;
         double result = instance.calcTripNeeded(gallonsNeeded, litersNeeded, bottlePerTrip);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
@@ -105,7 +105,7 @@ public class TripNeededTest {
         double litersNeeded = 53.0;
         double bottlePerTrip = 1.0;
         TripNeeded instance = new TripNeeded();
-        double expResult = 26.50;
+        double expResult = 27;
         double result = instance.calcTripNeeded(gallonsNeeded, litersNeeded, bottlePerTrip);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.

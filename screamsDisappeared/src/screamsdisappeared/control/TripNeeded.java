@@ -25,7 +25,7 @@ public class TripNeeded {
         }
     
         double literNeeded = gallonsNeeded*3.7854118;
-        double numbersOfTrip = Math.round((literNeeded/(bottlePerTrip*2))*100)/100.0;//Each bottle will have a capacity of two liters, and the user only can carry up to two bottles per trip
+        double numbersOfTrip = Math.ceil(literNeeded/(bottlePerTrip*2));//Each bottle will have a capacity of two liters, and the user only can carry up to two bottles per trip
         return numbersOfTrip;
     }
 }
