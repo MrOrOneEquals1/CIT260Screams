@@ -18,7 +18,7 @@ public class ExplosivesNeeded {
 }
 
 
-      if ( widthOfRoom < 15 ||  widthOfRoom > 17){ 
+      if ( widthOfRoom < 11 ||  widthOfRoom > 15){ 
           return -1;
   }
 
@@ -26,13 +26,10 @@ public class ExplosivesNeeded {
           return -1;
 }
 
-double cubicYardsOfVolume = (lengthOfRoom * widthOfRoom* heightOfRoom)/27;
+double cubicYardsOfVolume = lengthOfRoom * widthOfRoom* heightOfRoom/27;
+double explosivesNeeded = (Math.round (cubicYardsOfVolume) /10);
+return explosivesNeeded  ; 
 
-double explosivesNeeded = cubicYardsOfVolume / 10 ; 
-
-      return explosivesNeeded;
-    
-    
-}
+    }
 }
 
