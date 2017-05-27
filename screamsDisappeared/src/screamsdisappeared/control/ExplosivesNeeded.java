@@ -26,8 +26,8 @@ public class ExplosivesNeeded {
           return -1;
 }
 
-double cubicYardsOfVolume = lengthOfRoom * widthOfRoom* heightOfRoom/27;
-double explosivesNeeded = (Math.round (cubicYardsOfVolume) /10);
+double cubicYardsOfVolume = lengthOfRoom * widthOfRoom* heightOfRoom/27;//Cubic feet to cubic yards
+double explosivesNeeded = (Math.round (cubicYardsOfVolume) /10);//1 explosive per every 10 cubic yards
 return explosivesNeeded  ; 
 
     }
