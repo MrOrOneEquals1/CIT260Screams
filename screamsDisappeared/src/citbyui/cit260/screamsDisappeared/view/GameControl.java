@@ -6,17 +6,26 @@
 package citbyui.cit260.screamsDisappeared.view;
 
 import byui.cit260.screamsDisappeared.model.Player;
+import screamsdisappeared.ScreamsDisappeared;
 
 /**
  *
  * @author carriero
  */
-class GameControl {
+public class GameControl {
 
-    static Player createPlayer(String playersName) {
+    public static Player createPlayer(String name) {
         
-        System.out.println("\n*** createPlayer() function called ***");
-        return new Player();
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        ScreamsDisappeared.setPlayer(player); // save the player
+        
+        return player;
     }
     
 }

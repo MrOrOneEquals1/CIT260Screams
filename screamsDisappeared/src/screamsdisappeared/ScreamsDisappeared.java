@@ -5,6 +5,8 @@
  */
 package screamsdisappeared;
 
+import byui.cit260.screamsDisappeared.model.Game;
+import byui.cit260.screamsDisappeared.model.Player;
 import citbyui.cit260.screamsDisappeared.view.StartProgramView;
 
 /**
@@ -20,6 +22,26 @@ public class ScreamsDisappeared {
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+    }
     
-    } 
+    private static Game currentGame = null;
+    private static Player player = null;
+    
+    public static void setCurrentGame(Game currentGame) {
+        ScreamsDisappeared.currentGame = currentGame;
+    }
+
+    public static void setPlayer(Player player) {
+        ScreamsDisappeared.player = player;
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
 }
+
+   

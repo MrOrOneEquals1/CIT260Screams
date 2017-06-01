@@ -57,7 +57,7 @@ public class StartProgramView {
         } while (!done);
     }
 
-    private String getPlayersName() {
+    public String getPlayersName() {
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
         String value = ""; //value to be returned
         boolean valid = false; // initialize to not valid
@@ -67,7 +67,7 @@ public class StartProgramView {
             
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
-            
+
             if (value.length() < 1) { // value is blank
                 System.out.println("\nInvalid value: value cannot be blank");
                 continue;
@@ -95,4 +95,27 @@ public class StartProgramView {
             System.out.println("\nError creating the player.");
             return false;
         }
+        //display next view
+        this.displayNextView(player);
+        
+        return true; //success !
+}
+
+    private void displayNextView(Player player) {
+        
+        // display a custom welcome message
+        
+        System.out.println("\n==============================="
+                          + "\n Welcome to the game " + player.getName()
+                          + "\n We hope you have a lot of fun!"
+                          + "\n=============================="
+                                  );
+                          
+       // Creat MainMenuView object
+       MainMenuView mainMenuView = new MainMenuView();
+               
+       // Display the main menu view
+       mainMenuView.displayMainMenuView();
+    }
+   
 }
