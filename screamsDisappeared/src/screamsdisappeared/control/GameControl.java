@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.screamsDisappeared.view;
+package screamsdisappeared.control;
 
 import byui.cit260.screamsDisappeared.model.Player;
 import screamsdisappeared.ScreamsDisappeared;
@@ -26,6 +26,10 @@ public class GameControl {
         ScreamsDisappeared.setPlayer(player); // save the player
         
         return player;
+    }
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame stub function called ***");
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import screamsdisappeared.control.GameControl;
 import byui.cit260.screamsDisappeared.model.Player;
 import java.util.Scanner;
 

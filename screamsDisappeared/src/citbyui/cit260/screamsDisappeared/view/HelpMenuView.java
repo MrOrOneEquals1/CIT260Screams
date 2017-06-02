@@ -5,26 +5,33 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
-import screamsdisappeared.control.GameControl;
 import java.util.Scanner;
-import screamsdisappeared.ScreamsDisappeared;
 
 /**
  *
  * @author carriero
  */
-public class MainMenuView {
+public class HelpMenuView {
 
     private String menu;
     private String promptMessage;
 
-    public void displayMainMenuView() {
+    public HelpMenuView() {
+        this.menu = "\n"
+                + "\n---------------------------------------"
+                + "\n| Help Menu                           |"
+                + "\n---------------------------------------"
+                + "\nD - Game Description"
+                + "\nM - Main Menu"
+                + "\n---------------------------------------";
+    }
+
+    public void displayHelpMenuView() {
 
         boolean done = false; // set flag to not done
         do {
-
+            // prompt for and get players name
             String menuOption = this.getMenuOption();
-
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
             {
                 return; // exit the game
@@ -36,27 +43,14 @@ public class MainMenuView {
 
     }
 
-    public MainMenuView() {
-        this.menu = "\n"
-                + "\n| Main Menu                        |"
-                + "\n------------------------------------"
-                + "\nN - Start new game"
-                + "\nG - Get and start saved game"
-                + "\nH - Get help on how to play the game"
-                + "\nS - Save game"
-                + "\nQ - Quit"
-                + "\n------------------------------------";
-    }
-
     private String getMenuOption() {
 
         System.out.println(menu);
-        
+
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
         String value = ""; //value to be returned
         boolean valid = false; // initialize to not valid
         promptMessage = "Please make your selection from the menu above.";
-
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n" + this.promptMessage);
 
@@ -65,10 +59,10 @@ public class MainMenuView {
 
             if (value.length() < 1) { // value is blank
                 System.out.println("\nInvalid value: value cannot be blank");
-                
+                continue;
             }
-            else
-                valid=true;
+
+            break;  // end the loop
 
         }
 
@@ -83,21 +77,16 @@ public class MainMenuView {
         boolean rtnValue = true;
 
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+            case "D": // Display Description of Game
+                this.startGameDescription();
                 break;
-            case "G": // create and start an existing game
-                this.startExistingGame();
-                break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
+            case "M": // Return to MainMenu
+                this.mainMenuView();
                 // Creat MainMenuView object
-                HelpMenuView helpMenuView = new HelpMenuView();
+                MainMenuView mainMenuView = new MainMenuView();
+
                 // Display the main menu view
-                helpMenuView.displayHelpMenuView();
-                break;
-            case "S": // save the current game
-                this.saveGame();
+                mainMenuView.displayMainMenuView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
@@ -109,24 +98,12 @@ public class MainMenuView {
         return rtnValue;
     }
 
-    private void startNewGame() {
-        // create a new game
-        GameControl.createNewGame(ScreamsDisappeared.getPlayer());
-
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void startGameDescription() {
+        System.out.println("\n*** GameDescription function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExitingGame() function called ***");
+    private void mainMenuView() {
+        System.out.println("\n*** GameDescription function called ***");
     }
 
-    private void displayHelpMenu() {
-        System.out.println("\n*** displayHelpMenu() function called ***");
-    }
-
-    private void saveGame() {
-        System.out.println("\n*** saveGame() function called ***");
-    }
 }
