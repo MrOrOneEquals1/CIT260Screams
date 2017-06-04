@@ -19,7 +19,7 @@ public class StartProgramView {
     
     public StartProgramView() {
         
-        this.promptMessage = "\nPlease enter your name:";
+        this.promptMessage = "\nWhat is the name of the player trying to escape?";
         //display the banner when view is created
         this.displayBanner();
     }
@@ -28,13 +28,13 @@ public class StartProgramView {
         
         System.out.println(
                 "\n**************************************************"
-                +""
-                +""
-                +""
-                +""
-                +""
-                +""
-                +""
+                +"\n Welcome to Screams of the Disappeared!"
+                +"\nYou will be asked to solve puzzles and attempt to "
+                +"\nescape the city.  As you progress through your journey"
+                +"\nyou will be be able to earn money to buy the things"
+                +"\nnecessary for you to leave successfully."
+                +"\n"
+                +"\nBeware!  Wrong decisions can lead to certain death."
                 +""
                 +""
                 +""

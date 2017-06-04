@@ -22,6 +22,9 @@ public class HelpMenuView {
                 + "\n| Help Menu                           |"
                 + "\n---------------------------------------"
                 + "\nD - Game Description"
+                + "\nS - Scene Description"
+                + "\nR - Resource Information"
+                + "\nE - How to Earn Money"
                 + "\nM - Main Menu"
                 + "\n---------------------------------------";
     }
@@ -80,6 +83,15 @@ public class HelpMenuView {
             case "D": // Display Description of Game
                 this.startGameDescription();
                 break;
+            case "S": // Display Description of Game
+                this.startSceneDescription();
+                break;
+            case "R": // Display Description of Game
+                this.startResourceInformation();
+                break;
+            case "E": // Display Description of Game
+                this.startEarnMoney();
+                break;
             case "M": // Return to MainMenu
                 this.mainMenuView();
                 // Creat MainMenuView object
@@ -104,6 +116,18 @@ public class HelpMenuView {
 
     private void mainMenuView() {
         System.out.println("\n*** GameDescription function called ***");
+    }
+
+    private void startSceneDescription() {
+        System.out.println("\n*** SceneDescription function called ***");
+    }
+
+    private void startResourceInformation() {
+        System.out.println("\n*** ResourceInformation function called ***");
+    }
+
+    private void startEarnMoney() {
+        System.out.println("\n*** EarnMoney function called ***");
     }
 
 }
