@@ -11,26 +11,25 @@ import java.util.Scanner;
  *
  * @author carriero
  */
-public class HelpMenuView {
-
+public class LocationMenuView {
+    
     private String menu;
     private String promptMessage;
 
-    public HelpMenuView() {
+    public LocationMenuView() {
         this.menu = "\n"
-                + "\n---------------------------------------"
-                + "\n| Help Menu                           |"
-                + "\n---------------------------------------"
-                + "\nD - Game Description"
-                + "\nS - Scene Description"
-                + "\nL - Location Menu"
-                + "\nR - Resource Information"
-                + "\nE - How to Earn Money"
+                + "\n------------------------------------------"
+                + "\n| Location Menu                           |"
+                + "\n------------------------------------------"
+                + "\nD - Scene Description"
+                + "\nL - Leave this Scene"
+                + "\nP - Pick Up Object and Put It In Backpack"
+                + "\nU - Use Object from Backpack"
                 + "\nM - Main Menu"
-                + "\n---------------------------------------";
+                + "\n------------------------------------------";
     }
 
-    public void displayHelpMenuView() {
+    public void displayLocationMenuView() {
 
         boolean done = false; // set flag to not done
         do {
@@ -82,24 +81,16 @@ public class HelpMenuView {
 
         switch (choice) {
             case "D": // Display Description of Game
-                this.startGameDescription();
-                break;
-            case "S": // Display Description of Game
                 this.startSceneDescription();
                 break;
             case "L": // Display Description of Game
-                this.locationMenuView();
-                // Creat MainMenuView object
-                LocationMenuView locationMenuView = new LocationMenuView();
-
-                // Display the main menu view
-                locationMenuView.displayLocationMenuView();
+                this.startLeaveScene();
                 break;
-            case "R": // Display Description of Game
-                this.startResourceInformation();
+            case "P": // Display Description of Game
+                this.startPickUpObject();
                 break;
-            case "E": // Display Description of Game
-                this.startEarnMoney();
+            case "U": // Display Description of Game
+                this.startUseObject();
                 break;
             case "M": // Return to MainMenu
                 this.mainMenuView();
@@ -119,28 +110,24 @@ public class HelpMenuView {
         return rtnValue;
     }
 
-    private void startGameDescription() {
-        System.out.println("\n*** GameDescription function called ***");
-    }
-
-    private void mainMenuView() {
-        System.out.println("\n*** Main Menu function called ***");
-    }
-
     private void startSceneDescription() {
         System.out.println("\n*** SceneDescription function called ***");
     }
 
-    private void startResourceInformation() {
-        System.out.println("\n*** ResourceInformation function called ***");
+    private void startLeaveScene() {
+        System.out.println("\n*** LeaveScene function called ***");
     }
 
-    private void startEarnMoney() {
-        System.out.println("\n*** EarnMoney function called ***");
+    private void startPickUpObject() {
+        System.out.println("\n*** PickUpObject function called ***");
     }
 
-    private void locationMenuView() {
-        System.out.println("\n*** LocationMenu function called ***");
+    private void startUseObject() {
+        System.out.println("\n*** UseObject function called ***");
+    }
+
+    private void mainMenuView() {
+        System.out.println("\n*** MainMenu function called ***");
     }
 
 }
