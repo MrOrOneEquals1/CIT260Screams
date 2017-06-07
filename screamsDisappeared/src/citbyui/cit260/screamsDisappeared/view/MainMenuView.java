@@ -45,6 +45,7 @@ public class MainMenuView {
                 + "\nH - Get help on how to play the game"
                 + "\nS - Save game"
                 + "\nR - Restart Saved game"
+                + "\nM - Game Menu"
                 + "\nQ - Quit"
                 + "\n------------------------------------";
     }
@@ -107,6 +108,13 @@ public class MainMenuView {
                 //Display the Restart Game Menu View
                 restartGameMenuView.displayRestartGameMenuView();
                 break;
+            case "M": // display the game menu
+                this.displayGameMenuView();
+                // Creat GameMenuView object
+                GameMenuView gameMenuView = new GameMenuView();
+                // Display the game menu view
+                gameMenuView.displayGameMenuView();
+                break;    
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
@@ -139,6 +147,10 @@ public class MainMenuView {
     }
 
     private void DisplayRestartGameMenu() {
+        System.out.println("\n*** RestartGameMenuView) function called ***");
+    }
+    
+    private void displayGameMenuView() {
         System.out.println("\n*** RestartGameMenuView) function called ***");
     }
 }
