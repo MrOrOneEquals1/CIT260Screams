@@ -27,6 +27,7 @@ public class HelpMenuView {
                 + "\nR - Resource Information"
                 + "\nE - How to Earn Money"
                 + "\nM - Main Menu"
+                + "\nG - Game Menu"
                 + "\n---------------------------------------";
     }
 
@@ -95,6 +96,14 @@ public class HelpMenuView {
                 // Display the main menu view
                 locationMenuView.displayLocationMenuView();
                 break;
+             case "G": // Display Game Menu
+                this.gameMenuView();
+                // Create GameMenuView object
+                GameMenuView gameMenuView = new GameMenuView();
+
+                // Display the game menu view
+                gameMenuView.displayGameMenuView();
+                break;   
             case "R": // Display Description of Game
                 this.startResourceInformation();
                 break;
@@ -141,6 +150,9 @@ public class HelpMenuView {
 
     private void locationMenuView() {
         System.out.println("\n*** LocationMenu function called ***");
+    }
+    private void gameMenuView() {
+        System.out.println("\n*** GameMenu function called ***");
     }
 
 }
