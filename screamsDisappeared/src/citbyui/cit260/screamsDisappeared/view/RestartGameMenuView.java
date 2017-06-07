@@ -83,19 +83,19 @@ public class RestartGameMenuView {
 
         switch (choice) {
             case "A": // Restart the 1 saved game
-                this.startGameSaved1();
+                this.startGameSavedA();
                 break;
             case "B": // Restart the 2 saved game
-                this.startGameSaved2();
+                this.startGameSavedB();
                 break;
             case "C": // Restart the 3 saved game
-                this.startGameSaved3();
+                this.startGameSavedC();
                 break;
             case "D": // Restart the 4 saved game
-                this.startGameSaved4();
+                this.startGameSavedD();
                 break;
             case "E": // Restart the 5 saved game
-                this.startGameSaved5();
+                this.startGameSavedE();
                 break;
             case "M": // Return to MainMenu
                 this.mainMenuView();
@@ -116,23 +116,23 @@ public class RestartGameMenuView {
         return rtnValue;
     }
 
-    private void startGameSaved1() {
+    private void startGameSavedA() {
         System.out.println("\n*** startGameSaved1 function called ***");
     }
 
-    private void startGameSaved2() {
+    private void startGameSavedB() {
         System.out.println("\n*** startGameSaved2 function called ***");
     }
 
-    private void startGameSaved3() {
+    private void startGameSavedC() {
         System.out.println("\n*** startGameSaved3 function called ***");
     }
 
-    private void startGameSaved4() {
+    private void startGameSavedD() {
         System.out.println("\n*** startGameSaved4 function called ***");
     }
 
-    private void startGameSaved5() {
+    private void startGameSavedE() {
         System.out.println("\n*** startGameSaved5 function called ***");
     }
 

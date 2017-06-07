@@ -44,7 +44,7 @@ public class MainMenuView {
                 + "\nG - Get and start saved game"
                 + "\nH - Get help on how to play the game"
                 + "\nS - Save game"
-                + "\nR - Restar Saved game"
+                + "\nR - Restart Saved game"
                 + "\nQ - Quit"
                 + "\n------------------------------------";
     }
@@ -101,11 +101,12 @@ public class MainMenuView {
                 this.saveGame();
                 break;
             case "R": //Menu to restart a saved game
-                this.displayrestartGameMenu();
+                this.DisplayRestartGameMenu();
                 // Creat RestartGameMenuView object
                 RestartGameMenuView restartGameMenuView = new RestartGameMenuView();
                 //Display the Restart Game Menu View
                 restartGameMenuView.displayRestartGameMenuView();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
@@ -137,7 +138,7 @@ public class MainMenuView {
         System.out.println("\n*** saveGame() function called ***");
     }
 
-    private void displayrestartGameMenu() {
+    private void DisplayRestartGameMenu() {
         System.out.println("\n*** RestartGameMenuView) function called ***");
     }
 }
