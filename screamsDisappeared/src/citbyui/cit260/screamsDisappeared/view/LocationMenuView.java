@@ -26,6 +26,7 @@ public class LocationMenuView {
                 + "\nP - Pick Up Object and Put It In Backpack"
                 + "\nU - Use Object from Backpack"
                 + "\nM - Main Menu"
+                + "\nC - Calculate the gallons Needed"
                 + "\n------------------------------------------";
     }
 
@@ -100,6 +101,14 @@ public class LocationMenuView {
                 // Display the main menu view
                 mainMenuView.displayMainMenuView();
                 break;
+            case "C": // Display the option to enter information to calculate
+                this.gallonsNeededView();
+                // Creat GallonsNeededView object
+                GallonsNeededView gallonsNeededView = new GallonsNeededView();
+                
+                //Display the gallons needed view
+                gallonsNeededView.displayGallonsNeededView();               
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
@@ -128,6 +137,10 @@ public class LocationMenuView {
 
     private void mainMenuView() {
         System.out.println("\n*** MainMenu function called ***");
+    }
+
+    private void gallonsNeededView() {
+        System.out.println("\n*** gallonsNeededView function called ***");
     }
 
 }
