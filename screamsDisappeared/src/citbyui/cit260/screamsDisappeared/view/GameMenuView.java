@@ -11,7 +11,7 @@ package citbyui.cit260.screamsDisappeared.view;
  */
 public class GameMenuView {
 
-    void displayMenu() {
+    void displayGameMenuView() {
         System.out.println("\n*** displayMenu stub function called ***");
     }
     
