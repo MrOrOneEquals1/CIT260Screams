@@ -11,6 +11,10 @@ package screamsdisappeared.control;
  */
 public class ExplosivesNeeded {
     
+    double lengthOfRoom=0;
+    double widthOfRoom=0;
+    double heightOfRoom=0;
+    
   public double calcExplosivesNeeded (double lengthOfRoom,double widthOfRoom, double heightOfRoom){
 
       if (lengthOfRoom < 8 || lengthOfRoom>16){ 
