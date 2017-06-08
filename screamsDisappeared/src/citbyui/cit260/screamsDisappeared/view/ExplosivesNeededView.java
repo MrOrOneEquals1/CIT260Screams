@@ -1,7 +1,5 @@
 
-package citbyui.cit260.screamsDisappeared.view;
-import java.util.Scanner;
-import screamsdisappeared.control.ExplosivesNeeded;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,6 +17,9 @@ import screamsdisappeared.control.ExplosivesNeeded;
  * @author lauravaleriogibbs
  */
 
+package citbyui.cit260.screamsDisappeared.view;
+import java.util.Scanner;
+import screamsdisappeared.control.ExplosivesNeeded;
 
 
 
@@ -28,39 +29,42 @@ public class ExplosivesNeededView {
 
     void displayExplosivesNeededView() {
         System.out.println(display);
-        displayZ();
+        displayExplosives();
     }
 
     public ExplosivesNeededView() {
         this.display = "\n"
                 + "\n------------------------------------------"
-                + "\n| ExplosivesNeeded                           |"
+                + "\n|       Explosives Needed                   |"
                 + "\n------------------------------------------";
     }
 
-    public void displayZ() {
+    public void displayExplosives() {
 
         boolean done = false; // set flag to not done
         do {
 
-            System.out.println("\n Do you want toknow how many explosives do you need to kill the zombies?? (Y/N)");
+            System.out.println("\n Do you want to know how many explosives do you need to kill the zombies?? (Y/N)");
             Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-            String z = ""; //value to be returned 
-            z = keyboard.nextLine();
-            z = z.trim();
-            if (!z.toUpperCase().equals("Y")) // user wants to proceed
+            String explosives = ""; //value to be returned 
+            explosives = keyboard.nextLine();
+            explosives = explosives.trim();
+            if (!explosives.toUpperCase().equals("Y")) // user wants to proceed
+                
             {
+                System.out.println("\n You have chosen not to know how many explosives you'll be need. ");
                 return;
-            } else {
+            } else System.out.println("\n Thank you for your intersting in the game");
+            {
 
             int lengthOfRoom = getLengthOfRoom();
             int widthOfRoom = getwidthOfRoom();
             int  heightOfRoom = getheightOfRoom();
             ExplosivesNeeded explosivesNeeded= new ExplosivesNeeded();
 
-            double explosives=explosivesNeeded.calcExplosivesNeeded (lengthOfRoom,widthOfRoom, heightOfRoom);  
+            double totalExplosives=explosivesNeeded.calcExplosivesNeeded (lengthOfRoom,widthOfRoom, heightOfRoom);  
 
-                System.out.println("\nYou need " + explosives + " explosives");
+                System.out.println("\n Wow You just need " + totalExplosives + " explosives");
             }
             // do the requested action and display the next view
             HelpMenuView helpMenuView = new HelpMenuView();
@@ -76,24 +80,22 @@ public class ExplosivesNeededView {
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
-        int lengthOfRoom = 0;
+        int lengthOfRoom=0 ;
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n Please enter the length of the room");
 
             lengthOfRoom = keyboard.nextInt(); // get next line typed on keyboard
-            if (lengthOfRoom < 8) {  //zombies killed is negative
-                System.out.println("\nInvalid value: Length of the room can not be less than 8");
-                return -1;
+            if (lengthOfRoom < 8 || lengthOfRoom> 16 ) {  // Lenght of the room has to be between 8 and 16
+                System.out.println("\nInvalid value: Lenght of the room has to be between 8 and 16");
+                continue;
+                
             }
 
-            if (lengthOfRoom> 16) {  //zombies killed is more than 25
-                System.out.println("\nInvalid value: Length of the room can not be more than 16");
-                return -1;
-            }
             break;  // end the loop
         }
+        System.out.println("\n Good job you have entered the right value");
         return lengthOfRoom; // return the value entered;
-
+      
     }
 
     private int getwidthOfRoom() {
@@ -106,24 +108,20 @@ public class ExplosivesNeededView {
             System.out.println("Please enter the width of the room");
 
             widthOfRoom = keyboard.nextInt(); // get next line typed on keyboard
-
-            if (widthOfRoom < 11) {  //zombieDogs killed is negative
-                System.out.println("\nInvalid value: Length of the room can not be less than 11");
-                return -1;
+if (widthOfRoom < 11 || widthOfRoom> 15 ) {  //Width of the room has to be between 11 and 15
+                System.out.println("\nInvalid value: Width of the room has to be between 11 and 15");
+                continue;
+                
             }
 
-            if (widthOfRoom > 15) {  //zombieDogs killed is more than 25
-                System.out.println("\nInvalid value: value cannot be more than 25");
-                return -1;
-            }
-
-        break;  // end the loop
-        
+            break;  // end the loop
         }
-        
+        System.out.println("\n Good job you have entered the right value");
         return widthOfRoom; // return the value entered;
-
+      
     }
+
+            
 private int getheightOfRoom() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
@@ -135,103 +133,21 @@ private int getheightOfRoom() {
 
             heightOfRoom = keyboard.nextInt(); // get next line typed on keyboard
 
-            if (heightOfRoom< 15) {  //zombieDogs killed is negative
-                System.out.println("\nInvalid value: Length of the room can not be less than 15");
-                return -1;
+            if (heightOfRoom < 15 || heightOfRoom> 20 ) {  //Height of the room has to be between 15 and 20
+                System.out.println("\nInvalid value: Height of the room has to be between 15 and 20");
+                continue;
+                
             }
 
-            if (heightOfRoom > 20) {  //zombieDogs killed is more than 25
-                System.out.println("\nInvalid value: value cannot be more than 25");
-                return -1;
-            }
-
-        break;  // end the loop
-        
+            break;  // end the loop
         }
-        
+        System.out.println("\n Good job you have entered the right value");
         return heightOfRoom; // return the value entered;
-
+      
     }
 
 }
 
 
     
-   // private String promptMessage;
-
-    //public void displayExplosivesNeededView() {
-
-       // boolean done = false; // set flag to not done
-       // do {
-         //   String lengthOfRoom = this.getLengthOfRoom();
-          //  if (lengthOfRoom.toUpperCase().equals("Q")) // user wants to quit
-           // {
-           //     return; // exit the game
-           // }
-            // do the requested action and display the next view
-            //done = this.doAction(lengthOfRoom);
-
-       // } while (!done);
-
-    //} 
-    
-   // private String getLengthOfRoom() {
-
-        
-       //Create an input file for the console
-        // Scanner inFile;
-       //inFile = new Scanner (System.in);
-       // Get the value of the length of room
-        //double lengthOfRoom= inFile.nextDouble() ;  
-       // boolean valid = false; // initialize to not valid
-        //promptMessage = "Please enter the lenght of the room.";
-
-        //while (!valid) { // loop while an invalid value is enter
-           // System.out.println("\n" + this.promptMessage);
-
-         // Read the value of the next line typed in the console
-      //String name= inFile.nextLine ();
-
-
-
-           // if (lengthOfRoom < 8) { //  invalid value 
-           //    System.out.println("\nInvalid value: LenghtOfRoom cannot be less than 8");
-          // }
-           // else if   (lengthOfRoom > 16) { 
-           //   System.out.println("\nInvalid value: LenghtOfRoom cannot be more than 16");  
-           //}   
-            
-           //  else
-                //System.out.println( "You have entered "+ lengthOfRoom); 
-            
-    //}
-        
-        
-    
-   // private boolean doAction( String lengthOfRoom) {
-      
-    // if (lengthOfRoom.length() <2) {
-        //    System.out.println("\nInvalid Players Name:  The name must be greater than one character in length");
-           // return false;
-      //  }
-        
    
-     // this.calcExplosivesNeeded (double lengthOfRoom,double widthOfRoom, double heightOfRoom);  
-     
-        
-     //   return true; //success !
-//}   
-   //call createPlayer() control function
-     //   Room room = GameControl.createRoom(lengthOfRoom);
-        
-        
-      //  if (room == null) { // if unsuccessful
-       //     System.out.println("\nError creating the player.");
-      //      return false;
-      //  }
-        //display next view
-      //  this.displayNextView(room);
-        
-      //  return true; //success !
-//}
-
