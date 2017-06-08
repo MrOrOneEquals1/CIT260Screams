@@ -52,7 +52,7 @@ public class ExplosivesNeededView {
             if (!explosives.toUpperCase().equals("Y")) // user wants to proceed
                 
             {
-                System.out.println("\n You have chosen not to know how many explosives you'll be need. ");
+                System.out.println("\n We are sad.You have chosen not to know how many explosives you'll be need. ");
                 return;
             } else System.out.println("\n Thank you for your intersting in the game");
             {
