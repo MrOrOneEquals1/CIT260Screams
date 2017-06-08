@@ -28,6 +28,7 @@ public class LocationMenuView {
                 + "\nM - Main Menu"
                 + "\nC - Calculate the gallons Needed"
                 + "\nE - Earn Money"
+                + "\nN - Explosives Needed"
                 + "\n------------------------------------------";
     }
 
@@ -117,6 +118,14 @@ public class LocationMenuView {
                 
                 moneyEarnedView.displayMoneyEarnedView();               
                 break;
+                
+            case "N": // Display the option to enter information to calculate
+                this.ExplosivesNeededView();
+                
+                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
+                
+                explosivesNeededView.displayExplosivesNeededView();               
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
@@ -152,6 +161,10 @@ public class LocationMenuView {
     }
 
     private void MoneyEarnedView() {
+        
+    }
+
+    private void ExplosivesNeededView() {
         
     }
 
