@@ -26,7 +26,7 @@ public class LocationMenuView {
                 + "\nP - Pick Up Object and Put It In Backpack"
                 + "\nU - Use Object from Backpack"
                 + "\nM - Main Menu"
-                + "\nC - Calculate the gallons Needed"
+                + "\nC - Calculate the Trip Needed"
                 + "\nE - Earn Money"
                 + "\n------------------------------------------";
     }
@@ -103,12 +103,12 @@ public class LocationMenuView {
                 mainMenuView.displayMainMenuView();
                 break;
             case "C": // Display the option to enter information to calculate
-                this.gallonsNeededView();
+                this.tripNeededView();
                 // Creat GallonsNeededView object
-                GallonsNeededView gallonsNeededView = new GallonsNeededView();
+                TripNeededView tripNeededView = new TripNeededView();
                 
                 //Display the gallons needed view
-                gallonsNeededView.displayGallonsNeededView();               
+                tripNeededView.displayTripNeededView();               
                 break;
             case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
@@ -147,8 +147,8 @@ public class LocationMenuView {
         System.out.println("\n*** MainMenu function called ***");
     }
 
-    private void gallonsNeededView() {
-        System.out.println("\n*** gallonsNeededView function called ***");
+    private void tripNeededView() {
+        System.out.println("\n*** tripNeededView function called ***");
     }
 
     private void MoneyEarnedView() {

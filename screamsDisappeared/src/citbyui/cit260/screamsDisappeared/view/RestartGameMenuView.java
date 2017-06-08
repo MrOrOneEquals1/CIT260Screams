@@ -82,19 +82,19 @@ public class RestartGameMenuView {
         boolean rtnValue = true;
 
         switch (choice) {
-            case "A": // Restart the 1 saved game
+            case "A": // Restart the A saved game
                 this.startGameSavedA();
                 break;
-            case "B": // Restart the 2 saved game
+            case "B": // Restart the B saved game
                 this.startGameSavedB();
                 break;
-            case "C": // Restart the 3 saved game
+            case "C": // Restart the C saved game
                 this.startGameSavedC();
                 break;
-            case "D": // Restart the 4 saved game
+            case "D": // Restart the D saved game
                 this.startGameSavedD();
                 break;
-            case "E": // Restart the 5 saved game
+            case "E": // Restart the E saved game
                 this.startGameSavedE();
                 break;
             case "M": // Return to MainMenu
