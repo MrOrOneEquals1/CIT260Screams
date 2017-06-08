@@ -96,7 +96,7 @@ public class ExplosivesNeededView {
 
             break;  // end the loop
         }
-        System.out.println("\n Good job you have entered the right value");
+        System.out.println("\n Good job! You have entered the right value.");
         return lengthOfRoom; // return the value entered;
       
     }
@@ -119,7 +119,7 @@ if (widthOfRoom < 11 || widthOfRoom> 15 ) {  //Width of the room has to be betwe
 
             break;  // end the loop
         }
-        System.out.println("\n Good job you have entered the right value");
+        System.out.println("\n Good job! You have entered the right value.");
         return widthOfRoom; // return the value entered;
       
     }
@@ -144,7 +144,7 @@ private int getheightOfRoom() {
 
             break;  // end the loop
         }
-        System.out.println("\n Good job you have entered the right value");
+        System.out.println("\n Good job! You have entered the right value");
         return heightOfRoom; // return the value entered;
       
     }
