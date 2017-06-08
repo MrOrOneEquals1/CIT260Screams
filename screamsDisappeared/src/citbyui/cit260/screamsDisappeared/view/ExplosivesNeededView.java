@@ -1,5 +1,5 @@
 
-import citbyui.cit260.screamsDisappeared.view.HelpMenuView;
+package citbyui.cit260.screamsDisappeared.view;
 import java.util.Scanner;
 import screamsdisappeared.control.ExplosivesNeeded;
 
@@ -43,7 +43,7 @@ public class ExplosivesNeededView {
         boolean done = false; // set flag to not done
         do {
 
-            System.out.println("\n \n Do you want toknow how many explosives do you need to kill the zombies?? (Y/N)");
+            System.out.println("\n Do you want toknow how many explosives do you need to kill the zombies?? (Y/N)");
             Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
             String z = ""; //value to be returned 
             z = keyboard.nextLine();
