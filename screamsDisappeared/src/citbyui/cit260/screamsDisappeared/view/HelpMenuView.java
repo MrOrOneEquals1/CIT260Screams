@@ -28,6 +28,7 @@ public class HelpMenuView {
                 + "\nE - How to Earn Money"
                 + "\nM - Main Menu"
                 + "\nG - Game Menu"
+                + "\nN - Explosives Needed"
                 + "\n---------------------------------------";
     }
 
@@ -114,10 +115,14 @@ public class HelpMenuView {
                 this.mainMenuView();
                 // Creat MainMenuView object
                 MainMenuView mainMenuView = new MainMenuView();
-
                 // Display the main menu view
                 mainMenuView.displayMainMenuView();
                 break;
+             case "N": // Return to MainMenu
+                this.explosivesNeededView();
+                // Creat MainMenuView object
+                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
+              break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
@@ -153,6 +158,11 @@ public class HelpMenuView {
     }
     private void gameMenuView() {
         System.out.println("\n*** GameMenu function called ***");
+    }
+
+    private void explosivesNeededView() {
+        System.out.println("\n*** Explosives Needed function called ***");
+        
     }
 
 }
