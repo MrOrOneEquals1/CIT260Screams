@@ -1,3 +1,5 @@
+package citbyui.cit260.screamsDisappeared.view;
+
 
 import citbyui.cit260.screamsDisappeared.view.HelpMenuView;
 import java.util.Scanner;

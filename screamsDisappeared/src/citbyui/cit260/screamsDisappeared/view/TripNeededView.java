@@ -74,7 +74,7 @@ public class TripNeededView {
 
             gallonsNeeded = keyboard.nextInt(); // get next line typed on keyboard
             if (gallonsNeeded < 0 && gallonsNeeded > 15) {  //the numbers of gallos are out of range
-                System.out.println("\nInvalid value: value is out of the range");
+                System.out.println("\nInvalid value: value is out of the range 1-15");
                 return -1;
             }            
             
@@ -99,7 +99,7 @@ public class TripNeededView {
             litersNeeded = keyboard.nextInt(); // get next line typed on keyboard
 
             if (litersNeeded < 0 && litersNeeded > 56.78) {  //numbers of the liters is out of range
-                System.out.println("\nInvalid value: value is out of the range");
+                System.out.println("\nInvalid value: value is out of the range 1 - 56.7");
                 return -1;
             }            
 
@@ -123,7 +123,7 @@ public class TripNeededView {
             bottlePerTrip = keyboard.nextInt(); // get next line typed on keyboard
 
             if (bottlePerTrip < 0 && bottlePerTrip > 2) {  //numbers of the botles are out of range
-                System.out.println("\nInvalid value: value is out of the range");
+                System.out.println("\nInvalid value: value is out of the range 1 - 2");
                 return -1;
             }
 
