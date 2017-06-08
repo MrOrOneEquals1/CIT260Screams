@@ -35,7 +35,7 @@ public class HelpMenuView {
 
         boolean done = false; // set flag to not done
         do {
-            // prompt for and get players name
+            
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
             {
@@ -90,10 +90,10 @@ public class HelpMenuView {
                 break;
             case "L": // Display Description of Game
                 this.locationMenuView();
-                // Creat MainMenuView object
+                // Creat LocationMenuView object
                 LocationMenuView locationMenuView = new LocationMenuView();
 
-                // Display the main menu view
+                // Display the location menu view
                 locationMenuView.displayLocationMenuView();
                 break;
              case "G": // Display Game Menu
