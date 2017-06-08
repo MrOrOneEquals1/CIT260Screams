@@ -24,26 +24,26 @@ import screamsdisappeared.control.ExplosivesNeeded;
 
 public class ExplosivesNeededView {
 
-    private String show="";
+    private String display="";
 
     void displayExplosivesNeededView() {
-        System.out.println(show);
-        displayZombiesKilledYn();
+        System.out.println(display);
+        displayZ();
     }
 
     public ExplosivesNeededView() {
-        this.show = "\n"
+        this.display = "\n"
                 + "\n------------------------------------------"
                 + "\n| ExplosivesNeeded                           |"
                 + "\n------------------------------------------";
     }
 
-    public void displayZombiesKilledYn() {
+    public void displayZ() {
 
         boolean done = false; // set flag to not done
         do {
 
-            System.out.println("\n Do you want to get money for the Zombies and Zombiedogs you have killed? (Y/N)");
+            System.out.println("\n \n Do you want toknow how many explosives do you need to kill the zombies?? (Y/N)");
             Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
             String z = ""; //value to be returned 
             z = keyboard.nextLine();
