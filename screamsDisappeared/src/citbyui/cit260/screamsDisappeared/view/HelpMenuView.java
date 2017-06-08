@@ -122,6 +122,7 @@ public class HelpMenuView {
                 this.explosivesNeededView();
                 // Creat MainMenuView object
                 ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
+                explosivesNeededView.displayExplosivesNeededView();
               break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
