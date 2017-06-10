@@ -33,7 +33,7 @@ public class MoneyEarnedView {
         boolean done = false; // set flag to not done
         do {
 
-            System.out.println("\n Do you want to get money for the Zombies and Zombiedogs you have killed? (Y/N)");
+            System.out.println("\n Do you want to get money for the Zombies and Zombiedogs? (Y/N)");
             Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
             String zombiesKilledYn = ""; //value to be returned 
             zombiesKilledYn = keyboard.nextLine();

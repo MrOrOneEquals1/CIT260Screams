@@ -28,4 +28,6 @@ public class TripNeeded {
         double numbersOfTrip = Math.ceil(literNeeded/(bottlePerTrip*2));//Each bottle will have a capacity of two liters, and the user only can carry up to two bottles per trip
         return numbersOfTrip;
     }
+
+   
 }
