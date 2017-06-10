@@ -18,10 +18,6 @@ public class ExplosivesNeededTest {
     public ExplosivesNeededTest() {
     }
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     /**
      * Test of calcExplosivesNeeded method, of class ExplosivesNeeded.
      */
@@ -29,7 +25,7 @@ public class ExplosivesNeededTest {
     public void testCalcExplosivesNeeded() {
         System.out.println("Test case # 1");
         double lengthOfRoom = 8.0;
-        double widthOfRoom = 11.0;
+        double widthOfRoom = 12.0;
         double heightOfRoom = 15.0;
         ExplosivesNeeded instance = new ExplosivesNeeded();
         double expResult = 4;
