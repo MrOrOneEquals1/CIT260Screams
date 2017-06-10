@@ -73,14 +73,11 @@ public class TripNeededView {
             System.out.println("\n Enter the number of gallons");
 
             gallonsNeeded = keyboard.nextInt(); // get next line typed on keyboard
-            if (gallonsNeeded < 0 ) {  //the numbers of gallos are out of range
-                System.out.println("\nInvalid value: value cannot be negative");
-                return -1;
+            if (gallonsNeeded < 0 || gallonsNeeded > 15 ) {  //the numbers of gallos are out of range
+                System.out.println("\nInvalid value: value cannot be out of range 1-15");
+                continue;
             }            
-             if (gallonsNeeded > 15) {  //gallons needed are more than 15
-                System.out.println("\nInvalid value: value cannot be more than 15");
-                return -1;
-            }
+             
             break;  // end the loop
         }
         return gallonsNeeded; // return the value entered;
@@ -101,18 +98,15 @@ public class TripNeededView {
 
             litersNeeded = keyboard.nextInt(); // get next line typed on keyboard
 
-            if (litersNeeded < 0) {  //numbers of the liters is out of range
-                System.out.println("\nInvalid value: value cannot be negative");
-                return -1;
+            if (litersNeeded < 0 || litersNeeded > 56) {  //numbers of the liters is out of range
+                System.out.println("\nInvalid value: value cannot be out of the range 1-56");
+                continue;
             }            
-                if (litersNeeded > 56) {  //liters needed are more than 56
-                System.out.println("\nInvalid value: value cannot be more than 56");
-                return -1;
-            }
-        break;  // end the loop
+             
+            break;  // end the loop
         
         }
-        
+       
         return (int) litersNeeded; // return the value entered;
 
     }
@@ -128,15 +122,12 @@ public class TripNeededView {
 
             bottlePerTrip = keyboard.nextInt(); // get next line typed on keyboard
 
-            if (bottlePerTrip < 0) {  //numbers of the botles are out of range
-                System.out.println("\nInvalid value: value cannot be negative");
-                return -1;
+            if (bottlePerTrip < 0 || bottlePerTrip > 2) {  //numbers of the botles are out of range
+                System.out.println("\nInvalid value: value cannot be out of range 1-2");
+                continue;
                 
             }
-            if (bottlePerTrip > 2) {  //botles are more than 2
-                System.out.println("\nInvalid value: value cannot be more than 2");
-                return -1;
-            }
+            
         break;  // end the loop
         
         }
