@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author carriero
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
 
     private String menu;
     private String promptMessage;
 
     public HelpMenuView() {
-        this.menu = "\n"
+        super ("\n"
                 + "\n---------------------------------------"
                 + "\n| Help Menu                           |"
                 + "\n---------------------------------------"
@@ -29,110 +29,110 @@ public class HelpMenuView {
                 + "\nM - Main Menu"
                 + "\nG - Game Menu"
                 + "\nN - Explosives Needed"
-                + "\n---------------------------------------";
+                + "\n---------------------------------------");
     }
 
-    public void displayHelpMenuView() {
-
-        boolean done = false; // set flag to not done
-        do {
-            
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-            {
-                return; // exit the game
-            }
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-
-        } while (!done);
-
-    }
-
-    private String getMenuOption() {
-
-        System.out.println(menu);
-
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-        promptMessage = "Please make your selection from the menu above.";
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break;  // end the loop
-
-        }
-
-        return value; // return the value entered
-
-    }
-
-    public boolean doAction(String choice) {
-
-        choice = choice.toUpperCase();
-
-        boolean rtnValue = true;
-
-        switch (choice) {
-            case "D": // Display Description of Game
-                this.startGameDescription();
-                break;
-            case "S": // Display Description of Game
-                this.startSceneDescription();
-                break;
-            case "L": // Display Description of Game
-                this.locationMenuView();
-                // Creat LocationMenuView object
-                LocationMenuView locationMenuView = new LocationMenuView();
-
-                // Display the location menu view
-                locationMenuView.displayLocationMenuView();
-                break;
-             case "G": // Display Game Menu
-                this.gameMenuView();
-                // Create GameMenuView object
-                GameMenuView gameMenuView = new GameMenuView();
-
-                // Display the game menu view
-                gameMenuView.displayGameMenuView();
-                break;   
-            case "R": // Display Description of Game
-                this.startResourceInformation();
-                break;
-            case "E": // Display Description of Game
-                this.startEarnMoney();
-                break;
-            case "M": // Return to MainMenu
-                this.mainMenuView();
-                // Creat MainMenuView object
-                MainMenuView mainMenuView = new MainMenuView();
-                // Display the main menu view
-                mainMenuView.displayMainMenuView();
-                break;
-             case "N": // Return to MainMenu
-                this.explosivesNeededView();
-                // Creat MainMenuView object
-                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
-                explosivesNeededView.displayExplosivesNeededView();
-              break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try Again");
-                rtnValue = false;
-                break;
-
-        }
-
-        return rtnValue;
-    }
+//    public void displayHelpMenuView() {
+//
+//        boolean done = false; // set flag to not done
+//        do {
+//            
+//            String menuOption = this.getMenuOption();
+//            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
+//            {
+//                return; // exit the game
+//            }
+//            // do the requested action and display the next view
+//            done = this.doAction(menuOption);
+//
+//        } while (!done);
+//
+//    }
+//
+//    private String getMenuOption() {
+//
+//        System.out.println(menu);
+//
+//        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+//        String value = ""; //value to be returned
+//        boolean valid = false; // initialize to not valid
+//        promptMessage = "Please make your selection from the menu above.";
+//        while (!valid) { // loop while an invalid value is enter
+//            System.out.println("\n" + this.promptMessage);
+//
+//            value = keyboard.nextLine(); // get next line typed on keyboard
+//            value = value.trim(); // trim off leading and trailing blanks
+//
+//            if (value.length() < 1) { // value is blank
+//                System.out.println("\nInvalid value: value cannot be blank");
+//                continue;
+//            }
+//
+//            break;  // end the loop
+//
+//        }
+//
+//        return value; // return the value entered
+//
+//    }
+//
+//    public boolean doAction(String choice) {
+//
+//        choice = choice.toUpperCase();
+//
+//        boolean rtnValue = true;
+//
+//        switch (choice) {
+//            case "D": // Display Description of Game
+//                this.startGameDescription();
+//                break;
+//            case "S": // Display Description of Game
+//                this.startSceneDescription();
+//                break;
+//            case "L": // Display Description of Game
+//                this.locationMenuView();
+//                // Creat LocationMenuView object
+//                LocationMenuView locationMenuView = new LocationMenuView();
+//
+//                // Display the location menu view
+//                locationMenuView.displayLocationMenuView();
+//                break;
+//             case "G": // Display Game Menu
+//                this.gameMenuView();
+//                // Create GameMenuView object
+//                GameMenuView gameMenuView = new GameMenuView();
+//
+//                // Display the game menu view
+//                gameMenuView.displayGameMenuView();
+//                break;   
+//            case "R": // Display Description of Game
+//                this.startResourceInformation();
+//                break;
+//            case "E": // Display Description of Game
+//                this.startEarnMoney();
+//                break;
+//            case "M": // Return to MainMenu
+//                this.mainMenuView();
+//                // Creat MainMenuView object
+//                MainMenuView mainMenuView = new MainMenuView();
+//                // Display the main menu view
+//                mainMenuView.displayMainMenuView();
+//                break;
+//             case "N": // Return to MainMenu
+//                this.explosivesNeededView();
+//                // Creat MainMenuView object
+//                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
+//                explosivesNeededView.displayExplosivesNeededView();
+//              break;
+//            default:
+//                System.out.println("\n*** Invalid selection *** Try Again");
+//                rtnValue = false;
+//                break;
+//
+//        }
+//
+//        return rtnValue;
+//    }
 
     private void startGameDescription() {
         System.out.println("\n*** GameDescription function called ***");
@@ -165,5 +165,13 @@ public class HelpMenuView {
         System.out.println("\n*** Explosives Needed function called ***");
         
     }
+
+    @Override
+    public boolean doAction(String value) {
+        System.out.println("\n*** doAction function called ***");
+        return false;
+    }
+
+
 
 }

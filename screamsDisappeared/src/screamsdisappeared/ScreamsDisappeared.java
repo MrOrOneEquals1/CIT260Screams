@@ -21,7 +21,7 @@ public class ScreamsDisappeared {
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
     }
 
     private static Game currentGame = null;

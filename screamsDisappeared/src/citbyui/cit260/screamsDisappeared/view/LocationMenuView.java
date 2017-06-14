@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author carriero
  */
-public class LocationMenuView {
+public class LocationMenuView extends View {
     
     private String menu;
     private String promptMessage;
 
     public LocationMenuView() {
-        this.menu = "\n"
+        super ("\n"
                 + "\n------------------------------------------"
                 + "\n| Location Menu                           |"
                 + "\n------------------------------------------"
@@ -28,113 +28,113 @@ public class LocationMenuView {
                 + "\nM - Main Menu"
                 + "\nC - Calculate the Trip Needed"
                 + "\nE - Earn Money"
-                + "\nN - Explosives Needed"
-                + "\n------------------------------------------";
+                + "\nX - Explosives Needed"
+                + "\n------------------------------------------");
     }
 
-    public void displayLocationMenuView() {
-
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-            {
-                return; // exit the game
-            }
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-
-        } while (!done);
-
-    }
-
-    private String getMenuOption() {
-
-        System.out.println(menu);
-
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-        promptMessage = "Please make your selection from the menu above.";
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break;  // end the loop
-
-        }
-
-        return value; // return the value entered
-
-    }
-
-    public boolean doAction(String choice) {
-
-        choice = choice.toUpperCase();
-
-        boolean rtnValue = true;
-
-        switch (choice) {
-            case "D": // Display Description of Game
-                this.startSceneDescription();
-                break;
-            case "L": // Display Description of Game
-                this.startLeaveScene();
-                break;
-            case "P": // Display Description of Game
-                this.startPickUpObject();
-                break;
-            case "U": // Display Description of Game
-                this.startUseObject();
-                break;
-            case "M": // Return to MainMenu
-                this.mainMenuView();
-                // Creat MainMenuView object
-                MainMenuView mainMenuView = new MainMenuView();
-
-                // Display the main menu view
-                mainMenuView.displayMainMenuView();
-                break;
-            case "C": // Display the option to enter information to calculate
-                this.tripNeededView();
-                // Creat GallonsNeededView object
-                TripNeededView tripNeededView = new TripNeededView();
-                
-                //Display the gallons needed view
-                tripNeededView.displayTripNeededView();               
-                break;
-            case "E": // Display the option to enter information to calculate
-                this.MoneyEarnedView();
-                
-                MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
-                
-                moneyEarnedView.displayMoneyEarnedView();               
-                break;
-                
-            case "N": // Display the option to enter information to calculate
-                this.ExplosivesNeededView();
-                
-                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
-                
-                explosivesNeededView.displayExplosivesNeededView();               
-                break;
-            default:
-                System.out.println("\n*** Invalid selection *** Try Again");
-                rtnValue = false;
-                break;
-
-        }
-
-        return rtnValue;
-    }
+//    public void displayLocationMenuView() {
+//
+//        boolean done = false; // set flag to not done
+//        do {
+//            // prompt for and get players name
+//            String menuOption = this.getMenuOption();
+//            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
+//            {
+//                return; // exit the game
+//            }
+//            // do the requested action and display the next view
+//            done = this.doAction(menuOption);
+//
+//        } while (!done);
+//
+//    }
+//
+//    private String getMenuOption() {
+//
+//        System.out.println(menu);
+//
+//        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+//        String value = ""; //value to be returned
+//        boolean valid = false; // initialize to not valid
+//        promptMessage = "Please make your selection from the menu above.";
+//        while (!valid) { // loop while an invalid value is enter
+//            System.out.println("\n" + this.promptMessage);
+//
+//            value = keyboard.nextLine(); // get next line typed on keyboard
+//            value = value.trim(); // trim off leading and trailing blanks
+//
+//            if (value.length() < 1) { // value is blank
+//                System.out.println("\nInvalid value: value cannot be blank");
+//                continue;
+//            }
+//
+//            break;  // end the loop
+//
+//        }
+//
+//        return value; // return the value entered
+//
+//    }
+//
+//    public boolean doAction(String choice) {
+//
+//        choice = choice.toUpperCase();
+//
+//        boolean rtnValue = true;
+//
+//        switch (choice) {
+//            case "D": // Display Description of Game
+//                this.startSceneDescription();
+//                break;
+//            case "L": // Display Description of Game
+//                this.startLeaveScene();
+//                break;
+//            case "P": // Display Description of Game
+//                this.startPickUpObject();
+//                break;
+//            case "U": // Display Description of Game
+//                this.startUseObject();
+//                break;
+//            case "M": // Return to MainMenu
+//                this.mainMenuView();
+//                // Creat MainMenuView object
+//                MainMenuView mainMenuView = new MainMenuView();
+//
+//                // Display the main menu view
+//                mainMenuView.displayMainMenuView();
+//                break;
+//            case "C": // Display the option to enter information to calculate
+//                this.tripNeededView();
+//                // Creat GallonsNeededView object
+//                TripNeededView tripNeededView = new TripNeededView();
+//                
+//                //Display the gallons needed view
+//                tripNeededView.displayTripNeededView();               
+//                break;
+//            case "E": // Display the option to enter information to calculate
+//                this.MoneyEarnedView();
+//                
+//                MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
+//                
+//                moneyEarnedView.displayMoneyEarnedView();               
+//                break;
+//                
+//            case "X": // Display the option to enter information to calculate
+//                this.ExplosivesNeededView();
+//                
+//                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
+//                
+//                explosivesNeededView.displayExplosivesNeededView();               
+//                break;
+//            default:
+//                System.out.println("\n*** Invalid selection *** Try Again");
+//                rtnValue = false;
+//                break;
+//
+//        }
+//
+//        return rtnValue;
+//    }
 
     private void startSceneDescription() {
         System.out.println("\n*** SceneDescription function called ***");
@@ -166,6 +166,11 @@ public class LocationMenuView {
 
     private void ExplosivesNeededView() {
         
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
