@@ -133,44 +133,39 @@ public class HelpMenuView extends View {
 //
 //        return rtnValue;
 //    }
+//
+//    private void startGameDescription() {
+//        System.out.println("\n*** GameDescription function called ***");
+//    }
+//
+//    private void mainMenuView() {
+//        System.out.println("\n*** Main Menu function called ***");
+//    }
+//
+//    private void startSceneDescription() {
+//        System.out.println("\n*** SceneDescription function called ***");
+//    }
+//
+//    private void startResourceInformation() {
+//        System.out.println("\n*** ResourceInformation function called ***");
+//    }
+//
+//    private void startEarnMoney() {
+//        System.out.println("\n*** EarnMoney function called ***");
+//    }
+//
+//    private void locationMenuView() {
+//        System.out.println("\n*** LocationMenu function called ***");
+//    }
+//    private void gameMenuView() {
+//        System.out.println("\n*** GameMenu function called ***");
+//    }
+//
+//    private void explosivesNeededView() {
+//        System.out.println("\n*** Explosives Needed function called ***");
+//        
+//    }
 
-    private void startGameDescription() {
-        System.out.println("\n*** GameDescription function called ***");
-    }
-
-    private void mainMenuView() {
-        System.out.println("\n*** Main Menu function called ***");
-    }
-
-    private void startSceneDescription() {
-        System.out.println("\n*** SceneDescription function called ***");
-    }
-
-    private void startResourceInformation() {
-        System.out.println("\n*** ResourceInformation function called ***");
-    }
-
-    private void startEarnMoney() {
-        System.out.println("\n*** EarnMoney function called ***");
-    }
-
-    private void locationMenuView() {
-        System.out.println("\n*** LocationMenu function called ***");
-    }
-    private void gameMenuView() {
-        System.out.println("\n*** GameMenu function called ***");
-    }
-
-    private void explosivesNeededView() {
-        System.out.println("\n*** Explosives Needed function called ***");
-        
-    }
-
-    @Override
-    public boolean doAction(String value) {
-        System.out.println("\n*** doAction function called ***");
-        return false;
-    }
 
 
 

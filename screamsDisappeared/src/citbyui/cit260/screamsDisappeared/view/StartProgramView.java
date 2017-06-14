@@ -19,9 +19,10 @@ public class StartProgramView extends View{
     
     public StartProgramView() {
         
-        this.promptMessage = "\nWhat is the name of the player trying to escape?";
+        promptMessage = "\nWhat is the name of the player trying to escape?";
         //display the banner when view is created
-        this.displayBanner();
+        displayBanner();
+        System.out.println(promptMessage);
     }
 
     private void displayBanner() {
