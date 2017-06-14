@@ -19,7 +19,7 @@ public class MainMenuView {
     private String promptMessage;
 
     public void displayMainMenuView() {
-
+            
         boolean done = false; // set flag to not done
         do {
 

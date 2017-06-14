@@ -11,7 +11,7 @@ package screamsdisappeared.control;
 public class TripNeeded {
     
     public double calcTripNeeded (double gallonsNeeded, double litersNeeded , double bottlePerTrip) {
-        
+        System.out.println (gallonsNeeded);
         if (gallonsNeeded < 0 || gallonsNeeded > 15){ //Gallons needed are out of range
             return -1;
         }

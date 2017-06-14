@@ -98,13 +98,14 @@ public class StartProgramView {
             return false;
         }
         //display next view
+
         this.displayNextView(player);
-        
+
         return true; //success !
 }
 
     private void displayNextView(Player player) {
-        
+
         // display a custom welcome message
         
         System.out.println("\n==============================="

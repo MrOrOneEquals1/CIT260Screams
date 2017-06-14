@@ -65,9 +65,9 @@ public class MoneyEarnedView {
     private int getZombiesKilled() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-
-        boolean valid = false; // initialize to not valid
         int zombiesKilled = 0;
+        boolean valid = false; // initialize to not valid
+
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many Zombies did you kill?");
 
@@ -92,7 +92,7 @@ public class MoneyEarnedView {
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
-        int zombieDogsKilled = 0;
+        int zombieDogsKilled = 0;       
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many ZombieDogs did you kill?");
 
