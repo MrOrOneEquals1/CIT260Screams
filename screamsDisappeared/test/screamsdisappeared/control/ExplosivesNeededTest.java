@@ -18,10 +18,6 @@ public class ExplosivesNeededTest {
     public ExplosivesNeededTest() {
     }
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     /**
      * Test of calcExplosivesNeeded method, of class ExplosivesNeeded.
      */

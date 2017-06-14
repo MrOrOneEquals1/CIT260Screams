@@ -57,7 +57,8 @@ public class ExplosivesNeededView {
                 System.out.println("\n We are sad.You have chosen not to know how many explosives you need"); 
                        
                 return;
-            } else System.out.println("\n Thank you for your intersting in the game");
+            } else 
+                System.out.println("\n Thank you for your intersting in the game");
             {
 
             int lengthOfRoom = getLengthOfRoom();
@@ -111,7 +112,8 @@ public class ExplosivesNeededView {
             System.out.println("Please enter the width of the room");
 
             widthOfRoom = keyboard.nextInt(); // get next line typed on keyboard
-if (widthOfRoom < 11 || widthOfRoom> 15 ) {  //Width of the room has to be between 11 and 15
+            
+        if (widthOfRoom < 11 || widthOfRoom> 15 ) {  //Width of the room has to be between 11 and 15
                 System.out.println("\nInvalid value: Width of the room has to be between 11 and 15");
                 continue;
                 
