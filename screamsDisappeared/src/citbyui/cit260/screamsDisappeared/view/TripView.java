@@ -12,7 +12,7 @@ import screamsdisappeared.control.TripNeeded;
  *
  * @author David Vera
  */
-public abstract class TripView extends View {
+public abstract class TripView implements TripViewInterface {
     
     protected String displayMessage;
     
@@ -22,6 +22,7 @@ public abstract class TripView extends View {
         this.displayMessage = message;
     }
     
+    @Override
     public void displaytripNeededView() {
 
         boolean done = false; // set flag to not done
@@ -58,6 +59,7 @@ public abstract class TripView extends View {
 
     }
 
+    @Override
     public int gallonsNeeded() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
@@ -82,6 +84,7 @@ public abstract class TripView extends View {
         
 
     
+    @Override
     public int litersNeeded() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
@@ -106,6 +109,7 @@ public abstract class TripView extends View {
 
     }
     
+    @Override
      public int bottlePerTrip() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
