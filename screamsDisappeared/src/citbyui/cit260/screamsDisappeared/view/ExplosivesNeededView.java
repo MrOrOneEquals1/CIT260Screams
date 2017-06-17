@@ -25,7 +25,7 @@ import screamsdisappeared.control.ExplosivesNeeded;
 
 
 
-public class ExplosivesNeededView {
+public class ExplosivesNeededView  {
 
     private String display="";
 
