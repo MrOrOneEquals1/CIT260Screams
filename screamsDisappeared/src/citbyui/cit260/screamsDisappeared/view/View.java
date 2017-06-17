@@ -14,7 +14,7 @@ import screamsdisappeared.control.GameControl;
  * @author carriero
  */
 public abstract class View implements ViewInterface {
-    
+     
     protected String displayMessage;
     
     public View() {
