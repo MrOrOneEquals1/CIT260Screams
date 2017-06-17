@@ -12,21 +12,16 @@ import screamsdisappeared.control.TripNeeded;
  *
  * @author David Vera
  */
-public class TripNeededView extends View {
-     private String display="";
-
-    void displayTripNeededView() {
-        System.out.println(display);
-        displaytripNeededView();
+public abstract class TripView extends View {
+    
+    protected String displayMessage;
+    
+    public TripView(){}
+    
+    public TripView(String message) {
+        this.displayMessage = message;
     }
-
-    public TripNeededView() {
-        this.display = "\n"
-                + "\n------------------------------------------"
-                + "\n| Trips to the gas station you need                           |"
-                + "\n------------------------------------------";
-    }
-
+    
     public void displaytripNeededView() {
 
         boolean done = false; // set flag to not done
@@ -135,5 +130,6 @@ public class TripNeededView extends View {
         return bottlePerTrip; // return the value entered;
 
     }
-
+    
+    
 }

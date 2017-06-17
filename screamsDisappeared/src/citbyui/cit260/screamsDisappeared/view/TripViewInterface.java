@@ -7,12 +7,13 @@ package citbyui.cit260.screamsDisappeared.view;
 
 /**
  *
- * @author carriero
+ * @author David Vera
  */
-public interface ViewInterface {
+public interface TripViewInterface {
     
-    public void display();
-    public String getInput();
-    public boolean doAction(String value);
-   
+    public void displaytripNeededView();
+    public int gallonsNeeded();    
+    public int litersNeeded();
+    public int bottlePerTrip();
+    
 }
