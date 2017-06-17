@@ -12,12 +12,12 @@ import screamsdisappeared.control.TripNeeded;
  *
  * @author David Vera
  */
-public class TripNeededView extends View {
+public class TripNeededView extends TripView {
      private String display="";
 
     void displayTripNeededView() {
         System.out.println(display);
-        displaytripNeededView();
+        display();
     }
 
     public TripNeededView() {
@@ -27,7 +27,7 @@ public class TripNeededView extends View {
                 + "\n------------------------------------------";
     }
 
-    public void displaytripNeededView() {
+    /*public void displaytripNeededView() {
 
         boolean done = false; // set flag to not done
         do {
@@ -134,6 +134,14 @@ public class TripNeededView extends View {
         
         return bottlePerTrip; // return the value entered;
 
+    }*/
+
+    @Override
+    public void displaytripNeededView() {
+        System.out.println("\nI*** Function Display called ***");
+
     }
+
+   
 
 }

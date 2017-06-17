@@ -22,8 +22,7 @@ public abstract class TripView implements TripViewInterface {
         this.displayMessage = message;
     }
     
-    @Override
-    public void displaytripNeededView() {
+    public void display() {
 
         boolean done = false; // set flag to not done
         do {
