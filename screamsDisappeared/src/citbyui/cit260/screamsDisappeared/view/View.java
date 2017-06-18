@@ -114,6 +114,14 @@ public abstract class View implements ViewInterface {
                 //Display the gallons needed view
                 tripNeededView.displayTripNeededView();               
                 break;
+             case "T": // Display the move character menu
+                this.moveCharacterView();
+                // 
+                MoveCharacterView moveCharacterView = new MoveCharacterView();
+                
+                
+                moveCharacterView.display();               
+                break;           
             case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
                 
@@ -218,6 +226,10 @@ public abstract class View implements ViewInterface {
 
     private void locationMenuView() {
         System.out.println("\n*** locationMenuView function called ***");
+    }
+
+    private void moveCharacterView() {
+        System.out.println("\n*** moveCharacterView function called ***");
     }
 }
 

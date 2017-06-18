@@ -12,8 +12,9 @@ import screamsdisappeared.control.TripNeeded;
  *
  * @author David Vera
  */
-public class TripNeededView extends TripView {
+public class TripNeededView extends TripView{
      private String display="";
+     
 
     void displayTripNeededView() {
         System.out.println(display);
@@ -21,10 +22,10 @@ public class TripNeededView extends TripView {
     }
 
     public TripNeededView() {
-        this.display = "\n"
+        super("\n"
                 + "\n------------------------------------------"
                 + "\n| Trips to the gas station you need                           |"
-                + "\n------------------------------------------";
+                + "\n------------------------------------------");
     }
 
     /*public void displaytripNeededView() {

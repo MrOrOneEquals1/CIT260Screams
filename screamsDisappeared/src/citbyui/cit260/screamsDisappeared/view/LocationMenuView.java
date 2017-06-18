@@ -27,6 +27,7 @@ public class LocationMenuView extends View {
                 + "\nU - Use Object from Backpack"
                 + "\nM - Main Menu"
                 + "\nC - Calculate the Trip Needed"
+                + "\nT - Go to Move Character Menu"
                 + "\nE - Earn Money"
                 + "\nX - Explosives Needed"
                 + "\n------------------------------------------");
@@ -111,6 +112,14 @@ public class LocationMenuView extends View {
 //                //Display the gallons needed view
 //                tripNeededView.displayTripNeededView();               
 //                break;
+//            case "T": // Display the move character menu
+//                this.moveCharacterView();
+//                // 
+//                MoveCharacterView moveCharacterView = new MoveCharacterView();
+//                
+//                
+//                moveCharacterView.displayMoveCharacterView();               
+//                break;    
 //            case "E": // Display the option to enter information to calculate
 //                this.MoneyEarnedView();
 //                
@@ -168,6 +177,8 @@ public class LocationMenuView extends View {
         
     }
 
-
+     private void moveCharacterView() {
+        System.out.println("\n*** moveCharacterView function called ***");
+    }
 
 }
