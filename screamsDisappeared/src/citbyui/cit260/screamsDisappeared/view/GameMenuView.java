@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class GameMenuView extends View {
 
+
     private String menu;
     private String promptMessage;
     
@@ -33,6 +34,62 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------");
     }
 
+
+    @Override
+    public boolean doAction(String choice) {
+        
+   choice = choice.toUpperCase();
+
+        boolean rtnValue = true;
+
+        switch (choice) {
+            case "M": // Return to Main Menu
+                this.mainMenuView();
+                // Create MainMenuView object
+                MainMenuView mainMenuView = new MainMenuView();
+
+                // Display the main menu view
+                mainMenuView.display();
+                break;
+            case "C": // Display Character
+                this.startSelectCharacter();
+                break;
+            case "T": // Return Restart game menu view
+                StartView startView = new StartView ();
+                startView.display();
+                break;
+            case "D": // Display Description of the Game
+                this.startGetDescriptionGame();
+                break;
+            case "H": // Return to Help Menu
+                this.helpMenuView();
+                // Creat MainMenuView object
+                HelpMenuView helpMenuView = new HelpMenuView();
+
+                // Display the main menu view
+                helpMenuView.display();
+                break;
+             case "V": // Display View Map
+                this.startViewMap();
+                break; 
+             case "I": // Display Inventory Items
+                this.startInventoryItems();
+                break; 
+             case "S": // Save the current Game
+                this.startSaveGame();
+                break;
+             case "Q": // Exit the Game
+                this.startExitGame();
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try Again");
+                rtnValue = false;
+                break;
+
+        }
+
+        return rtnValue;
+    }
 
     private void mainMenuView() {
         System.out.println("\n*** DisplymainMenuView function called ***");
@@ -68,10 +125,4 @@ public class GameMenuView extends View {
   private void startExitGame() {
         System.out.println("\n*** startExitGame function called ***");
     }  
-
-    @Override
-    public boolean doAction(String value) {
-           System.out.println("\n*** doAction function called ***");
-        return true;
-    }
 }
