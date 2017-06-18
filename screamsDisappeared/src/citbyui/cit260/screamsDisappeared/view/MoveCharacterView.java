@@ -32,7 +32,7 @@ public class MoveCharacterView extends View{
                 + "\nI - Get in to the car"
                 + "\nR - Get out of the room"
                 + "\nT - Get in to the room"
-                + "\nB - Return to previoud menu"
+                + "\nB - Return to previous menu"
                 + "\nQ - Exit game"
                 + "\n------------------------------------------");
   }
@@ -102,9 +102,14 @@ public class MoveCharacterView extends View{
              case "T": // Get in to the room
                 this.intToRoom();
                 break; 
-             case "B": // Return to previoud menu
-                this.returnPreviousMenu();
-                break; 
+             case "B": // Return to previous menu              
+                this.locationMenuView();
+                // Creat LocationMenuView object
+                LocationMenuView locationMenuView = new LocationMenuView();
+
+                // Display the location menu view
+                locationMenuView.display();
+                break;
              case "Q": // Exit the Game
                 this.startExitGame();
                 break;
@@ -148,6 +153,10 @@ public class MoveCharacterView extends View{
 
     private void startExitGame() {
         System.out.println("\n*** startExitGame function called");
+    }
+
+    private void locationMenuView() {
+         System.out.println("\n*** locationMenuView function called");
     }
 
     
