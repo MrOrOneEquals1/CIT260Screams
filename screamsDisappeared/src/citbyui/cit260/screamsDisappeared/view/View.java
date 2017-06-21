@@ -161,6 +161,13 @@ public abstract class View implements ViewInterface {
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
+                case "Z": // Display the move character menu
+                this.homeLightOnView();
+                // 
+                HomeLightOnView homeLightOnView = new HomeLightOnView();
+                
+                
+                homeLightOnView.display();
 
         }
 
@@ -230,6 +237,10 @@ public abstract class View implements ViewInterface {
 
     private void moveCharacterView() {
         System.out.println("\n*** moveCharacterView function called ***");
+    }
+
+    private void homeLightOnView() {
+      System.out.println("\n*** homeLightOnView function called ***");  
     }
 }
 
