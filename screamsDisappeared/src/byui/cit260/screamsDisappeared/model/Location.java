@@ -6,6 +6,8 @@
 package byui.cit260.screamsDisappeared.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -17,6 +19,8 @@ public class Location implements Serializable{
     private int row;
     private int column;
     private boolean visited;
+    private Scene scene;
+    private ArrayList<Actor> actors;
     private double amountRemaining;
 
     public Location() {

@@ -15,6 +15,11 @@ import java.util.Objects;
 public class Map implements Serializable{
     
     //class instance variables
+    
+    
+    private int noOfRows;
+    private int noOfColumns;
+    private Location[][] locations;
     private String description;
     private int rowCount;
     private int columnCount;
@@ -22,7 +27,39 @@ public class Map implements Serializable{
     private int currentColumn;
 
     public Map() {
+        
     }
+        public Map(int noOfRows, int noOfColumns) {
+            if (noOfRows < 1 || noOfColumns < 1) {
+                System.out.println("The number of rows and columns must be > zero");
+                return;
+            }
+            this.noOfRows = noOfRows;
+            this.noOfColumns = noOfColumns;
+            
+            //create 2-0 array for location objects
+            
+            this.locations = new Location[noOfRows][noOfColumns];
+            
+            for (int row = 0; row < noOfRows; row++) {
+                for (int column = 0; column < noOfColumns; column++) {
+                    //create and initialize new location object instance
+                    Location location = new Location();
+                    location.setColumn(column);
+                    location.setRow(row);
+                    location.setVisited(false);
+                    
+                    //assign the Location object to the current position in array
+                    locations[row][column] = location;                
+                }            
+            }       
+        
+        }
+   
+        
+        
+        
+    
 
     public String getDescription() {
         return description;

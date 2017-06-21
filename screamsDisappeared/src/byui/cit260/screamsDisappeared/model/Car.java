@@ -11,20 +11,30 @@ import java.io.Serializable;
  */
 public class Car implements Serializable {
     
-    private double drivenMiles;
+    
+    
+    private double milesPerGallon;
     private double tankSize;
+    
 
+    
+    
     public Car() {
+       this.milesPerGallon = 0;
+       this.tankSize = 0;
+        
+        
     }
+    
     
     
 
     public double getDrivenMiles() {
-        return drivenMiles;
+        return milesPerGallon;
     }
 
-    public void setDrivenMiles(double drivenMiles) {
-        this.drivenMiles = drivenMiles;
+    public void setDrivenMiles(double milesPerGallon) {
+        this.milesPerGallon = milesPerGallon;
     }
 
     public double getTankSize() {
@@ -38,14 +48,14 @@ public class Car implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.drivenMiles) ^ (Double.doubleToLongBits(this.drivenMiles) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.milesPerGallon) ^ (Double.doubleToLongBits(this.milesPerGallon) >>> 32));
         hash = 83 * hash + (int) (Double.doubleToLongBits(this.tankSize) ^ (Double.doubleToLongBits(this.tankSize) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Car{" + "drivenMiles=" + drivenMiles + ", tankSize=" + tankSize + '}';
+        return "Car{" + "milesPerGallon=" + milesPerGallon + ", tankSize=" + tankSize + '}';
     }
 
     @Override
