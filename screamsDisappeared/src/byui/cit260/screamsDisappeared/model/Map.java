@@ -65,6 +65,10 @@ public class Map implements Serializable{
         return description;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }

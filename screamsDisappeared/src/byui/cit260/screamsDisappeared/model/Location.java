@@ -23,6 +23,22 @@ public class Location implements Serializable{
     private ArrayList<Actor> actors;
     private double amountRemaining;
 
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
     public Location() {
     }
 

@@ -8,10 +8,12 @@ package screamsdisappeared.control;
 import byui.cit260.screamsDisappeared.model.Car;
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
+import byui.cit260.screamsDisappeared.model.Location;
 import byui.cit260.screamsDisappeared.model.Map;
 import byui.cit260.screamsDisappeared.model.Player;
 import javafx.scene.Scene;
 import screamsdisappeared.ScreamsDisappeared;
+import screamsdisappeared.control.MapControl.SceneType;
 
 /**
  *
@@ -101,8 +103,16 @@ public class GameControl {
 
     
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][] locations = map.getLocations();
+        
+        locations[0][0].setScene(scenes[SceneType.house.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.car.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.city.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.zombieRoom.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.gasStation.ordinal()]);
+        locations[0][5].setScene(scenes[SceneType.finishScene.ordinal()]);
+        locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
     
     public enum Item {

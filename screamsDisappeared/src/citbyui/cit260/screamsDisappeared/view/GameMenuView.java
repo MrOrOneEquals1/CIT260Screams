@@ -5,7 +5,10 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import byui.cit260.screamsDisappeared.model.Game;
+import byui.cit260.screamsDisappeared.model.InventoryItem;
 import java.util.Scanner;
+import screamsdisappeared.ScreamsDisappeared;
 
 /**
  *
@@ -13,12 +16,11 @@ import java.util.Scanner;
  */
 public class GameMenuView extends View {
 
-
     private String menu;
     private String promptMessage;
-    
+
     public GameMenuView() {
-        super ("\n"
+        super("\n"
                 + "\n------------------------------------------"
                 + "\n| Game Menu                           |"
                 + "\n------------------------------------------"
@@ -34,11 +36,10 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------");
     }
 
-
     @Override
     public boolean doAction(String choice) {
-        
-   choice = choice.toUpperCase();
+
+        choice = choice.toUpperCase();
 
         boolean rtnValue = true;
 
@@ -55,7 +56,7 @@ public class GameMenuView extends View {
                 this.startSelectCharacter();
                 break;
             case "T": // Return Restart game menu view
-                StartView startView = new StartView ();
+                StartView startView = new StartView();
                 startView.display();
                 break;
             case "D": // Display Description of the Game
@@ -69,16 +70,16 @@ public class GameMenuView extends View {
                 // Display the main menu view
                 helpMenuView.display();
                 break;
-             case "V": // Display View Map
+            case "V": // Display View Map
                 this.startViewMap();
-                break; 
-             case "I": // Display Inventory Items
+                break;
+            case "I": // Display Inventory Items
                 this.startInventoryItems();
-                break; 
-             case "S": // Save the current Game
+                break;
+            case "S": // Save the current Game
                 this.startSaveGame();
                 break;
-             case "Q": // Exit the Game
+            case "Q": // Exit the Game
                 this.startExitGame();
                 break;
             default:
@@ -99,7 +100,7 @@ public class GameMenuView extends View {
         System.out.println("\n*** StartSelectCharacter function called ***");
     }
 
-    private void restartGameMenuView () {
+    private void restartGameMenuView() {
         System.out.println("\n*** DisplayGameMenuView function called ***");
     }
 
@@ -112,17 +113,55 @@ public class GameMenuView extends View {
     }
 
     private void startViewMap() {
-        System.out.println("\n*** startViewMap function called ***");
+        StringBuilder line;
+
+        Game game = ScreamsDisappeared.getCurrentGame();
+        InventoryItem[] inventory = game.getInventory();
+
+        System.out.println("\n        LIST OF INVENTORY ITEMS");
+        line = new StringBuilder("                                         ");
+        line.insert(0, "DESCRIPTION");
+        line.insert(20, "REQUIRED");
+        line.insert(30, "IN STOCK");
+        System.out.println(line.toString());
+
+        for (InventoryItem item : inventory) {
+            line = new StringBuilder("                                            ");
+            line.insert(0, item.getDescription());
+            line.insert(23, item.getRequiredAmount());
+            line.insert(33, item.getQuantityInStock());
+            System.out.println(line.toString());
+        }
+
     }
 
-     private void startInventoryItems() {
-      System.out.println("\n*** startInventoryItems function called ***");
+    private void startInventoryItems() {
+        StringBuilder line;
+
+        Game game = ScreamsDisappeared.getCurrentGame();
+        InventoryItem[] inventory = game.getInventory();
+
+        System.out.println("\n        LIST OF INVENTORY ITEMS");
+        line = new StringBuilder("                                         ");
+        line.insert(0, "DESCRIPTION");
+        line.insert(20, "REQUIRED");
+        line.insert(30, "IN STOCK");
+        System.out.println(line.toString());
+
+        for (InventoryItem item : inventory) {
+            line = new StringBuilder("                                            ");
+            line.insert(0, item.getDescription());
+            line.insert(23, item.getRequiredAmount());
+            line.insert(33, item.getQuantityInStock());
+            System.out.println(line.toString());
+        }
     }
- private void startSaveGame() {
+
+    private void startSaveGame() {
         System.out.println("\n*** startSaveGame function called ***");
     }
 
-  private void startExitGame() {
+    private void startExitGame() {
         System.out.println("\n*** startExitGame function called ***");
-    }  
+    }
 }
