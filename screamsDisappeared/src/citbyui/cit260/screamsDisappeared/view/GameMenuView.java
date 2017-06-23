@@ -118,7 +118,7 @@ public class GameMenuView extends View {
         Game game = ScreamsDisappeared.getCurrentGame();
         InventoryItem[] inventory = game.getInventory();
 
-        System.out.println("\n        LIST OF INVENTORY ITEMS");
+        System.out.println("\n        Screams of the Disappeared");
         line = new StringBuilder("                                         ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "REQUIRED");

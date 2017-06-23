@@ -8,19 +8,21 @@ package byui.cit260.screamsDisappeared.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.awt.Point;
 /**
  *
  * @author lauravaleriogibbs
  */
 public enum Actor implements Serializable {
     
+    John("Smart, strong"),
+    Sarah("Intuitive"),
+    Sam("Quick");
+    
     private final String description;
     private final Point coordinates;
     
-    public Actor() {
-    }
-
-    Actor(String description) {
+       Actor(String description) {
         this.description = description;
         coordinates = new Point(1,1);
     }
@@ -29,14 +31,14 @@ public enum Actor implements Serializable {
         return description;
     }
 
-    public String getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
     }
 
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
+        return "Actor{ description=" + description + ", coordinates=" + coordinates +"}";
     }
 
 }

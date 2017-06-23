@@ -6,8 +6,9 @@
 package screamsdisappeared.control;
 
 import byui.cit260.screamsDisappeared.model.Map;
+import byui.cit260.screamsDisappeared.model.Scene;
 import citbyui.cit260.screamsDisappeared.view.StartView;
-import javafx.scene.Scene;
+
 
 /**
  *

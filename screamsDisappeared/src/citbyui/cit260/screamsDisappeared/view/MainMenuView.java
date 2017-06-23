@@ -68,7 +68,11 @@ public class MainMenuView extends View {
                 restartGameMenuView.display();
                 break;
             case "M": // display the game menu
-                this.displayGameMenuView();
+                //If they haven't started a game yet, start one for them
+                if (ScreamsDisappeared.getCurrentGame() == null) {
+                        doAction("N");
+                        break;
+                }
                 // Creat GameMenuView object
                 GameMenuView gameMenuView = new GameMenuView();
                 // Display the game menu view
