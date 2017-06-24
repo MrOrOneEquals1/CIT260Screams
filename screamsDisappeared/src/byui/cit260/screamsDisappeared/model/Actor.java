@@ -17,7 +17,14 @@ public enum Actor implements Serializable {
     
     John("Smart, strong"),
     Sarah("Intuitive"),
-    Sam("Quick");
+    Sam("Quick"),
+    Herman("Smart"),
+    James("Strong"),
+    Samantha("Good Information"),
+    Theresa("Lazy"),
+    Franklin("Unhelpful");
+    
+    
     
     private final String description;
     private final Point coordinates;

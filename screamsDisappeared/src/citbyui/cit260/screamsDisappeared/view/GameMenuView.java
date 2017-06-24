@@ -7,8 +7,12 @@ package citbyui.cit260.screamsDisappeared.view;
 
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
+import byui.cit260.screamsDisappeared.model.Zombie;
+import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
+import screamsdisappeared.control.GameControl;
 
 /**
  *
@@ -31,6 +35,7 @@ public class GameMenuView extends View {
                 + "\nH - Help Menu"
                 + "\nV - View Map"
                 + "\nI - View a list of inventory Items"
+                + "\nZ - See the Closest Zombie"
                 + "\nS - Save game"
                 + "\nQ - Exit Game"
                 + "\n------------------------------------------");
@@ -75,6 +80,9 @@ public class GameMenuView extends View {
                 break;
             case "I": // Display Inventory Items
                 this.startInventoryItems();
+                break;
+            case "Z": // Display Inventory Items
+                this.closestZombie();
                 break;
             case "S": // Save the current Game
                 this.startSaveGame();
@@ -156,6 +164,23 @@ public class GameMenuView extends View {
             System.out.println(line.toString());
         }
     }
+
+    private void closestZombie() {
+        StringBuilder line;
+
+        Game game = ScreamsDisappeared.getCurrentGame();
+        Point currentLocation = new Point(game.getMap().getCurrentRow(), game.getMap().getCurrentColumn());
+        
+        
+        Zombie closestZombie = GameControl.getClosestZombie(currentLocation);
+        
+        System.out.println("The closest zombie is " + closestZombie.name() + 
+                ". This Zombie is " + closestZombie.getDescription() + ".  Is is"
+                + " located at (" + closestZombie.getCoordinates().x + ", " 
+                + closestZombie.getCoordinates().y + ").");
+    doAction("M");    
+    }
+       
 
     private void startSaveGame() {
         System.out.println("\n*** startSaveGame function called ***");

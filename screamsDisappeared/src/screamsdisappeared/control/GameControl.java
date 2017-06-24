@@ -12,6 +12,10 @@ import byui.cit260.screamsDisappeared.model.Location;
 import byui.cit260.screamsDisappeared.model.Map;
 import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.Scene;
+import byui.cit260.screamsDisappeared.model.Zombie;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.HashMap;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.MapControl.SceneType;
 
@@ -98,6 +102,25 @@ public class GameControl {
         inventory[Item.gun.ordinal()] = gun;
 
         return inventory;
+
+    }
+
+    public static Zombie getClosestZombie(Point currentLocation) {
+
+        Zombie closestZombie = null;
+        int previousDistance=100;
+        
+        for (Zombie z : Zombie.values()) {
+            int distance = Math.abs(currentLocation.x - z.getCoordinates().x) + Math.abs(currentLocation.y - z.getCoordinates().y);
+            
+            if (distance < previousDistance){
+                closestZombie = z;  
+            }
+            previousDistance = distance;          
+         
+        }
+               
+        return closestZombie;
 
     }
 
