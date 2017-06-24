@@ -36,6 +36,7 @@ public class GameMenuView extends View {
                 + "\nV - View Map"
                 + "\nI - View a list of inventory Items"
                 + "\nZ - See the Closest Zombie"
+                + "\nX - See the list of the Zombie dogs sort by race"
                 + "\nS - Save game"
                 + "\nQ - Exit Game"
                 + "\n------------------------------------------");
@@ -84,6 +85,10 @@ public class GameMenuView extends View {
             case "Z": // Display Inventory Items
                 this.closestZombie();
                 break;
+           case "X":
+               
+               this.ZombieDogs();
+               break;
             case "S": // Save the current Game
                 this.startSaveGame();
                 break;
@@ -188,5 +193,9 @@ public class GameMenuView extends View {
 
     private void startExitGame() {
         System.out.println("\n*** startExitGame function called ***");
+    }
+
+    private void ZombieDogs() {
+        System.out.println("\n*** ZombieDogs function called ***");
     }
 }
