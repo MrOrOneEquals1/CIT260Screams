@@ -53,7 +53,8 @@ public enum Zombie implements Serializable {
         coordinates = new Point (rand.nextInt(9),rand.nextInt(9));
     }
 
-    public String getDescription() {
+ 
+       public String getDescription() {
         return description;
     }
 
@@ -64,7 +65,8 @@ public enum Zombie implements Serializable {
 
     @Override
     public String toString() {
-        return "Actor{ description=" + description + ", coordinates=" + coordinates +"}";
+        return name() + "    Description = " + description + ",    coordinates = (" + getCoordinates().x + ", "
+                + getCoordinates().y + ").";
     }
 
 }

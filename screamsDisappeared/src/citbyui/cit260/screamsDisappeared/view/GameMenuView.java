@@ -85,10 +85,10 @@ public class GameMenuView extends View {
             case "Z": // Display Inventory Items
                 this.closestZombie();
                 break;
-           case "X":
-               
-               this.ZombieDogs();
-               break;
+            case "X":
+
+                this.ZombieDogs();
+                break;
             case "S": // Save the current Game
                 this.startSaveGame();
                 break;
@@ -175,17 +175,27 @@ public class GameMenuView extends View {
 
         Game game = ScreamsDisappeared.getCurrentGame();
         Point currentLocation = new Point(game.getMap().getCurrentRow(), game.getMap().getCurrentColumn());
-        
-        
+
         Zombie closestZombie = GameControl.getClosestZombie(currentLocation);
-        
-        System.out.println("The closest zombie is " + closestZombie.name() + 
-                ". This Zombie is " + closestZombie.getDescription() + ".  Is is"
-                + " located at (" + closestZombie.getCoordinates().x + ", " 
+
+        System.out.println("The closest zombie is " + closestZombie.name()
+                + ". Description is " + closestZombie.getDescription() + ". "
+                + " Located at (" + closestZombie.getCoordinates().x + ", "
                 + closestZombie.getCoordinates().y + ").");
-    doAction("M");    
+        
+        System.out.println("Here is the complete list of Zombies, their descriptions, and locations.");
+        
+        for (Zombie z : Zombie.values()) {
+            line = new StringBuilder("                                                                                       ");
+            line.insert(0, z.name());
+            line.insert(15, z.getDescription());
+            line.insert(53, "(" + z.getCoordinates().x + ", ");
+            line.insert(56, z.getCoordinates().y+ ")");
+            System.out.println(line.toString());
+        }       
+        
+        doAction("M");
     }
-       
 
     private void startSaveGame() {
         System.out.println("\n*** startSaveGame function called ***");

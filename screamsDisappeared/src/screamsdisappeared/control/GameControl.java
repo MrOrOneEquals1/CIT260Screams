@@ -115,9 +115,9 @@ public class GameControl {
             
             if (distance < previousDistance){
                 closestZombie = z;  
-            }
+            
             previousDistance = distance;          
-         
+            } 
         }
                
         return closestZombie;
