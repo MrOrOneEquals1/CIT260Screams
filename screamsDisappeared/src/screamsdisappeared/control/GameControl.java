@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.MapControl.SceneType;
-
+import java.util.EnumSet;
 /**
  *
  * @author
@@ -136,9 +136,11 @@ public class GameControl {
         locations[0][5].setScene(scenes[SceneType.finishScene.ordinal()]);
         locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
-    public static int getLowestPrice(int[]weapons) {
+    public static int getLowestPrice(int []weapons) {
+        Weapons LowestPrice=null;
     int lowestPrice = weapons[0];
-
+for (Weapons w: Weapons.values())
+    
 for (int i = 1;i< weapons.length ;i++){
 
 if ( weapons[i] < lowestPrice){
@@ -149,8 +151,8 @@ if ( weapons[i] < lowestPrice){
 
 }
         
-
 return lowestPrice;
+
         }
     public enum Item {
         knife,
@@ -161,5 +163,5 @@ return lowestPrice;
         gun;
 
     }
-
+    
 }
