@@ -136,19 +136,19 @@ public class GameControl {
         locations[0][5].setScene(scenes[SceneType.finishScene.ordinal()]);
         locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
-    public static Weapons getLowestPrice(int[]weapons) {
-    int minValue = weapons[0];
+    public static int getLowestPrice(int[]weapons) {
+    int lowestPrice = weapons[0];
 
-for (int index = 0;index< weapons.length ;index++){
+for (int i = 1;i< weapons.length ;i++){
 
-if ( weapons[index] < minValue){
+if ( weapons[i] < lowestPrice){
 
-    int lowestPrice = weapons[index];
-
-}
+    lowestPrice = weapons[i];
 
 }
-        Weapons lowestPrice = null;
+
+}
+        
 
 return lowestPrice;
         }
