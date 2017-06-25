@@ -26,7 +26,7 @@ Axe(1),
 Hammer(4),
 AnElectricChainsaw(5);
 
-private final int price;
+public final int price;
 private final Point coordinates;
 
 
@@ -44,6 +44,9 @@ public int getPrice() {
 return price;
 
 }
+
+
+
 
 public Point getCoordinates() {
 return coordinates;
