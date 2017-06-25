@@ -7,6 +7,7 @@ package citbyui.cit260.screamsDisappeared.view;
 
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
+import byui.cit260.screamsDisappeared.model.Weapons;
 import byui.cit260.screamsDisappeared.model.Zombie;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -88,6 +89,10 @@ public class GameMenuView extends View {
             case "X":
 
                 this.ZombieDogs();
+                break;
+            case "W":
+
+                this.LowestPrice();
                 break;
             case "S": // Save the current Game
                 this.startSaveGame();
@@ -196,6 +201,7 @@ public class GameMenuView extends View {
         
         doAction("M");
     }
+    
 
     private void startSaveGame() {
         System.out.println("\n*** startSaveGame function called ***");
@@ -207,5 +213,20 @@ public class GameMenuView extends View {
 
     private void ZombieDogs() {
         System.out.println("\n*** ZombieDogs function called ***");
+    }
+
+    private void LowestPrice() {
+        StringBuilder line;
+       Game game = ScreamsDisappeared.getCurrentGame(); 
+       for (Weapons w : Weapons.values()) {
+            line = new StringBuilder("                                                                                       ");
+            line.insert(0, w.name());
+            line.insert(15, w.getPrice());
+            line.insert(53, "(" + w.getCoordinates().x + ", ");
+            line.insert(56, w.getCoordinates().y+ ")");
+            System.out.println(line.toString());
+        }       
+        
+        doAction("M");
     }
 }
