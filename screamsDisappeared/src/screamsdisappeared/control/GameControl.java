@@ -12,6 +12,7 @@ import byui.cit260.screamsDisappeared.model.Location;
 import byui.cit260.screamsDisappeared.model.Map;
 import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.Scene;
+import byui.cit260.screamsDisappeared.model.Weapons;
 import byui.cit260.screamsDisappeared.model.Zombie;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -135,7 +136,22 @@ public class GameControl {
         locations[0][5].setScene(scenes[SceneType.finishScene.ordinal()]);
         locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
+    public static Weapons getLowestPrice(int[]weapons) {
+    int minValue = weapons[0];
 
+for (int index = 0;index< weapons.length ;index++){
+
+if ( weapons[index] < minValue){
+
+    int lowestPrice = weapons[index];
+
+}
+
+}
+        Weapons lowestPrice = null;
+
+return lowestPrice;
+        }
     public enum Item {
         knife,
         gas,
