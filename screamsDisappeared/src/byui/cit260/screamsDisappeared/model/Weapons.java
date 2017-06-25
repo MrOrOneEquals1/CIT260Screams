@@ -24,27 +24,28 @@ Acid(2),
 PoisonGas(3),
 Axe(1),
 Hammer(4),
-AnElectricChainsaw(5);
+AnElectricChainsaw(5), 
+;
 
 public final int price;
 private final Point coordinates;
 
 
 Weapons(int price) {
-
+    
 this.price = price ;
 
 Random rand = new Random();
 coordinates = new Point (rand.nextInt(10),rand.nextInt(10));
 
+
 }
 
 public int getPrice() {
 
-return price;
+return this.price;
 
 }
-
 
 
 
