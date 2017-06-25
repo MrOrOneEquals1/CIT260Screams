@@ -11,10 +11,11 @@ import byui.cit260.screamsDisappeared.model.Weapons;
 import byui.cit260.screamsDisappeared.model.Zombie;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.GameControl;
-import static screamsdisappeared.control.GameControl.getLowestPrice;
+import java.util.EnumSet;
 
 /**
  *
@@ -39,6 +40,7 @@ public class GameMenuView extends View {
                 + "\nI - View a list of inventory Items"
                 + "\nZ - See the Closest Zombie"
                 + "\nX - See the list of the Zombie dogs sort by race"
+                + "\nX - See the Weapon Lowest price "
                 + "\nS - Save game"
                 + "\nQ - Exit Game"
                 + "\n------------------------------------------");
@@ -221,7 +223,7 @@ public class GameMenuView extends View {
         StringBuilder line;
        Game game = ScreamsDisappeared.getCurrentGame(); 
        
-       System.out.println("\n        LIST OF WEAPONS");
+       System.out.println("\n  LIST OF WEAPONS");
         line = new StringBuilder("                                         ");
         line.insert(0, "WEAPON");
         line.insert(20, "PRICE");
@@ -229,6 +231,7 @@ public class GameMenuView extends View {
         System.out.println(line.toString());
         
        for (Weapons w : Weapons.values()) {
+           
             line = new StringBuilder("                                                                                       ");
             line.insert(0, w.name());
             line.insert(20, w.getPrice());
@@ -236,18 +239,51 @@ public class GameMenuView extends View {
             line.insert(35, w.getCoordinates().y+ ")");
             System.out.println(line.toString());
             
+           ;
+       }
+       
+       
+     for (Weapons w :EnumSet.range(Weapons.Knife, Weapons.Rifle))
+         
+                System.out.println("The lowest Price is"+w.getPrice());   
+        
+        
+        
+//for (Weapons w : EnumSet.range(Weapons.Knife, Weapons.Axe))
+
+    //Weapons lowestPrice= GameControl.getLowestPrice(Weapons.Knife);
+//System.out.println(lowestPrice.getPrice());
+//int[] weapons = null;
+        //Weapons[]weapons=Weapons.values();
+      //  Point weapons= new Point(game.getMap().getCurrentRow(), game.getMap().getCurrentColumn());
+        
+       // Zombie lowestPrice=GameControl.getLowestPrice(weapons);
+ 
+       
+             doAction("M");
+    
+    }
+}      // Weapons[]weapon=Weapons.values();
+           // int[]weapons=new int[10];
+            
+            //GameControl gameControl= new GameControl();
+
+           //int price = gameControl.getPrice();
+            //double lowestPrice=gameControl.getLowestPrice (price);  
+           // int LowestPrice=GameControl.getLowestPrice(weapons);
+              //  System.out.println("\n Wow You just need " + LowestPrice+ " explosives");
+            
             //int[] weapons = int new[10];
             //int[] weapons;
             
             
             //int minValue=Arrays.sort(weapons);
             //int lowestPrice = getLowestPrice(weapons);
-           ;  
+          // ;  
        //   System.out.println("The closest zombie is " + w
           
                  
                  // );     
-       }
-        doAction("M");
-    }
-}
+       
+     
+        
