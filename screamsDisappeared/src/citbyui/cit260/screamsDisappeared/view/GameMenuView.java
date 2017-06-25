@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.GameControl;
+import static screamsdisappeared.control.GameControl.getLowestPrice;
 
 /**
  *
@@ -197,6 +198,7 @@ public class GameMenuView extends View {
             line.insert(53, "(" + z.getCoordinates().x + ", ");
             line.insert(56, z.getCoordinates().y+ ")");
             System.out.println(line.toString());
+            
         }       
         
         doAction("M");
@@ -218,15 +220,34 @@ public class GameMenuView extends View {
     private void LowestPrice() {
         StringBuilder line;
        Game game = ScreamsDisappeared.getCurrentGame(); 
+       
+       System.out.println("\n        LIST OF WEAPONS");
+        line = new StringBuilder("                                         ");
+        line.insert(0, "WEAPON");
+        line.insert(20, "PRICE");
+        line.insert(30, "LOCATION");
+        System.out.println(line.toString());
+        
        for (Weapons w : Weapons.values()) {
             line = new StringBuilder("                                                                                       ");
             line.insert(0, w.name());
-            line.insert(15, w.getPrice());
-            line.insert(53, "(" + w.getCoordinates().x + ", ");
-            line.insert(56, w.getCoordinates().y+ ")");
+            line.insert(20, w.getPrice());
+            line.insert(30, "(" + w.getCoordinates().x + ", ");
+            line.insert(35, w.getCoordinates().y+ ")");
             System.out.println(line.toString());
-        }       
-        
+            
+            //int[] weapons = int new[10];
+            //int[] weapons;
+            
+            
+            //int minValue=Arrays.sort(weapons);
+            //int lowestPrice = getLowestPrice(weapons);
+           ;  
+       //   System.out.println("The closest zombie is " + w
+          
+                 
+                 // );     
+       }
         doAction("M");
     }
 }
