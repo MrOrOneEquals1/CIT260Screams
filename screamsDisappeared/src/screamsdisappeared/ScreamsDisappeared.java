@@ -12,7 +12,7 @@ import citbyui.cit260.screamsDisappeared.view.StartProgramView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.EnumSet;
+
 /**
  *
  * @author Darin
@@ -23,6 +23,7 @@ public class ScreamsDisappeared {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
