@@ -222,6 +222,8 @@ public class GameMenuView extends View {
     private void LowestPrice() {
         StringBuilder line;
        Game game = ScreamsDisappeared.getCurrentGame(); 
+          
+        
        
        System.out.println("\n  LIST OF WEAPONS");
         line = new StringBuilder("                                         ");
@@ -241,49 +243,16 @@ public class GameMenuView extends View {
             
            ;
        }
-       
-       
-     for (Weapons w :EnumSet.range(Weapons.Knife, Weapons.Rifle))
-         
-                System.out.println("The lowest Price is"+w.getPrice());   
         
-        
-        
-//for (Weapons w : EnumSet.range(Weapons.Knife, Weapons.Axe))
+      for (Weapons w :EnumSet.range(Weapons.Knife, Weapons.Rifle))  
+       System.out.println("The lowest Price is a "+w.name()
+               +".The price is $"+ w.getPrice());  
 
-    //Weapons lowestPrice= GameControl.getLowestPrice(Weapons.Knife);
-//System.out.println(lowestPrice.getPrice());
-//int[] weapons = null;
-        //Weapons[]weapons=Weapons.values();
-      //  Point weapons= new Point(game.getMap().getCurrentRow(), game.getMap().getCurrentColumn());
-        
-       // Zombie lowestPrice=GameControl.getLowestPrice(weapons);
+      
  
        
              doAction("M");
     
     }
-}      // Weapons[]weapon=Weapons.values();
-           // int[]weapons=new int[10];
-            
-            //GameControl gameControl= new GameControl();
-
-           //int price = gameControl.getPrice();
-            //double lowestPrice=gameControl.getLowestPrice (price);  
-           // int LowestPrice=GameControl.getLowestPrice(weapons);
-              //  System.out.println("\n Wow You just need " + LowestPrice+ " explosives");
-            
-            //int[] weapons = int new[10];
-            //int[] weapons;
-            
-            
-            //int minValue=Arrays.sort(weapons);
-            //int lowestPrice = getLowestPrice(weapons);
-          // ;  
-       //   System.out.println("The closest zombie is " + w
-          
-                 
-                 // );     
-       
-     
+}      
         
