@@ -137,7 +137,7 @@ public class GameControl {
         locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
     public static int getLowestPrice(int []weapons) {
-        Weapons LowestPrice=null;
+        
     int lowestPrice = weapons[0];
 for (Weapons w: Weapons.values())
     
