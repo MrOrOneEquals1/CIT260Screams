@@ -69,4 +69,6 @@ public enum Zombie implements Serializable {
                 + getCoordinates().y + ").";
     }
 
+    
+
 }
