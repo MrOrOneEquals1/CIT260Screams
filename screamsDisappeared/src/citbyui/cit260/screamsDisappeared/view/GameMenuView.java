@@ -89,7 +89,7 @@ public class GameMenuView extends View {
                 this.startInventoryItems();
                 break;
             case "Y": // Display Inventory Items
-                this.CalculationsMenuView();
+
                 CalculationsMenuView calculationsMenuView = new CalculationsMenuView();
 
                 // Display the main menu view

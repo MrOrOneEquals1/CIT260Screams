@@ -11,7 +11,7 @@ import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
  *
  * @author carriero
  */
-public class CalculationsMenuView {
+public class CalculationsMenuView extends View{
 
     private String menu;
     private String promptMessage;
@@ -82,7 +82,7 @@ public class CalculationsMenuView {
         return rtnValue;
     }
 
-    boolean doAction(String m) {
+    private void GallonsNeededView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

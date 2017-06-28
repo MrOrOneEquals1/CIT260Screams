@@ -12,7 +12,7 @@ import screamsdisappeared.control.MoneyEarned;
  *
  * @author carriero
  */
-public class GallonsNeededView {
+public class GallonsNeededView extends View{
     private String display="";
 
     void displayGallonsNeededView() {
