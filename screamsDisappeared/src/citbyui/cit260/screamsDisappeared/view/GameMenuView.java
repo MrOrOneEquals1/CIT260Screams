@@ -88,15 +88,13 @@ public class GameMenuView extends View {
             case "I": // Display Inventory Items
                 this.startInventoryItems();
                 break;
-            case "Y": // Display Inventory Items
-
+            case "Y":
                 CalculationsMenuView calculationsMenuView = new CalculationsMenuView();
 
-                // Display the main menu view
                 calculationsMenuView.display();
 
                 break;
-            case "Z": // Display Inventory Items
+            case "Z":
                 this.closestZombie();
                 break;
             case "R":
@@ -184,10 +182,6 @@ public class GameMenuView extends View {
             line.insert(33, item.getQuantityInStock());
             System.out.println(line.toString());
         }
-    }
-
-    private void startCalculationsMenu() {
-        System.out.println("\n*** startSaveGame function called ***");
     }
 
     private void closestZombie() {

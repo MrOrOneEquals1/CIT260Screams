@@ -6,6 +6,7 @@
 package citbyui.cit260.screamsDisappeared.view;
 
 import java.util.Scanner;
+import screamsdisappeared.control.GallonsNeeded;
 import screamsdisappeared.control.MoneyEarned;
 
 /**
@@ -48,7 +49,7 @@ public class GallonsNeededView extends View{
                 
                 int milesRemainingOnTank = getMilesRemainingOnTank();
 
-                GallonsNeeded gallonsNeeded = new MoneGallonsNeededyEarned();
+                GallonsNeeded gallonsNeeded = new GallonsNeeded();
 
                 double gallons = gallonsNeeded.calcGallonsNeeded(milesToNextStation, mpgOfCar, milesRemainingOnTank);
 
@@ -88,24 +89,24 @@ public class GallonsNeededView extends View{
 
     }
 
-    private int getZombieDogsKilled() {
+    private int getmpgOfCar() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
-        int zombieDogsKilled = 0;       
+        int mpgOfCar = 0;       
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many ZombieDogs did you kill?");
+            System.out.println("\n How many miles per gallon does your car get?");
 
-            zombieDogsKilled = keyboard.nextInt(); // get next line typed on keyboard
+            mpgOfCar = keyboard.nextInt(); // get next line typed on keyboard
 
-            if (zombieDogsKilled < 0) {  //zombieDogs killed is negative
-                System.out.println("\nInvalid value: value cannot be negative");
+            if (mpgOfCar < 10) {  //zombieDogs killed is negative
+                System.out.println("\nYour car has to get better than 10 mpg.");
                 return -1;
             }
 
-            if (zombieDogsKilled > 25) {  //zombieDogs killed is more than 25
-                System.out.println("\nInvalid value: value cannot be more than 25");
+            if (mpgOfCar > 50) {  //zombieDogs killed is more than 25
+                System.out.println("\nLet's be honest, no car gets over 50 mpg.");
                 return -1;
             }
 
@@ -113,7 +114,36 @@ public class GallonsNeededView extends View{
         
         }
         
-        return zombieDogsKilled; // return the value entered;
+        return mpgOfCar; // return the value entered;
+
+    }
+    
+        private int getMilesRemainingOnTank() {
+
+        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+
+        boolean valid = false; // initialize to not valid
+        int milesRemainingOnTank = 0;       
+        while (!valid) { // loop while an invalid value is enter
+            System.out.println("\n How many miles per gallon does your car get?");
+
+            milesRemainingOnTank = keyboard.nextInt(); // get next line typed on keyboard
+
+            if (milesRemainingOnTank < 0) {  //zombieDogs killed is negative
+                System.out.println("\nYour value has to be non-negative.");
+                return -1;
+            }
+
+            if (milesRemainingOnTank > 20) {  //zombieDogs killed is more than 25
+                System.out.println("\nYou have to have less than 20 miles left on the tank.");
+                return -1;
+            }
+
+        break;  // end the loop
+        
+        }
+        
+        return milesRemainingOnTank; // return the value entered;
 
     }
 }

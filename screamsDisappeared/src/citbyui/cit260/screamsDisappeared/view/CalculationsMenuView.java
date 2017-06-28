@@ -37,8 +37,6 @@ public class CalculationsMenuView extends View{
 
         switch (choice) {
             case "G":
-                this.GallonsNeededView();
-
                 GallonsNeededView gallonsNeededView = new GallonsNeededView();
 
                 gallonsNeededView.display();
@@ -80,10 +78,6 @@ public class CalculationsMenuView extends View{
         }
 
         return rtnValue;
-    }
-
-    private void GallonsNeededView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

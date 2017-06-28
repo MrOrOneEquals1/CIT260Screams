@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class GallonsNeeded {
     
-    public double calcGallonsNeeded (double milesRemainingOnTank, double milesToNextStation, double mpgOfCar) {
+    public double calcGallonsNeeded (double milesToNextStation, double mpgOfCar, double milesRemainingOnTank) {
     
     if (milesRemainingOnTank < 0) {
         try {     
