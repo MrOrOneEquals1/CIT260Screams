@@ -221,19 +221,19 @@ public class GameMenuView extends View {
         
        
        System.out.println("\n  LIST OF ZOMBIE DOGS");
-        line = new StringBuilder("                                         ");
+        line = new StringBuilder("                                  ");
         line.insert(0, "BREED");
         line.insert(20, "WEIGHT");
-        line.insert(30, "LOCATION");
+        //line.insert(30, "LOCATION");
         System.out.println(line.toString());
         
        for (ZombieDogs zd : ZombieDogs.values()) {
            
-            line = new StringBuilder("                                                                                       ");
+            line = new StringBuilder("                               ");
             line.insert(0, zd.name());
             line.insert(20, zd.getWeight());
             //line.insert(30, "(" + zd.getCoordinates().x + ", ");
-            //line.insert(35, zd.getCoordinates().y+ ")");
+           // line.insert(35, zd.getCoordinates().y+ ")");
             System.out.println(line.toString());
             
            
