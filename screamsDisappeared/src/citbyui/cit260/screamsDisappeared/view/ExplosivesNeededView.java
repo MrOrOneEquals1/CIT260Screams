@@ -69,9 +69,9 @@ public class ExplosivesNeededView {
                 System.out.println("\n Wow You just need " + totalExplosives + " explosives");
             }
             // do the requested action and display the next view
-            HelpMenuView helpMenuView = new HelpMenuView();
-
-            done = helpMenuView.doAction("L");
+            CalculationsMenuView cmv = new CalculationsMenuView();
+            
+            done = cmv.doAction("M");
 
         } while (!done);
 
