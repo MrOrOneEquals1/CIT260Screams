@@ -9,6 +9,7 @@ import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
 import byui.cit260.screamsDisappeared.model.Weapons;
 import byui.cit260.screamsDisappeared.model.Zombie;
+import byui.cit260.screamsDisappeared.model.ZombieDogs;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +40,7 @@ public class GameMenuView extends View {
                 + "\nV - View Map"
                 + "\nI - View a list of inventory Items"
                 + "\nZ - See the Closest Zombie"
-                + "\nX - See the list of the Zombie dogs sort by race"
+                + "\nY - See the list of the Zombie dogs sort by lowet weight"
                 + "\nW - See the Weapon Lowest price "
                 + "\nS - Save game"
                 + "\nQ - Exit Game"
@@ -89,12 +90,10 @@ public class GameMenuView extends View {
             case "Z": // Display Inventory Items
                 this.closestZombie();
                 break;
-            case "X":
-
+            case "Y":
                 this.ZombieDogs();
                 break;
             case "W":
-
                 this.LowestPrice();
                 break;
             case "S": // Save the current Game
@@ -216,8 +215,38 @@ public class GameMenuView extends View {
     }
 
     private void ZombieDogs() {
-        System.out.println("\n*** ZombieDogs function called ***");
+       StringBuilder line;
+       Game game = ScreamsDisappeared.getCurrentGame(); 
+          
+        
+       
+       System.out.println("\n  LIST OF ZOMBIE DOGS");
+        line = new StringBuilder("                                         ");
+        line.insert(0, "BREED");
+        line.insert(20, "WEIGHT");
+        line.insert(30, "LOCATION");
+        System.out.println(line.toString());
+        
+       for (ZombieDogs zd : ZombieDogs.values()) {
+           
+            line = new StringBuilder("                                                                                       ");
+            line.insert(0, zd.name());
+            line.insert(20, zd.getWeight());
+            //line.insert(30, "(" + zd.getCoordinates().x + ", ");
+            //line.insert(35, zd.getCoordinates().y+ ")");
+            System.out.println(line.toString());
+            
+           
+       }
+              
+      for (ZombieDogs zd :EnumSet.range(ZombieDogs.Pug, ZombieDogs.Beagle))  
+       System.out.println("The lowest Weight is a "+zd.name()
+               +".The Weight is "+ zd.getWeight());
+      
+         doAction("Y");     
+    
     }
+    
 
     private void LowestPrice() {
         StringBuilder line;
@@ -251,7 +280,7 @@ public class GameMenuView extends View {
       
  
        
-             doAction("M");
+             doAction("W");
     
     }
 }      

@@ -5,11 +5,58 @@
  */
 package byui.cit260.screamsDisappeared.model;
 
+import java.awt.Point;
+import java.io.Serializable;
+import java.util.Random;
+
 /**
  *
  * @author David Vera
  */
-public class ZombieDogs  implements Comparable<ZombieDogs>{
+
+public enum ZombieDogs implements Serializable {
+
+Pug (10),
+Beagle (15),
+Rottweiler (30),
+Bulldog (35),
+Doberman (40);
+
+private final int weight;
+private final Point coordinates;
+
+    ZombieDogs(int weight) {
+
+    this.weight = weight;
+
+    Random rand = new Random();
+    coordinates = new Point (rand.nextInt(10),rand.nextInt(10));
+
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+    
+    public Point getCoordinates() {
+    return coordinates;
+
+    }
+    
+    @Override
+
+    public String toString() {
+        String Weight = null;
+
+    return name() + "    Weight = " + weight + ",    coordinates = (" + getCoordinates().x + ", "
+                    + getCoordinates().y + ").";
+
+    }
+
+    
+
+}
+/*public class ZombieDogs  implements Comparable<ZombieDogs>{
     
     private String race, size, weight;
 
@@ -56,4 +103,4 @@ public class ZombieDogs  implements Comparable<ZombieDogs>{
     }
     
     
-}
+}*/
