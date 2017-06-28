@@ -40,7 +40,7 @@ public class GameMenuView extends View {
                 + "\nI - View a list of inventory Items"
                 + "\nZ - See the Closest Zombie"
                 + "\nX - See the list of the Zombie dogs sort by race"
-                + "\nX - See the Weapon Lowest price "
+                + "\nW - See the Weapon Lowest price "
                 + "\nS - Save game"
                 + "\nQ - Exit Game"
                 + "\n------------------------------------------");

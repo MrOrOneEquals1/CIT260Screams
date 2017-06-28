@@ -108,7 +108,7 @@ public class ExplosivesNeededView {
 
     }
 
-    private int getwidthOfRoom() {
+    private int getwidthOfRoom() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
@@ -116,15 +116,28 @@ public class ExplosivesNeededView {
         int widthOfRoom = 0;
         while (!valid) { // loop while an invalid value is enter
             System.out.println("Please enter the width of the room");
+        try {
+             
+            String lengthstring = (keyboard.next()); 
+            
+            widthOfRoom = parseInt(lengthstring); // get next line typed on keyboard
+            
+            if (widthOfRoom < 11 || widthOfRoom > 15) {
+                
+            
+            throw new CalculationControlException("The width of the room has to be between 11 and 15.");
+            }
 
-            widthOfRoom = keyboard.nextInt(); // get next line typed on keyboard
-
-            break;  // end the loop
+            valid = true;  // end the loop
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+            }
         }
         System.out.println("\n Good job! You have entered the right value.");
         return widthOfRoom; // return the value entered;
 
     }
+    
 
     private int getheightOfRoom() {
 
@@ -143,5 +156,6 @@ public class ExplosivesNeededView {
         return heightOfRoom; // return the value entered;
 
     }
-
 }
+
+
