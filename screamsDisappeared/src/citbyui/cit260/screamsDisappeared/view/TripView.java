@@ -50,9 +50,9 @@ public abstract class TripView implements TripViewInterface {
                 System.out.println("\nYou have to make " + trips + " trips");
             }
             // do the requested action and display the next view
-            HelpMenuView helpMenuV = new HelpMenuView();
+            GameMenuView gmv = new GameMenuView();
             
-            done = helpMenuV.doAction("L");
+            done = gmv.doAction("Y");
 
         } while (!done);
 
