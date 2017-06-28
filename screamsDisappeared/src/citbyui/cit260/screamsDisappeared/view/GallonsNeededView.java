@@ -56,9 +56,9 @@ public class GallonsNeededView extends View{
                 System.out.println("\nYou need to get " + gallons + " gallons before you can leave the town and drive to the safety of another city.");
             }
             // do the requested action and display the next view
-            CalculationsMenuView cmv = new CalculationsMenuView();
+            GameMenuView gmv = new GameMenuView();
             
-            done = cmv.doAction("M");
+            done = gmv.doAction("Y");
 
         } while (!done);
 
