@@ -39,6 +39,7 @@ public class GameMenuView extends View {
                 + "\nH - Help Menu"
                 + "\nV - View Map"
                 + "\nI - View a list of inventory Items"
+                + "\nY - Calculation Menu"
                 + "\nZ - See the Closest Zombie"
                 + "\nR - See the list of the Zombie dogs sort by lowet weight"
                 + "\nW - See the Weapon Lowest price "
@@ -86,6 +87,14 @@ public class GameMenuView extends View {
                 break;
             case "I": // Display Inventory Items
                 this.startInventoryItems();
+                break;
+            case "Y": // Display Inventory Items
+                this.CalculationsMenuView();
+                CalculationsMenuView calculationsMenuView = new CalculationsMenuView();
+
+                // Display the main menu view
+                calculationsMenuView.display();
+
                 break;
             case "Z": // Display Inventory Items
                 this.closestZombie();
@@ -177,6 +186,10 @@ public class GameMenuView extends View {
         }
     }
 
+    private void startCalculationsMenu() {
+        System.out.println("\n*** startSaveGame function called ***");
+    }
+
     private void closestZombie() {
         StringBuilder line;
 
@@ -189,22 +202,21 @@ public class GameMenuView extends View {
                 + ". Description is " + closestZombie.getDescription() + ". "
                 + " Located at (" + closestZombie.getCoordinates().x + ", "
                 + closestZombie.getCoordinates().y + ").");
-        
+
         System.out.println("Here is the complete list of Zombies, their descriptions, and locations.");
-        
+
         for (Zombie z : Zombie.values()) {
             line = new StringBuilder("                                                                                       ");
             line.insert(0, z.name());
             line.insert(15, z.getDescription());
             line.insert(53, "(" + z.getCoordinates().x + ", ");
-            line.insert(56, z.getCoordinates().y+ ")");
+            line.insert(56, z.getCoordinates().y + ")");
             System.out.println(line.toString());
             
         }       
         
         doAction("X");
     }
-    
 
     private void startSaveGame() {
         System.out.println("\n*** startSaveGame function called ***");
@@ -250,32 +262,25 @@ public class GameMenuView extends View {
 
     private void LowestPrice() {
         StringBuilder line;
-       Game game = ScreamsDisappeared.getCurrentGame(); 
-          
-        
-       
-       System.out.println("\n  LIST OF WEAPONS");
+        Game game = ScreamsDisappeared.getCurrentGame();
+
+        System.out.println("\n  LIST OF WEAPONS");
         line = new StringBuilder("                                         ");
         line.insert(0, "WEAPON");
         line.insert(20, "PRICE");
         line.insert(30, "LOCATION");
         System.out.println(line.toString());
-        
-       for (Weapons w : Weapons.values()) {
-           
+
+        for (Weapons w : Weapons.values()) {
+
             line = new StringBuilder("                                                                                       ");
             line.insert(0, w.name());
             line.insert(20, w.getPrice());
             line.insert(30, "(" + w.getCoordinates().x + ", ");
-            line.insert(35, w.getCoordinates().y+ ")");
+            line.insert(35, w.getCoordinates().y + ")");
             System.out.println(line.toString());
-            
-           ;
-       }
-        
-      for (Weapons w :EnumSet.range(Weapons.Knife, Weapons.Rifle))  
-       System.out.println("The lowest Price is a "+w.name()
-               +".The price is $"+ w.getPrice());  
+            ;
+        }
 
       
  
@@ -283,5 +288,4 @@ public class GameMenuView extends View {
              doAction("Z1");
     
     }
-}      
-        
+}
