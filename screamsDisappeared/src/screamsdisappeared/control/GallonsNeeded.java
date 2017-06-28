@@ -5,6 +5,10 @@
  */
 package screamsdisappeared.control;
 
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Darin
@@ -14,7 +18,11 @@ public class GallonsNeeded {
     public double calcGallonsNeeded (double milesRemainingOnTank, double milesToNextStation, double mpgOfCar) {
     
     if (milesRemainingOnTank < 0) {
-        return -1;     
+        try {     
+            throw new CalculationControlException("The miles remaining on tank cannot be negative.");
+        } catch (CalculationControlException ex) {
+            Logger.getLogger(GallonsNeeded.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
  
     if (milesToNextStation < 0) {

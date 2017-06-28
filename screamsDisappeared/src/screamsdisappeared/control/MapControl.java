@@ -91,7 +91,7 @@ public class MapControl {
     }
 
   
-    static void moveActorsToStarttingLocation(Map map) {
+    public static void moveActorsToStarttingLocation(Map map) {
         System.out.println("\n*** moveActorstoStartLocation function called ***");
     }
 

@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.util.Scanner;
 
 /**
@@ -12,12 +13,12 @@ import java.util.Scanner;
  * @author Darin
  */
 public class LocationMenuView extends View {
-    
+
     private String menu;
     private String promptMessage;
 
     public LocationMenuView() {
-        super ("\n"
+        super("\n"
                 + "\n------------------------------------------"
                 + "\n| Location Menu                           |"
                 + "\n------------------------------------------"
@@ -64,24 +65,29 @@ public class LocationMenuView extends View {
                 this.tripNeededView();
                 // Creat GallonsNeededView object
                 TripNeededView tripNeededView = new TripNeededView();
-                
+
                 //Display the gallons needed view
-                tripNeededView.displayTripNeededView();               
+                tripNeededView.displayTripNeededView();
                 break;
             case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
-                
+
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
-                
-                moneyEarnedView.displayMoneyEarnedView();               
+
+                moneyEarnedView.displayMoneyEarnedView();
                 break;
-                
+
             case "X": // Display the option to enter information to calculate
                 this.ExplosivesNeededView();
-                
+
                 ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
-                
-                explosivesNeededView.displayExplosivesNeededView();               
+                try {
+                    explosivesNeededView.displayExplosivesNeededView();
+                } catch (CalculationControlException me) {
+                    System.out.println(me.getMessage());
+                    doAction("X");
+                }
+
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
@@ -118,14 +124,14 @@ public class LocationMenuView extends View {
     }
 
     private void MoneyEarnedView() {
-        
+
     }
 
     private void ExplosivesNeededView() {
-        
+
     }
 
-     private void moveCharacterView() {
+    private void moveCharacterView() {
         System.out.println("\n*** moveCharacterView function called ***");
     }
 

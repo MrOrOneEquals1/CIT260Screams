@@ -26,29 +26,35 @@ public class ScreamsDisappeared {
         
         
         StartProgramView startProgramView = new StartProgramView();
+        try {
         startProgramView.display();
-        
-        ZombieDogs Z1 = new ZombieDogs("Pug", "Small", "10 Kilos");
-        ZombieDogs Z2 = new ZombieDogs("Beagle", "Medium", "15 Kilos");
-        ZombieDogs Z3 = new ZombieDogs("Rottweiler", "Big", "30 Kilos");
-        ZombieDogs Z4 = new ZombieDogs("Bulldog", "Big", "35 Kilos");
-        ZombieDogs Z5 = new ZombieDogs("Doberman", "Big", "40 Kilos");
-        
-        List<ZombieDogs> zombieDogs = new ArrayList<>();
-        
-        zombieDogs.add(Z1);
-        zombieDogs.add(Z2);
-        zombieDogs.add(Z3);
-        zombieDogs.add(Z4);
-        zombieDogs.add(Z5);
-        
-        Collections.sort(zombieDogs);
-        
-        System.out.println("Race     \tSize     \tWeight");
-        for (ZombieDogs element: zombieDogs){
-            
-            System.out.println(element);
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
         }
+        
+//        ZombieDogs Z1 = new ZombieDogs("Pug", "Small", "10 Kilos");
+//        ZombieDogs Z2 = new ZombieDogs("Beagle", "Medium", "15 Kilos");
+//        ZombieDogs Z3 = new ZombieDogs("Rottweiler", "Big", "30 Kilos");
+//        ZombieDogs Z4 = new ZombieDogs("Bulldog", "Big", "35 Kilos");
+//        ZombieDogs Z5 = new ZombieDogs("Doberman", "Big", "40 Kilos");
+//        
+//        List<ZombieDogs> zombieDogs = new ArrayList<>();
+//        
+//        zombieDogs.add(Z1);
+//        zombieDogs.add(Z2);
+//        zombieDogs.add(Z3);
+//        zombieDogs.add(Z4);
+//        zombieDogs.add(Z5);
+//        
+//        Collections.sort(zombieDogs);
+//        
+//        System.out.println("Race     \tSize     \tWeight");
+//        for (ZombieDogs element: zombieDogs){
+//            
+//            System.out.println(element);
+//        }
     }
 
     private static Game currentGame = null;
