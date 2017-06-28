@@ -54,9 +54,9 @@ public class MoneyEarnedView {
                 System.out.println("\nYou have earned " + dollars + " dollars");
             }
             // do the requested action and display the next view
-            HelpMenuView hmv = new HelpMenuView();
+            CalculationsMenuView cmv = new CalculationsMenuView();
             
-            done = hmv.doAction("L");
+            done = cmv.doAction("M");
 
         } while (!done);
 

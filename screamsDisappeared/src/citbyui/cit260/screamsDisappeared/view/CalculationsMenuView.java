@@ -39,7 +39,7 @@ public class CalculationsMenuView extends View{
             case "G":
                 GallonsNeededView gallonsNeededView = new GallonsNeededView();
 
-                gallonsNeededView.display();
+                gallonsNeededView.displayGallonsNeededView();
                 break;
             case "T": // Display the option to enter information to calculate
 

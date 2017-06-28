@@ -56,9 +56,9 @@ public class TripNeededView extends TripView{
                 System.out.println("\nYou have to make " + trips + " trips");
             }
             // do the requested action and display the next view
-            HelpMenuView helpMenuV = new HelpMenuView();
+            CalculationsMenuView cmv = new CalculationsMenuView();
             
-            done = helpMenuV.doAction("L");
+            done = cmv.doAction("M");
 
         } while (!done);
 

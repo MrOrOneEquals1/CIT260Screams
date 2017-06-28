@@ -18,7 +18,7 @@ public class GallonsNeededView extends View{
 
     void displayGallonsNeededView() {
         System.out.println(display);
-        gallonsNeededYn();
+        displayGallonsNeededYn();
     }
 
     public GallonsNeededView() {
@@ -28,7 +28,7 @@ public class GallonsNeededView extends View{
                 + "\n------------------------------------------";
     }
 
-    public void gallonsNeededYn() {
+    public void displayGallonsNeededYn() {
 
         boolean done = false; // set flag to not done
         do {
@@ -125,7 +125,7 @@ public class GallonsNeededView extends View{
         boolean valid = false; // initialize to not valid
         int milesRemainingOnTank = 0;       
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many miles per gallon does your car get?");
+            System.out.println("\n How many miles can you drive on the gas remaining in your tank?");
 
             milesRemainingOnTank = keyboard.nextInt(); // get next line typed on keyboard
 
