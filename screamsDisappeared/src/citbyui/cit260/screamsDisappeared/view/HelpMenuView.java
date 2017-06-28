@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.util.Scanner;
 
 /**
@@ -72,7 +73,13 @@ public class HelpMenuView extends View {
                 this.explosivesNeededView();
                 // Creat MainMenuView object
                 ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
-                explosivesNeededView.displayExplosivesNeededView();
+                   try {
+                    explosivesNeededView.displayExplosivesNeededView();
+                } catch (CalculationControlException me) {
+                    System.out.println(me.getMessage());
+                    doAction("N");
+                }
+
               break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");

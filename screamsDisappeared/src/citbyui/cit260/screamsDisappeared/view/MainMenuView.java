@@ -94,13 +94,7 @@ public class MainMenuView extends View {
                 moneyEarnedView.displayMoneyEarnedView();
                 break;
 
-            case "X": // Display the option to enter information to calculate
-                this.ExplosivesNeededView();
 
-                ExplosivesNeededView explosivesNeededView = new ExplosivesNeededView();
-
-                explosivesNeededView.displayExplosivesNeededView();
-                break;
             case "D": // Display Description of Game
                 this.startSceneDescription();
                 break;
