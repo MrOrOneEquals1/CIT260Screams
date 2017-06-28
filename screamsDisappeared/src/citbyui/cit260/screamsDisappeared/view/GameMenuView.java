@@ -223,7 +223,7 @@ public class GameMenuView extends View {
        System.out.println("\n  LIST OF ZOMBIE DOGS");
         line = new StringBuilder("                                  ");
         line.insert(0, "BREED");
-        line.insert(20, "WEIGHT");
+        line.insert(20, "WEIGHT IN KILOS");
         //line.insert(30, "LOCATION");
         System.out.println(line.toString());
         
@@ -241,7 +241,7 @@ public class GameMenuView extends View {
               
       for (ZombieDogs zd :EnumSet.range(ZombieDogs.Pug, ZombieDogs.Beagle))  
        System.out.println("The lowest Weight is a "+zd.name()
-               +".The Weight is "+ zd.getWeight());
+               +".The Weight is "+ zd.getWeight() + " Kilos");
       
          doAction("R1");     
     

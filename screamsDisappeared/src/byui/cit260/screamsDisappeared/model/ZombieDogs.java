@@ -20,6 +20,11 @@ Pug (10),
 Beagle (10),
 Rottweiler (30),
 Bulldog (35),
+Husky (32),
+Pitbull (34),
+Galgo (38),
+Boxer (30),
+
 Doberman (40);
 
 private final int weight;
