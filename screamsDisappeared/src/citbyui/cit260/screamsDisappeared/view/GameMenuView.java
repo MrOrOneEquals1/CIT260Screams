@@ -40,7 +40,7 @@ public class GameMenuView extends View {
                 + "\nV - View Map"
                 + "\nI - View a list of inventory Items"
                 + "\nZ - See the Closest Zombie"
-                + "\nY - See the list of the Zombie dogs sort by lowet weight"
+                + "\nR - See the list of the Zombie dogs sort by lowet weight"
                 + "\nW - See the Weapon Lowest price "
                 + "\nS - Save game"
                 + "\nQ - Exit Game"
@@ -90,7 +90,7 @@ public class GameMenuView extends View {
             case "Z": // Display Inventory Items
                 this.closestZombie();
                 break;
-            case "Y":
+            case "R":
                 this.ZombieDogs();
                 break;
             case "W":
@@ -202,7 +202,7 @@ public class GameMenuView extends View {
             
         }       
         
-        doAction("M");
+        doAction("X");
     }
     
 
@@ -243,7 +243,7 @@ public class GameMenuView extends View {
        System.out.println("The lowest Weight is a "+zd.name()
                +".The Weight is "+ zd.getWeight());
       
-         doAction("Y");     
+         doAction("R1");     
     
     }
     
@@ -280,7 +280,7 @@ public class GameMenuView extends View {
       
  
        
-             doAction("W");
+             doAction("Z1");
     
     }
 }      

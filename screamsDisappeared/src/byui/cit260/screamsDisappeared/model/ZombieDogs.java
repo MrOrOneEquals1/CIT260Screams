@@ -17,7 +17,7 @@ import java.util.Random;
 public enum ZombieDogs implements Serializable {
 
 Pug (10),
-Beagle (15),
+Beagle (10),
 Rottweiler (30),
 Bulldog (35),
 Doberman (40);
