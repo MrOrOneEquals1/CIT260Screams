@@ -69,6 +69,15 @@ public class LocationMenuView extends View {
                 //Display the gallons needed view
                 tripNeededView.displayTripNeededView();
                 break;
+            case "T": // Display the option to enter information to calculate
+                this.moveCharacterView();
+                // Creat GallonsNeededView object
+                MoveCharacterView moveCharacterView = new MoveCharacterView();
+
+                //Display the gallons needed view
+                moveCharacterView.display();
+                break;
+                
             case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
 
@@ -134,5 +143,7 @@ public class LocationMenuView extends View {
     private void moveCharacterView() {
         System.out.println("\n*** moveCharacterView function called ***");
     }
+
+    
 
 }
