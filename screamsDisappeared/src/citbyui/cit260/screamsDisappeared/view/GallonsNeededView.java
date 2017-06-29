@@ -98,7 +98,7 @@ public class GallonsNeededView extends View {
 
     }
 
-    private int getmpgOfCar() {
+    private int getmpgOfCar() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
@@ -106,20 +106,23 @@ public class GallonsNeededView extends View {
         int mpgOfCar = 0;
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many miles per gallon does your car get?");
+            try {
+                String lengthstring = (keyboard.next()); // get next line typed on keyboard                
 
-            mpgOfCar = keyboard.nextInt(); // get next line typed on keyboard
+                mpgOfCar = parseInt(lengthstring);
 
-            if (mpgOfCar < 10) {  //zombieDogs killed is negative
-                System.out.println("\nYour car has to get better than 10 mpg.");
-                return -1;
+                if (mpgOfCar < 10 || mpgOfCar > 50) {                   
+              
+                   throw new CalculationControlException("The miles per gallon has to be between 10 and 50.");
+
+                }
+
+                valid = true;
+
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+
             }
-
-            if (mpgOfCar > 50) {  //zombieDogs killed is more than 25
-                System.out.println("\nLet's be honest, no car gets over 50 mpg.");
-                return -1;
-            }
-
-            break;  // end the loop
 
         }
 
@@ -127,7 +130,7 @@ public class GallonsNeededView extends View {
 
     }
 
-    private int getMilesRemainingOnTank() {
+    private int getMilesRemainingOnTank() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
@@ -135,20 +138,24 @@ public class GallonsNeededView extends View {
         int milesRemainingOnTank = 0;
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many miles can you drive on the gas remaining in your tank?");
+            try {
+                String lengthstring = (keyboard.next()); // get next line typed on keyboard                
 
+                milesRemainingOnTank = parseInt(lengthstring);
+
+                if (milesRemainingOnTank < 0 || milesRemainingOnTank > 20) {                   
+              
+                   throw new CalculationControlException("The amount of miles remaining has to be between 0 and 20.");
+
+                }
+
+                valid = true;
+
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+
+            }
             milesRemainingOnTank = keyboard.nextInt(); // get next line typed on keyboard
-
-            if (milesRemainingOnTank < 0) {  //zombieDogs killed is negative
-                System.out.println("\nYour value has to be non-negative.");
-                return -1;
-            }
-
-            if (milesRemainingOnTank > 20) {  //zombieDogs killed is more than 25
-                System.out.println("\nYou have to have less than 20 miles left on the tank.");
-                return -1;
-            }
-
-            break;  // end the loop
 
         }
 
