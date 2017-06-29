@@ -38,8 +38,12 @@ public class CalculationsMenuView extends View{
         switch (choice) {
             case "G":
                 GallonsNeededView gallonsNeededView = new GallonsNeededView();
-
-                gallonsNeededView.displayGallonsNeededView();
+                try {
+                    gallonsNeededView.displayGallonsNeededView();
+                } catch (CalculationControlException me) {
+                    System.out.println(me.getMessage());
+                    doAction("G");
+                }
                 break;
             case "T": // Display the option to enter information to calculate
 

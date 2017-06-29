@@ -5,18 +5,21 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import screamsdisappeared.control.GallonsNeeded;
-import screamsdisappeared.control.MoneyEarned;
+
 
 /**
  *
  * @author carriero
  */
-public class GallonsNeededView extends View{
-    private String display="";
+public class GallonsNeededView extends View {
 
-    void displayGallonsNeededView() {
+    private String display = "";
+
+    void displayGallonsNeededView() throws CalculationControlException {
         System.out.println(display);
         displayGallonsNeededYn();
     }
@@ -28,7 +31,7 @@ public class GallonsNeededView extends View{
                 + "\n------------------------------------------";
     }
 
-    public void displayGallonsNeededYn() {
+    public void displayGallonsNeededYn() throws CalculationControlException {
 
         boolean done = false; // set flag to not done
         do {
@@ -46,7 +49,7 @@ public class GallonsNeededView extends View{
                 int milesToNextStation = getMilesToNextStation();
 
                 int mpgOfCar = getmpgOfCar();
-                
+
                 int milesRemainingOnTank = getMilesRemainingOnTank();
 
                 GallonsNeeded gallonsNeeded = new GallonsNeeded();
@@ -57,14 +60,14 @@ public class GallonsNeededView extends View{
             }
             // do the requested action and display the next view
             GameMenuView gmv = new GameMenuView();
-            
+
             done = gmv.doAction("Y");
 
         } while (!done);
 
     }
 
-    private int getMilesToNextStation() {
+    private int getMilesToNextStation() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
         int milesToNextStation = 0;
@@ -72,18 +75,24 @@ public class GallonsNeededView extends View{
 
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many miles is it to the next gas station?");
+            try {
+                String lengthstring = (keyboard.next()); // get next line typed on keyboard                
 
-            milesToNextStation = keyboard.nextInt(); // get next line typed on keyboard
-            if (milesToNextStation < 0) {  //zombies killed is negative
-                System.out.println("\nThe miles to the next station cannot be negative");
-                return -1;
+                milesToNextStation = parseInt(lengthstring);
+
+                if (milesToNextStation < 80 || milesToNextStation > 500) {                   
+              
+                   throw new CalculationControlException("The miles to the next station has to be between 80 and 500");
+
+                }
+
+                valid = true;
+
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+
             }
 
-            if (milesToNextStation > 500) {  //zombies killed is more than 25
-                System.out.println("\nInvalid value: value cannot be more than 500");
-                return -1;
-            }
-            break;  // end the loop
         }
         return milesToNextStation; // return the value entered;
 
@@ -94,7 +103,7 @@ public class GallonsNeededView extends View{
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
-        int mpgOfCar = 0;       
+        int mpgOfCar = 0;
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many miles per gallon does your car get?");
 
@@ -110,20 +119,20 @@ public class GallonsNeededView extends View{
                 return -1;
             }
 
-        break;  // end the loop
-        
+            break;  // end the loop
+
         }
-        
+
         return mpgOfCar; // return the value entered;
 
     }
-    
-        private int getMilesRemainingOnTank() {
+
+    private int getMilesRemainingOnTank() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
-        int milesRemainingOnTank = 0;       
+        int milesRemainingOnTank = 0;
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many miles can you drive on the gas remaining in your tank?");
 
@@ -139,10 +148,10 @@ public class GallonsNeededView extends View{
                 return -1;
             }
 
-        break;  // end the loop
-        
+            break;  // end the loop
+
         }
-        
+
         return milesRemainingOnTank; // return the value entered;
 
     }
