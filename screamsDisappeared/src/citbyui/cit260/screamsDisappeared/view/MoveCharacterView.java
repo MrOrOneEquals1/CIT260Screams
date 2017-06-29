@@ -160,4 +160,5 @@ public class MoveCharacterView extends View{
     }
 
     
+    
 }
