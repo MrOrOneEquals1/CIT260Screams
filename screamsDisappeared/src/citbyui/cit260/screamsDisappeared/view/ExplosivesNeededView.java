@@ -139,23 +139,35 @@ public class ExplosivesNeededView {
     }
     
 
-    private int getheightOfRoom() {
-
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+    private int getheightOfRoom() throws CalculationControlException  {
+Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
         int heightOfRoom = 0;
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n Please enter the height of the room");
+            System.out.println("Please enter the width of the room");
+        try {
+             
+            String lengthstring = (keyboard.next()); 
+            
+            heightOfRoom = parseInt(lengthstring); // get next line typed on keyboard
+            
+            if (heightOfRoom < 15 ||heightOfRoom  > 20) {
+                
+            
+            throw new CalculationControlException("The height of the room has to be between 15 and 20.");
+            }
 
-            heightOfRoom = keyboard.nextInt(); // get next line typed on keyboard
-
-            break;  // end the loop
+            valid = true;  // end the loop
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+            }
         }
-        System.out.println("\n Good job! You have entered the right value");
+        System.out.println("\n Good job! You have entered the right value.");
         return heightOfRoom; // return the value entered;
-
-    }
+ 
+       
+}
 }
 
 
