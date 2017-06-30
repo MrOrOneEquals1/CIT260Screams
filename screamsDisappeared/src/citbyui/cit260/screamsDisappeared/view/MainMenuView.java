@@ -78,14 +78,14 @@ public class MainMenuView extends View {
                 // Display the game menu view
                 gameMenuView.display();
                 break;
-            case "C": // Display the option to enter information to calculate
+            /*case "C": // Display the option to enter information to calculate
                 this.tripNeededView();
                 // Creat GallonsNeededView object
                 TripNeededView tripNeededView = new TripNeededView();
 
                 //Display the gallons needed view
                 tripNeededView.displayTripNeededView();
-                break;
+                break;*/
             case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
 

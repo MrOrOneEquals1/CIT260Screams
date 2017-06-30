@@ -18,9 +18,9 @@ public class TripNeededView extends View{
      private String display="";
      
 
-    void displayTripNeededView() {
+    void displayTripNeededView() throws CalculationControlException {
         System.out.println(display);
-        display();
+        displaytripNeededView();
     }
 
     public TripNeededView() {
@@ -45,9 +45,9 @@ public class TripNeededView extends View{
                 return;
             } else {
 
-                int gallonsNeeded = gallonsNeeded();
+                int gallonsNeeded = getGallonsNeeded();
 
-                int bottlePerTrip = bottlePerTrip();
+                int bottlePerTrip = getBottlePerTrip();
                 
                 //int litersNeeded = litersNeeded();
 
@@ -66,30 +66,30 @@ public class TripNeededView extends View{
 
     }
 
-    public int gallonsNeeded() throws CalculationControlException {
+    private int getGallonsNeeded() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-
-        boolean valid = false; // initialize to not valid
         int gallonsNeeded = 0;
+        boolean valid = false; // initialize to not valid
+        
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n Enter the number of gallons");
-            String lengthstring = (keyboard.next());
+            
         try {            
-             // get next line typed on keyboard                
-
+            String lengthstring = (keyboard.next());// get next line typed on keyboard               
+              
             gallonsNeeded = parseInt(lengthstring);
-            }catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-            }
-                
             //gallonsNeeded = keyboard.nextInt(); // get next line typed on keyboard
             if (gallonsNeeded < 0 || gallonsNeeded > 15 ) {  //the numbers of gallos are out of range
                 
                 throw new CalculationControlException ("Invalid value: value cannot be out of range 1-15");
-                }            
-             
-                    valid = true;  // end the loop
+            }  
+            
+             valid = true;  // end the loop
+        }catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+        } 
+        
         }return gallonsNeeded; // return the value entered;    
         
         
@@ -98,40 +98,36 @@ public class TripNeededView extends View{
 
     
 
-     public int bottlePerTrip() throws CalculationControlException{
+     private int getBottlePerTrip() throws CalculationControlException{
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
         int bottlePerTrip = 0;
         while (!valid) { // loop while an invalid value is enter
+            
             System.out.println("\n How many bottles do you have?");
-            String lengthstring = (keyboard.next()); // get next line typed on keyboard                
+            
             try {               
-
+                String lengthstring = (keyboard.next()); // get next line typed on keyboard 
+                
                 bottlePerTrip = parseInt(lengthstring);
-                }
-            catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-            } 
-                //bottlePerTrip = keyboard.nextInt(); // get next line typed on keyboard
-            if (bottlePerTrip < 0 || bottlePerTrip > 2) {  //numbers of the botles are out of range
+                
+                if (bottlePerTrip < 0 || bottlePerTrip > 2) {  //numbers of the botles are out of range
                 
                 throw new CalculationControlException("Invalid value: value cannot be out of range 1-2.");
                 
                 }
-            
                 valid = true;  // end the loop
-        
-                    
+            }catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
+            } 
+                //bottlePerTrip = keyboard.nextInt(); // get next line typed on keyboard
+         }return bottlePerTrip;  
 
-        }return bottlePerTrip;  
-
-     }        
-            
-
-   
-    /*public int litersNeeded() throws CalculationControlException {
+     } 
+     
+     /*public int litersNeeded() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 

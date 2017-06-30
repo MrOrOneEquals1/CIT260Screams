@@ -50,7 +50,8 @@ public class CalculationsMenuView extends View{
                  TripNeededView tripNeededView = new TripNeededView();
 
                 //Display the gallons needed view
-                try {tripNeededView.displaytripNeededView();
+                try {
+                    tripNeededView.displayTripNeededView();
                 }catch (CalculationControlException me) {
                     System.out.println(me.getMessage());
                     doAction("T");
