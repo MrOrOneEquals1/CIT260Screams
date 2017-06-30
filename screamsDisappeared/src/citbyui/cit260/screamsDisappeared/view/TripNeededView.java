@@ -74,29 +74,25 @@ public class TripNeededView extends View{
         
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n Enter the number of gallons");
-            
-        try {            
-            String lengthstring = (keyboard.next());// get next line typed on keyboard               
+            String lengthstring = (keyboard.next());// get next line typed on keyboard
+        try {                           
               
             gallonsNeeded = parseInt(lengthstring);
             //gallonsNeeded = keyboard.nextInt(); // get next line typed on keyboard
-            if (gallonsNeeded < 0 || gallonsNeeded > 15 ) {  //the numbers of gallos are out of range
-                
-                throw new CalculationControlException ("Invalid value: value cannot be out of range 1-15");
-            }  
+            
             
              valid = true;  // end the loop
         }catch (NumberFormatException nf) {
                 System.out.println("\nYou must enter a valid number.");
         } 
-        
+        if (gallonsNeeded < 0 || gallonsNeeded > 15 ) {  //the numbers of gallos are out of range
+                
+                throw new CalculationControlException ("Invalid value: value cannot be out of range 1-15");
+        }  
         }return gallonsNeeded; // return the value entered;    
         
         
     }   
-        
-
-    
 
      private int getBottlePerTrip() throws CalculationControlException{
 
@@ -107,21 +103,22 @@ public class TripNeededView extends View{
         while (!valid) { // loop while an invalid value is enter
             
             System.out.println("\n How many bottles do you have?");
+            String lengthstring = (keyboard.next()); // get next line typed on keyboard 
             
-            try {               
-                String lengthstring = (keyboard.next()); // get next line typed on keyboard 
+            try {              
                 
                 bottlePerTrip = parseInt(lengthstring);
                 
-                if (bottlePerTrip < 0 || bottlePerTrip > 2) {  //numbers of the botles are out of range
                 
-                throw new CalculationControlException("Invalid value: value cannot be out of range 1-2.");
-                
-                }
                 valid = true;  // end the loop
             }catch (NumberFormatException nf) {
                 System.out.println("\nYou must enter a valid number.");
             } 
+            if (bottlePerTrip < 0 || bottlePerTrip > 2) {  //numbers of the botles are out of range
+                
+                throw new CalculationControlException("Invalid value: value cannot be out of range 1-2.");
+                
+            }
                 //bottlePerTrip = keyboard.nextInt(); // get next line typed on keyboard
          }return bottlePerTrip;  
 
