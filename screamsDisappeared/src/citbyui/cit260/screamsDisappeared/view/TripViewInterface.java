@@ -12,8 +12,8 @@ package citbyui.cit260.screamsDisappeared.view;
 public interface TripViewInterface {
     
     public void displaytripNeededView();
-    public int gallonsNeeded();    
-    public int litersNeeded();
-    public int bottlePerTrip();
+    //public int gallonsNeeded();    
+    //public int litersNeeded();
+    //public int bottlePerTrip();
     
 }

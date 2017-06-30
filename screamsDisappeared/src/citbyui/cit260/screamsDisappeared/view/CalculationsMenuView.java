@@ -47,9 +47,14 @@ public class CalculationsMenuView extends View{
                 break;
             case "T": // Display the option to enter information to calculate
 
-                TripNeededView tripNeededView = new TripNeededView();
+                 TripNeededView tripNeededView = new TripNeededView();
 
-                tripNeededView.displayTripNeededView();
+                //Display the gallons needed view
+                try {tripNeededView.displaytripNeededView();
+                }catch (CalculationControlException me) {
+                    System.out.println(me.getMessage());
+                    doAction("T");
+                }
                 break;
             case "E": // Display the option to enter information to calculate
 

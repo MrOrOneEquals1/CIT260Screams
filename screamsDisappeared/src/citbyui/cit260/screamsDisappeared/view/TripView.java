@@ -45,7 +45,7 @@ public abstract class TripView implements TripViewInterface {
 
                 TripNeeded tripNeeded = new TripNeeded();
 
-                double trips = tripNeeded.calcTripNeeded(gallonsNeeded,litersNeeded, bottlePerTrip);
+                double trips = tripNeeded.calcTripNeeded(gallonsNeeded, bottlePerTrip);
 
                 System.out.println("\nYou have to make " + trips + " trips");
             }
@@ -58,7 +58,6 @@ public abstract class TripView implements TripViewInterface {
 
     }
 
-    @Override
     public int gallonsNeeded() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
@@ -83,7 +82,7 @@ public abstract class TripView implements TripViewInterface {
         
 
     
-    @Override
+    
     public int litersNeeded() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
@@ -108,7 +107,7 @@ public abstract class TripView implements TripViewInterface {
 
     }
     
-    @Override
+    
      public int bottlePerTrip() {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard

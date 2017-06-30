@@ -27,7 +27,7 @@ public class LocationMenuView extends View {
                 + "\nP - Pick Up Object and Put It In Backpack"
                 + "\nU - Use Object from Backpack"
                 + "\nM - Main Menu"
-                + "\nC - Calculate the Trip Needed"
+                //+ "\nC - Calculate the Trip Needed"
                 + "\nT - Go to Move Character Menu"
                 + "\nE - Earn Money"
                 + "\nX - Explosives Needed"
@@ -61,14 +61,18 @@ public class LocationMenuView extends View {
                 // Display the main menu view
                 mainMenuView.display();
                 break;
-            case "C": // Display the option to enter information to calculate
-                this.tripNeededView();
+            /*case "C": // Display the option to enter information to calculate
+                //this.tripNeededView();
                 // Creat GallonsNeededView object
                 TripNeededView tripNeededView = new TripNeededView();
 
                 //Display the gallons needed view
-                tripNeededView.displayTripNeededView();
-                break;
+                try {tripNeededView.displaytripNeededView();
+                }catch (CalculationControlException me) {
+                    System.out.println(me.getMessage());
+                    doAction("C");
+                }
+                break;*/
             case "T": // Display the option to enter information to calculate
                 this.moveCharacterView();
                 // Creat GallonsNeededView object
@@ -128,9 +132,9 @@ public class LocationMenuView extends View {
         System.out.println("\n*** MainMenu function called ***");
     }
 
-    private void tripNeededView() {
+    /*private void tripNeededView() {
         System.out.println("\n*** tripNeededView function called ***");
-    }
+    }*/
 
     private void MoneyEarnedView() {
 
