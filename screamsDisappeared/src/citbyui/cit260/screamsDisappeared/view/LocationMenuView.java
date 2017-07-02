@@ -7,6 +7,8 @@ package citbyui.cit260.screamsDisappeared.view;
 
 import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +31,6 @@ public class LocationMenuView extends View {
                 + "\nM - Main Menu"
                 //+ "\nC - Calculate the Trip Needed"
                 + "\nT - Go to Move Character Menu"
-                + "\nE - Earn Money"
                 + "\nX - Explosives Needed"
                 + "\n------------------------------------------");
     }
@@ -82,13 +83,20 @@ public class LocationMenuView extends View {
                 moveCharacterView.display();
                 break;
                 
-            case "E": // Display the option to enter information to calculate
+           /* case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
 
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
 
+        {
+            try {
                 moneyEarnedView.displayMoneyEarnedView();
-                break;
+            } catch (CalculationControlException ex) {
+              System.out.println(me.getMessage());
+                    doAction("X");  
+            }
+        }
+                break;*/
 
             case "X": // Display the option to enter information to calculate
                 this.ExplosivesNeededView();
