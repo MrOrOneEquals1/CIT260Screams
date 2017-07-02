@@ -7,16 +7,17 @@ package citbyui.cit260.screamsDisappeared.view;
 
 import java.util.Scanner;
 import screamsdisappeared.control.MoneyEarned;
-
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
+import static java.lang.Integer.parseInt;
 /**
  *
  * @author carriero
  */
-public class MoneyEarnedView {
+public class MoneyEarnedView  {
 
     private String display="";
 
-    void displayMoneyEarnedView() {
+    void displayMoneyEarnedView() throws CalculationControlException {
         System.out.println(display);
         displayZombiesKilledYn();
     }
@@ -28,7 +29,7 @@ public class MoneyEarnedView {
                 + "\n------------------------------------------";
     }
 
-    public void displayZombiesKilledYn() {
+    public void displayZombiesKilledYn() throws CalculationControlException{
 
         boolean done = false; // set flag to not done
         do {
@@ -45,11 +46,11 @@ public class MoneyEarnedView {
 
                 int zombiesKilled = getZombiesKilled();
 
-                int zombieDogsKilled = getZombieDogsKilled();
+                int zombiesDogKilled = getZombiesDogKilled();
 
                 MoneyEarned moneyEarned = new MoneyEarned();
 
-                double dollars = moneyEarned.calcMoneyEarned(zombiesKilled, zombieDogsKilled);
+                double dollars = moneyEarned.calcMoneyEarned(zombiesKilled, zombiesDogKilled);
 
                 System.out.println("\nYou have earned " + dollars + " dollars");
             }
@@ -62,7 +63,7 @@ public class MoneyEarnedView {
 
     }
 
-    private int getZombiesKilled() {
+    private int getZombiesKilled() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
         int zombiesKilled = 0;
@@ -70,50 +71,58 @@ public class MoneyEarnedView {
 
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n How many Zombies did you kill?");
-
-            zombiesKilled = keyboard.nextInt(); // get next line typed on keyboard
-            if (zombiesKilled < 0) {  //zombies killed is negative
-                System.out.println("\nInvalid value: value cannot be negative");
-                return -1;
+try{
+           
+           String zombiesKilledstring = (keyboard.next()); // get next line typed on keyboard                
+                
+                zombiesKilled = parseInt(zombiesKilledstring);
+                
+            if (zombiesKilled < 0 || zombiesKilled >25) {  //zombies killed is negative
+                
+                 throw new CalculationControlException("The value has to be between 0 and 25.");
             }
-
-            if (zombiesKilled > 25) {  //zombies killed is more than 25
-                System.out.println("\nInvalid value: value cannot be more than 25");
-                return -1;
+           
+                valid = true;
+                
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
             }
-            break;  // end the loop
+            
         }
+        System.out.println("\n Good job! You have entered the right value.");
         return zombiesKilled; // return the value entered;
-
     }
-
-    private int getZombieDogsKilled() {
+    
+  private int getZombiesDogKilled() throws CalculationControlException {
 
         Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-
+        int zombiesDogKilled= 0;
         boolean valid = false; // initialize to not valid
-        int zombieDogsKilled = 0;       
+
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many ZombieDogs did you kill?");
-
-            zombieDogsKilled = keyboard.nextInt(); // get next line typed on keyboard
-
-            if (zombieDogsKilled < 0) {  //zombieDogs killed is negative
-                System.out.println("\nInvalid value: value cannot be negative");
-                return -1;
+            System.out.println("\n How many Zombies Dog did you kill?");
+try{
+          
+           String zombiesDogKilledstring = (keyboard.next()); // get next line typed on keyboard                
+                
+                zombiesDogKilled= parseInt(zombiesDogKilledstring);
+                
+            if (zombiesDogKilled < 0 || zombiesDogKilled >25) {  
+                
+                 throw new CalculationControlException("The value has to be between 0 and 25.");
             }
 
-            if (zombieDogsKilled > 25) {  //zombieDogs killed is more than 25
-                System.out.println("\nInvalid value: value cannot be more than 25");
-                return -1;
+              
+                valid = true;
+                
+            } catch (NumberFormatException nf) {
+                System.out.println("\nYou must enter a valid number.");
             }
-
-        break;  // end the loop
-        
+            
         }
-        
-        return zombieDogsKilled; // return the value entered;
-
-    }
+        System.out.println("\n Good job! You have entered the right value.");
+        return zombiesDogKilled; // return the value entered;
+   
+  }
 
 }
