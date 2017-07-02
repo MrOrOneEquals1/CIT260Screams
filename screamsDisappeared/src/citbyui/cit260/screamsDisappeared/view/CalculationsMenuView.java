@@ -59,10 +59,15 @@ public class CalculationsMenuView extends View{
                 break;
             case "E": // Display the option to enter information to calculate
 
-                MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
-
-                moneyEarnedView.displayMoneyEarnedView();
-                break;
+               MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
+                try {
+                    moneyEarnedView.displayMoneyEarnedView();
+                } catch (CalculationControlException me) {
+                    System.out.println(me.getMessage());
+                    doAction("E");
+                }
+                break;  
+                
 
             case "X": // Display the option to enter information to calculate
 
