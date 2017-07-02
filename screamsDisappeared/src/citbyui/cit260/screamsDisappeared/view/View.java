@@ -122,13 +122,13 @@ public abstract class View implements ViewInterface {
                 
                 moveCharacterView.display();               
                 break;           
-            case "E": // Display the option to enter information to calculate
+           /* case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
                 
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
                 
                 moneyEarnedView.displayMoneyEarnedView();               
-                break;
+                break;*/
                 
             case "D": // Display Description of Game
                 this.startSceneDescription();
