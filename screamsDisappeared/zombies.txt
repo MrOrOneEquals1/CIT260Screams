@@ -1,0 +1,32 @@
+The closest zombie is Heidi. Description is Sleepy.  Located at (4, 0).
+
+Here is the complete list of Zombies, their descriptions, and locations.
+
+            Zombie List 
+Name           Description                                 Location
+----           -----------                                 --------
+John           Smart, strong                                  (2,8)
+Sarah          Intuitive                                      (8,6)
+Sam            Quick                                          (6,8)
+Herman         Smart                                          (2,5)
+James          Strong                                         (7,6)
+Samantha       Can't walk                                     (8,1)
+Theresa        Lazy                                           (3,5)
+Franklin       Useless                                        (7,2)
+Libby          Dumb                                           (7,7)
+Brian          Doesn't understand English                     (3,5)
+Abigail        Is a good hider                                (5,4)
+Charles        Tells funny jokes before he eats you           (5,1)
+Oliver         Cries a lot                                    (7,6)
+Cleopatra      Bald                                           (2,4)
+Blair          Grumpy                                         (4,2)
+Scott          Bashful                                        (3,5)
+Lori           Dopey                                          (1,6)
+Heidi          Sleepy                                         (4,0)
+Stuart         Runs fast                                      (6,0)
+Kelsy          Very slow                                      (6,3)
+Cameron        Heavy                                          (0,4)
+Dana           Has turned others to Zombies                   (6,6)
+Callie         Mean and Nasty                                 (3,2)
+DD             Wants to fight                                 (5,7)
+Kayla          Hungry for food                                (5,8)

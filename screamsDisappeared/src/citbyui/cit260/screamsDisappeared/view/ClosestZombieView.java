@@ -7,7 +7,13 @@ package citbyui.cit260.screamsDisappeared.view;
 
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.Zombie;
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.awt.Point;
+import java.io.FileWriter;
+import java.io.IOException;
+import static java.lang.Integer.parseInt;
+import static java.lang.System.out;
+import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.GameControl;
 
@@ -16,7 +22,7 @@ import screamsdisappeared.control.GameControl;
  * @author carriero
  */
 public class ClosestZombieView extends View {
-    
+
     private String menu;
     private String promptMessage;
 
@@ -48,9 +54,9 @@ public class ClosestZombieView extends View {
                 gameMenuView.display();
                 break;
 
-//            case "S": // Return to Help Menu
-//                this.saveList();
-//                break;
+            case "S": // Return to Help Menu
+                this.saveList();
+                break;
 
             case "D":
                 this.closestZombie();
@@ -92,9 +98,67 @@ public class ClosestZombieView extends View {
             line.insert(53, "(" + z.getCoordinates().x + ", ");
             line.insert(56, z.getCoordinates().y + ")");
             System.out.println(line.toString());
-            
-        }       
-        
+
+        }
+
     }
-    
+
+    public void saveList() throws CalculationControlException {
+        String fileLocation = this.fileLocation();
+        StringBuilder line;
+
+        try (FileWriter outFile = new FileWriter(fileLocation)) {
+
+            Game game = ScreamsDisappeared.getCurrentGame();
+            Point currentLocation = new Point(game.getMap().getCurrentRow(), game.getMap().getCurrentColumn());
+
+            Zombie closestZombie = GameControl.getClosestZombie(currentLocation);
+
+            outFile.write("The closest zombie is " + closestZombie.name()
+                    + ". Description is " + closestZombie.getDescription() + ". "
+                    + " Located at (" + closestZombie.getCoordinates().x + ", "
+                    + closestZombie.getCoordinates().y + ").");
+
+            outFile.write(String.format("%n%nHere is the complete list of Zombies, their descriptions, and locations."));
+            outFile.write(String.format("%n%n            Zombie List "));
+            outFile.write(String.format("%n%-15s%-37s%15s", "Name", "Description", "Location"));
+            outFile.write(String.format("%n%-15s%-37s%15s", "----", "-----------", "--------"));
+
+            for (Zombie z : Zombie.values()) {
+                //line = new StringBuilder("                                                                                       ");
+                outFile.write(String.format("%n%-15s%-37s%15s", z.name(), z.getDescription(), "(" + z.getCoordinates().x + "," + z.getCoordinates().y + ")"));
+//                line.insert(15, z.getDescription());
+//                line.insert(53, "(" + z.getCoordinates().x + ", ");
+//                line.insert(56, z.getCoordinates().y + ")");
+//                outFile.write(line.toString());
+            }
+        } catch (IOException ex) {
+            System.out.println("Error saving Players names to file");
+        }
+        System.out.println("The list has been saved to " + fileLocation);
+
+    }
+
+    private String fileLocation() {
+
+        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+
+        boolean valid = false; // initialize to not valid
+        String fileLocation = null;
+        while (!valid) { // loop while an invalid value is enter
+            System.out.println("\n What is the name of the file you want to save?");
+
+                fileLocation = (keyboard.next()); // get next line typed on keyboard                
+                
+                if (fileLocation.length() < 1) {
+                    System.out.println("\nYou must enter a valid name.");
+                    valid = false;
+                }
+
+                valid = true;
+
+            }
+        return fileLocation;
+        }
+        
 }
