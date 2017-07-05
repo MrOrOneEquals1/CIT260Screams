@@ -14,13 +14,18 @@
 package citbyui.cit260.screamsDisappeared.view;
 
 import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.util.Scanner;
+import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.ExplosivesNeeded;
 
 public class ExplosivesNeededView {
 
     private String display = "";
+    protected final BufferedReader keyboard = ScreamsDisappeared.getInFile();
+    protected final PrintWriter console = ScreamsDisappeared.getOutFile();      
 
     void displayExplosivesNeededView() throws CalculationControlException {
         System.out.println(display);
@@ -38,12 +43,11 @@ public class ExplosivesNeededView {
     public void displayExplosives() throws CalculationControlException {
 
         boolean done = false; // set flag to not done
-        do {
+        try {
 
             System.out.println("\n Do you want to know how many explosives do you need to kill the zombies?? (Y/N)");
-            Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
             String explosives = ""; //value to be returned 
-            explosives = keyboard.nextLine();
+            explosives = this.keyboard.readLine();
             explosives = explosives.trim();
             if (!explosives.toUpperCase().equals("Y")) // user wants to proceed
             {
@@ -73,7 +77,9 @@ public class ExplosivesNeededView {
             
             done = gmv.doAction("Y");
 
-        } while (!done);
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
 
     }
 

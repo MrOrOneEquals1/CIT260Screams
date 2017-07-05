@@ -80,8 +80,6 @@ public class ScreamsDisappeared {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    
-    private static PrintWriter logFile = null;
 
     public static void setCurrentGame(Game currentGame) {
         ScreamsDisappeared.currentGame = currentGame;
@@ -113,12 +111,7 @@ public class ScreamsDisappeared {
     }
 
     public static BufferedReader getInFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return inFile;
     }
-
-    public static BufferedReader getInFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-   
+ 
 }

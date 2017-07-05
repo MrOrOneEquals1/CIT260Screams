@@ -141,14 +141,15 @@ public class ClosestZombieView extends View {
 
     private String fileLocation() {
 
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
         boolean valid = false; // initialize to not valid
         String fileLocation = null;
+        
+        try {
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n What is the name of the file you want to save?");
 
-                fileLocation = (keyboard.next()); // get next line typed on keyboard                
+                fileLocation = (this.keyboard.readLine()); // get next line typed on keyboard                
                 
                 if (fileLocation.length() < 1) {
                     System.out.println("\nYou must enter a valid name.");
@@ -158,7 +159,10 @@ public class ClosestZombieView extends View {
                 valid = true;
 
             }
-        return fileLocation;
-        }
+        
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }return fileLocation;
+    }
         
 }
