@@ -40,7 +40,7 @@ public class GameMenuView extends View {
                 + "\nV - View Map"
                 + "\nI - View a list of inventory Items"
                 + "\nY - Calculation Menu"
-                + "\nZ - See the Closest Zombie"
+                + "\nZ - Closest Zombie List"
                 + "\nR - See the list of the Zombie dogs sort by lowet weight"
                 + "\nW - See the Weapon Lowest price "
                 + "\nS - Save game"
@@ -95,7 +95,10 @@ public class GameMenuView extends View {
 
                 break;
             case "Z":
-                this.closestZombie();
+                ClosestZombieView closestZombieView = new ClosestZombieView();
+
+                closestZombieView.display();
+                doAction("Z");
                 break;
             case "R":
                 this.ZombieDogs();
@@ -184,34 +187,6 @@ public class GameMenuView extends View {
         }
     }
 
-    private void closestZombie() {
-        StringBuilder line;
-
-        Game game = ScreamsDisappeared.getCurrentGame();
-        Point currentLocation = new Point(game.getMap().getCurrentRow(), game.getMap().getCurrentColumn());
-
-        Zombie closestZombie = GameControl.getClosestZombie(currentLocation);
-
-        System.out.println("The closest zombie is " + closestZombie.name()
-                + ". Description is " + closestZombie.getDescription() + ". "
-                + " Located at (" + closestZombie.getCoordinates().x + ", "
-                + closestZombie.getCoordinates().y + ").");
-
-        System.out.println("Here is the complete list of Zombies, their descriptions, and locations.");
-
-        for (Zombie z : Zombie.values()) {
-            line = new StringBuilder("                                                                                       ");
-            line.insert(0, z.name());
-            line.insert(15, z.getDescription());
-            line.insert(53, "(" + z.getCoordinates().x + ", ");
-            line.insert(56, z.getCoordinates().y + ")");
-            System.out.println(line.toString());
-            
-        }       
-        
-        doAction("X");
-    }
-
     private void startSaveGame() {
         System.out.println("\n*** startSaveGame function called ***");
     }
@@ -221,38 +196,35 @@ public class GameMenuView extends View {
     }
 
     private void ZombieDogs() {
-       StringBuilder line;
-       Game game = ScreamsDisappeared.getCurrentGame(); 
-          
-        
-       
-       System.out.println("\n  LIST OF ZOMBIE DOGS");
+        StringBuilder line;
+        Game game = ScreamsDisappeared.getCurrentGame();
+
+        System.out.println("\n  LIST OF ZOMBIE DOGS");
         line = new StringBuilder("                                  ");
         line.insert(0, "BREED");
         line.insert(20, "WEIGHT IN KILOS");
         //line.insert(30, "LOCATION");
         System.out.println(line.toString());
-        
-       for (ZombieDogs zd : ZombieDogs.values()) {
-           
+
+        for (ZombieDogs zd : ZombieDogs.values()) {
+
             line = new StringBuilder("                               ");
             line.insert(0, zd.name());
             line.insert(20, zd.getWeight());
             //line.insert(30, "(" + zd.getCoordinates().x + ", ");
-           // line.insert(35, zd.getCoordinates().y+ ")");
+            // line.insert(35, zd.getCoordinates().y+ ")");
             System.out.println(line.toString());
-            
-           
-       }
-              
-      for (ZombieDogs zd :EnumSet.range(ZombieDogs.Pug, ZombieDogs.Beagle))  
-       System.out.println("The lowest Weight is a "+zd.name()
-               +".The Weight is "+ zd.getWeight() + " Kilos");
-      
-         doAction("R1");     
-    
+
+        }
+
+        for (ZombieDogs zd : EnumSet.range(ZombieDogs.Pug, ZombieDogs.Beagle)) {
+            System.out.println("The lowest Weight is a " + zd.name()
+                    + ".The Weight is " + zd.getWeight() + " Kilos");
+        }
+
+        doAction("R1");
+
     }
-    
 
     private void LowestPrice() {
         StringBuilder line;
@@ -276,10 +248,7 @@ public class GameMenuView extends View {
             ;
         }
 
-      
- 
-       
-             doAction("Z1");
-    
+        doAction("Z1");
+
     }
 }
