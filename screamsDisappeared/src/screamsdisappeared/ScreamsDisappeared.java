@@ -8,6 +8,7 @@ package screamsdisappeared;
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.ZombieDogs;
+import citbyui.cit260.screamsDisappeared.view.ErrorView;
 import citbyui.cit260.screamsDisappeared.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,7 +48,8 @@ public class ScreamsDisappeared {
 
            
         } catch (Exception e) {
-            System.out.println("Exception: " + e.toString()
+            
+            ErrorView.display("ScreamsDisappeared","Exception: " + e.toString()
                     + "\nCause: " + e.getCause()
                     + "\nMessage: " + e.getMessage());
 
@@ -68,7 +70,7 @@ public class ScreamsDisappeared {
                 }
                 
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                ErrorView.display("ScreamsDisappeared","Error closing files");
                 return;
             }
 

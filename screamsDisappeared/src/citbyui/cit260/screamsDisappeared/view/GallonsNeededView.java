@@ -25,7 +25,7 @@ public class GallonsNeededView extends View {
     protected final PrintWriter console = ScreamsDisappeared.getOutFile();      
 
     void displayGallonsNeededView() throws CalculationControlException {
-        System.out.println(display);
+        this.console.println(display);
         displayGallonsNeededYn();
     }
 
@@ -41,7 +41,7 @@ public class GallonsNeededView extends View {
         boolean done = false; // set flag to not done
         try {
 
-            System.out.println("\n Do you want to calculate how many gallons are needed? (Y/N)");
+            this.console.println("\n Do you want to calculate how many gallons are needed? (Y/N)");
             String gallonsNeededYn = ""; //value to be returned 
             gallonsNeededYn = this.keyboard.readLine();
             gallonsNeededYn = gallonsNeededYn.trim();
@@ -60,7 +60,7 @@ public class GallonsNeededView extends View {
 
                 double gallons = gallonsNeeded.calcGallonsNeeded(milesToNextStation, mpgOfCar, milesRemainingOnTank);
 
-                System.out.println("\nYou need to get " + gallons + " gallons before you can leave the town and drive to the safety of another city.");
+                this.console.println("\nYou need to get " + gallons + " gallons before you can leave the town and drive to the safety of another city.");
             }
             // do the requested action and display the next view
             GameMenuView gmv = new GameMenuView();
@@ -68,7 +68,7 @@ public class GallonsNeededView extends View {
             done = gmv.doAction("Y");
 
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
 
     }
@@ -80,7 +80,7 @@ public class GallonsNeededView extends View {
         boolean valid = false; // initialize to not valid
 
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many miles is it to the next gas station?");
+            this.console.println("\n How many miles is it to the next gas station?");
             try {
                 String lengthstring = (keyboard.next()); // get next line typed on keyboard                
 
@@ -95,7 +95,7 @@ public class GallonsNeededView extends View {
                 valid = true;
 
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
 
             }
 
@@ -111,7 +111,7 @@ public class GallonsNeededView extends View {
         boolean valid = false; // initialize to not valid
         int mpgOfCar = 0;
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many miles per gallon does your car get?");
+            this.console.println("\n How many miles per gallon does your car get?");
             try {
                 String lengthstring = (keyboard.next()); // get next line typed on keyboard                
 
@@ -126,7 +126,7 @@ public class GallonsNeededView extends View {
                 valid = true;
 
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
 
             }
 
@@ -143,7 +143,7 @@ public class GallonsNeededView extends View {
         boolean valid = false; // initialize to not valid
         int milesRemainingOnTank = 0;
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many miles can you drive on the gas remaining in your tank?");
+            this.console.println("\n How many miles can you drive on the gas remaining in your tank?");
             try {
                 String lengthstring = (keyboard.next()); // get next line typed on keyboard                
 
@@ -158,7 +158,7 @@ public class GallonsNeededView extends View {
                 valid = true;
 
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
 
             }
             milesRemainingOnTank = keyboard.nextInt(); // get next line typed on keyboard

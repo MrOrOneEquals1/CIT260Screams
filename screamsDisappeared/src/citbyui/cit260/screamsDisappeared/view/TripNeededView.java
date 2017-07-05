@@ -24,7 +24,7 @@ public class TripNeededView extends View{
      
 
     void displayTripNeededView() throws CalculationControlException {
-        System.out.println(display);
+        this.console.println(display);
         displayTripNeededViewYn();
     }
 
@@ -40,7 +40,7 @@ public class TripNeededView extends View{
         boolean done = false; // set flag to not done
         try {
 
-            System.out.println("\n Do you want to get gas for the car? (Y/N)");
+            this.console.println("\n Do you want to get gas for the car? (Y/N)");
             String tripNeededView = ""; //value to be returned 
             tripNeededView = this.keyboard.readLine();
             tripNeededView = tripNeededView.trim();
@@ -59,7 +59,7 @@ public class TripNeededView extends View{
 
                 double trips = tripNeeded.calcTripNeeded(gallonsNeeded, bottlePerTrip);
 
-                System.out.println("\nYou have to make " + trips + " trips");
+                this.console.println("\nYou have to make " + trips + " trips");
             }
             // do the requested action and display the next view
             GameMenuView gmv = new GameMenuView();
@@ -67,7 +67,7 @@ public class TripNeededView extends View{
             done = gmv.doAction("Y");
 
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
 
     }
@@ -79,7 +79,7 @@ public class TripNeededView extends View{
         boolean valid = false; // initialize to not valid
         
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n Enter the number of gallons");
+            this.console.println("\n Enter the number of gallons");
             String lengthstring = (keyboard.next());// get next line typed on keyboard
         try {                           
               
@@ -89,7 +89,7 @@ public class TripNeededView extends View{
             
              valid = true;  // end the loop
         }catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
         } 
         if (gallonsNeeded < 0 || gallonsNeeded > 15 ) {  //the numbers of gallos are out of range
                 
@@ -108,7 +108,7 @@ public class TripNeededView extends View{
         int bottlePerTrip = 0;
         while (!valid) { // loop while an invalid value is enter
             
-            System.out.println("\n How many bottles do you have?");
+            this.console.println("\n How many bottles do you have?");
             String lengthstring = (keyboard.next()); // get next line typed on keyboard 
             
             try {              
@@ -118,7 +118,7 @@ public class TripNeededView extends View{
                 
                 valid = true;  // end the loop
             }catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
             } 
             if (bottlePerTrip < 0 || bottlePerTrip > 2) {  //numbers of the botles are out of range
                 

@@ -63,7 +63,7 @@ public class ClosestZombieView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -73,7 +73,7 @@ public class ClosestZombieView extends View {
     }
 
     private void mainMenuView() {
-        System.out.println("\n*** DisplymainMenuView function called ***");
+        this.console.println("\n*** DisplymainMenuView function called ***");
     }
 
     private void closestZombie() {
@@ -84,12 +84,12 @@ public class ClosestZombieView extends View {
 
         Zombie closestZombie = GameControl.getClosestZombie(currentLocation);
 
-        System.out.println("The closest zombie is " + closestZombie.name()
+        this.console.println("The closest zombie is " + closestZombie.name()
                 + ". Description is " + closestZombie.getDescription() + ". "
                 + " Located at (" + closestZombie.getCoordinates().x + ", "
                 + closestZombie.getCoordinates().y + ").");
 
-        System.out.println("Here is the complete list of Zombies, their descriptions, and locations.");
+        this.console.println("Here is the complete list of Zombies, their descriptions, and locations.");
 
         for (Zombie z : Zombie.values()) {
             line = new StringBuilder("                                                                                       ");
@@ -97,7 +97,7 @@ public class ClosestZombieView extends View {
             line.insert(15, z.getDescription());
             line.insert(53, "(" + z.getCoordinates().x + ", ");
             line.insert(56, z.getCoordinates().y + ")");
-            System.out.println(line.toString());
+            this.console.println(line.toString());
 
         }
 
@@ -133,9 +133,9 @@ public class ClosestZombieView extends View {
 //                outFile.write(line.toString());
             }
         } catch (IOException ex) {
-            System.out.println("Error saving Players names to file");
+            ErrorView.display(this.getClass().getName(),"Error saving Players names to file");
         }
-        System.out.println("The list has been saved to " + fileLocation);
+        this.console.println("The list has been saved to " + fileLocation);
 
     }
 
@@ -147,12 +147,12 @@ public class ClosestZombieView extends View {
         
         try {
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n What is the name of the file you want to save?");
+            this.console.println("\n What is the name of the file you want to save?");
 
                 fileLocation = (this.keyboard.readLine()); // get next line typed on keyboard                
                 
                 if (fileLocation.length() < 1) {
-                    System.out.println("\nYou must enter a valid name.");
+                    ErrorView.display(this.getClass().getName(),"\nYou must enter a valid name.");
                     valid = false;
                 }
 
@@ -161,7 +161,7 @@ public class ClosestZombieView extends View {
             }
         
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }return fileLocation;
     }
         

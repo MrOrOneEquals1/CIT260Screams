@@ -113,7 +113,7 @@ public class GameMenuView extends View {
                 this.startExitGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -123,23 +123,23 @@ public class GameMenuView extends View {
     }
 
     private void mainMenuView() {
-        System.out.println("\n*** DisplymainMenuView function called ***");
+        this.console.println("\n*** DisplymainMenuView function called ***");
     }
 
     private void startSelectCharacter() {
-        System.out.println("\n*** StartSelectCharacter function called ***");
+        this.console.println("\n*** StartSelectCharacter function called ***");
     }
 
     private void restartGameMenuView() {
-        System.out.println("\n*** DisplayGameMenuView function called ***");
+        this.console.println("\n*** DisplayGameMenuView function called ***");
     }
 
     private void startGetDescriptionGame() {
-        System.out.println("\n*** startGetDescriptionGame function called ***");
+        this.console.println("\n*** startGetDescriptionGame function called ***");
     }
 
     private void helpMenuView() {
-        System.out.println("\n*** DisplayHelpMenuView function called ***");
+        this.console.println("\n*** DisplayHelpMenuView function called ***");
     }
 
     private void startViewMap() {
@@ -148,19 +148,19 @@ public class GameMenuView extends View {
         Game game = ScreamsDisappeared.getCurrentGame();
         InventoryItem[] inventory = game.getInventory();
 
-        System.out.println("\n        Screams of the Disappeared");
+        this.console.println("\n        Screams of the Disappeared");
         line = new StringBuilder("                                         ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "REQUIRED");
         line.insert(30, "IN STOCK");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         for (InventoryItem item : inventory) {
             line = new StringBuilder("                                            ");
             line.insert(0, item.getDescription());
             line.insert(23, item.getRequiredAmount());
             line.insert(33, item.getQuantityInStock());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
 
     }
@@ -171,40 +171,40 @@ public class GameMenuView extends View {
         Game game = ScreamsDisappeared.getCurrentGame();
         InventoryItem[] inventory = game.getInventory();
 
-        System.out.println("\n        LIST OF INVENTORY ITEMS");
+        this.console.println("\n        LIST OF INVENTORY ITEMS");
         line = new StringBuilder("                                         ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "REQUIRED");
         line.insert(30, "IN STOCK");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         for (InventoryItem item : inventory) {
             line = new StringBuilder("                                            ");
             line.insert(0, item.getDescription());
             line.insert(23, item.getRequiredAmount());
             line.insert(33, item.getQuantityInStock());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }
 
     private void startSaveGame() {
-        System.out.println("\n*** startSaveGame function called ***");
+        this.console.println("\n*** startSaveGame function called ***");
     }
 
     private void startExitGame() {
-        System.out.println("\n*** startExitGame function called ***");
+        this.console.println("\n*** startExitGame function called ***");
     }
 
     private void ZombieDogs() {
         StringBuilder line;
         Game game = ScreamsDisappeared.getCurrentGame();
 
-        System.out.println("\n  LIST OF ZOMBIE DOGS");
+        this.console.println("\n  LIST OF ZOMBIE DOGS");
         line = new StringBuilder("                                  ");
         line.insert(0, "BREED");
         line.insert(20, "WEIGHT IN KILOS");
         //line.insert(30, "LOCATION");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         for (ZombieDogs zd : ZombieDogs.values()) {
 
@@ -213,12 +213,12 @@ public class GameMenuView extends View {
             line.insert(20, zd.getWeight());
             //line.insert(30, "(" + zd.getCoordinates().x + ", ");
             // line.insert(35, zd.getCoordinates().y+ ")");
-            System.out.println(line.toString());
+            this.console.println(line.toString());
 
         }
 
         for (ZombieDogs zd : EnumSet.range(ZombieDogs.Pug, ZombieDogs.Beagle)) {
-            System.out.println("The lowest Weight is a " + zd.name()
+            this.console.println("The lowest Weight is a " + zd.name()
                     + ".The Weight is " + zd.getWeight() + " Kilos");
         }
 
@@ -230,12 +230,12 @@ public class GameMenuView extends View {
         StringBuilder line;
         Game game = ScreamsDisappeared.getCurrentGame();
 
-        System.out.println("\n  LIST OF WEAPONS");
+        this.console.println("\n  LIST OF WEAPONS");
         line = new StringBuilder("                                         ");
         line.insert(0, "WEAPON");
         line.insert(20, "PRICE");
         line.insert(30, "LOCATION");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         for (Weapons w : Weapons.values()) {
 
@@ -244,7 +244,7 @@ public class GameMenuView extends View {
             line.insert(20, w.getPrice());
             line.insert(30, "(" + w.getCoordinates().x + ", ");
             line.insert(35, w.getCoordinates().y + ")");
-            System.out.println(line.toString());
+            this.console.println(line.toString());
             ;
         }
 

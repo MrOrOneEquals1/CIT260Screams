@@ -14,7 +14,7 @@ public class HomeLightOnView extends View{
     
     
     void displayMenu() {
-       System.out.println("\n*** displayMenu stub function called ***");
+       this.console.println("\n*** displayMenu stub function called ***");
    }
     private String menu;
     private String promptMessage;
@@ -58,7 +58,7 @@ public class HomeLightOnView extends View{
                 this.goOutside();
                 break;   
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -70,23 +70,23 @@ public class HomeLightOnView extends View{
     
 
     private void goTotheCity() {
-        System.out.println("\n*** goTotheCity function called");
+        this.console.println("\n*** goTotheCity function called");
     }
 
     private void goTotheCar() {
-    System.out.println("\n*** goTotheCar function called");    
+    this.console.println("\n*** goTotheCar function called");    
     }
 
     private void goInsideTheHouse() {
-    System.out.println("\n*** goInsideTheHouse function called");    
+    this.console.println("\n*** goInsideTheHouse function called");    
     }
 
     private void goToTheGasStation() {
-     System.out.println("\n*** goToTheGasStation function called");   
+     this.console.println("\n*** goToTheGasStation function called");   
     }
 
     private void goOutside() {
-    System.out.println("\n*** goOutside function called");  
+    this.console.println("\n*** goOutside function called");  
     }
 
     

@@ -55,14 +55,14 @@ public abstract class View implements ViewInterface {
         try {
             while (!valid) { // loop while an invalid value is enter
                 if (displayMessage != null) {
-                    System.out.println("\n" + displayMessage);
+                    this.console.println("\n" + displayMessage);
                 }
 
                 value = this.keyboard.readLine(); // get next line typed on keyboard
                 value = value.trim(); // trim off leading and trailing blanks
 
                 if (value.length() < 1) { // value is blank
-                    System.out.println("\nI*** You must enter a value ***");
+                    ErrorView.display(this.getClass().getName(),"\nI*** You must enter a value ***");
                     continue;
                 }
 
@@ -70,7 +70,7 @@ public abstract class View implements ViewInterface {
 
             }
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
 
         return value; // return the value entered
@@ -159,7 +159,7 @@ public abstract class View implements ViewInterface {
                 locationMenuView.display();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
             case "Z": // Display the move character menu
@@ -184,62 +184,62 @@ public abstract class View implements ViewInterface {
     }
 
     private void startExistingGame() {
-        System.out.println("\n*** startExitingGame() function called ***");
+        this.console.println("\n*** startExitingGame() function called ***");
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n*** displayHelpMenu() function called ***");
+        this.console.println("\n*** displayHelpMenu() function called ***");
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame() function called ***");
+        this.console.println("\n*** saveGame() function called ***");
     }
 
     private void DisplayRestartGameMenu() {
-        System.out.println("\n*** RestartGameMenuView) function called ***");
+        this.console.println("\n*** RestartGameMenuView) function called ***");
     }
 
     private void displayGameMenuView() {
-        System.out.println("\n*** RestartGameMenuView) function called ***");
+        this.console.println("\n*** RestartGameMenuView) function called ***");
     }
 
     private void tripNeededView() {
-        System.out.println("\n*** tripNeededView) function called ***");
+        this.console.println("\n*** tripNeededView) function called ***");
     }
 
     private void MoneyEarnedView() {
-        System.out.println("\n*** MoneyEarnedView) function called ***");
+        this.console.println("\n*** MoneyEarnedView) function called ***");
     }
 
     private void ExplosivesNeededView() {
-        System.out.println("\n*** explosivesNeededView) function called ***");
+        this.console.println("\n*** explosivesNeededView) function called ***");
     }
 
     private void startSceneDescription() {
-        System.out.println("\n*** startSceneDiscription) function called ***");
+        this.console.println("\n*** startSceneDiscription) function called ***");
     }
 
     private void startLeaveScene() {
-        System.out.println("\n*** startLeaveScene) function called ***");
+        this.console.println("\n*** startLeaveScene) function called ***");
     }
 
     private void startPickUpObject() {
-        System.out.println("\n*** startPickUpObject function called ***");
+        this.console.println("\n*** startPickUpObject function called ***");
     }
 
     private void startUseObject() {
-        System.out.println("\n*** startUseObject function called ***");
+        this.console.println("\n*** startUseObject function called ***");
     }
 
     private void locationMenuView() {
-        System.out.println("\n*** locationMenuView function called ***");
+        this.console.println("\n*** locationMenuView function called ***");
     }
 
     private void moveCharacterView() {
-        System.out.println("\n*** moveCharacterView function called ***");
+        this.console.println("\n*** moveCharacterView function called ***");
     }
 
     private void homeLightOnView() {
-        System.out.println("\n*** homeLightOnView function called ***");
+        this.console.println("\n*** homeLightOnView function called ***");
     }
 }

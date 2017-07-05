@@ -28,7 +28,7 @@ public class ExplosivesNeededView {
     protected final PrintWriter console = ScreamsDisappeared.getOutFile();      
 
     void displayExplosivesNeededView() throws CalculationControlException {
-        System.out.println(display);
+        this.console.println(display);
         displayExplosives();
 
     }
@@ -45,17 +45,17 @@ public class ExplosivesNeededView {
         boolean done = false; // set flag to not done
         try {
 
-            System.out.println("\n Do you want to know how many explosives do you need to kill the zombies?? (Y/N)");
+            this.console.println("\n Do you want to know how many explosives do you need to kill the zombies?? (Y/N)");
             String explosives = ""; //value to be returned 
             explosives = this.keyboard.readLine();
             explosives = explosives.trim();
             if (!explosives.toUpperCase().equals("Y")) // user wants to proceed
             {
-                System.out.println("\n We are sad.You have chosen not to know how many explosives you need");
+                this.console.println("\n We are sad.You have chosen not to know how many explosives you need");
 
                 return;
             } else {
-                System.out.println("\n Thank you for your intersting in the game");
+                this.console.println("\n Thank you for your intersting in the game");
             }
             {
 
@@ -70,7 +70,7 @@ public class ExplosivesNeededView {
 
                 double totalExplosives = explosivesNeeded.calcExplosivesNeeded(lengthOfRoom, widthOfRoom, heightOfRoom);
 
-                System.out.println("\n Wow You just need " + totalExplosives + " explosives");
+                this.console.println("\n Wow You just need " + totalExplosives + " explosives");
             }
             // do the requested action and display the next view
             GameMenuView gmv = new GameMenuView();
@@ -78,7 +78,7 @@ public class ExplosivesNeededView {
             done = gmv.doAction("Y");
 
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
 
     }
@@ -90,7 +90,7 @@ public class ExplosivesNeededView {
         boolean valid = false; // initialize to not valid
         int lengthOfRoom = 0;
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n Please enter the length of the room");
+            this.console.println("\n Please enter the length of the room");
             try {
                 String lengthstring = (keyboard.next()); // get next line typed on keyboard                
                 
@@ -105,11 +105,11 @@ public class ExplosivesNeededView {
                 valid = true;
                 
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
             }
             
         }
-        System.out.println("\n Good job! You have entered the right value.");
+        this.console.println("\n Good job! You have entered the right value.");
         return lengthOfRoom; // return the value entered;
 
     }
@@ -121,7 +121,7 @@ public class ExplosivesNeededView {
         boolean valid = false; // initialize to not valid
         int widthOfRoom = 0;
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("Please enter the width of the room");
+            this.console.println("Please enter the width of the room");
         try {
              
             String lengthstring = (keyboard.next()); 
@@ -136,10 +136,10 @@ public class ExplosivesNeededView {
 
             valid = true;  // end the loop
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
             }
         }
-        System.out.println("\n Good job! You have entered the right value.");
+        this.console.println("\n Good job! You have entered the right value.");
         return widthOfRoom; // return the value entered;
 
     }
@@ -151,7 +151,7 @@ Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
         boolean valid = false; // initialize to not valid
         int heightOfRoom = 0;
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("Please enter the width of the room");
+            this.console.println("Please enter the width of the room");
         try {
              
             String lengthstring = (keyboard.next()); 
@@ -166,10 +166,10 @@ Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
 
             valid = true;  // end the loop
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
             }
         }
-        System.out.println("\n Good job! You have entered the right value.");
+        this.console.println("\n Good job! You have entered the right value.");
         return heightOfRoom; // return the value entered;
  
        

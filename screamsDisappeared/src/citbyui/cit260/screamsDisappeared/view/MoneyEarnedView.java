@@ -23,7 +23,7 @@ public class MoneyEarnedView  {
     protected final PrintWriter console = ScreamsDisappeared.getOutFile();    
 
     void displayMoneyEarnedView() throws CalculationControlException {
-        System.out.println(display);
+        this.console.println(display);
         displayZombiesKilledYn();
     }
 
@@ -39,7 +39,7 @@ public class MoneyEarnedView  {
         boolean done = false; // set flag to not done
         try {
 
-            System.out.println("\n Do you want to get money for the Zombies and Zombiedogs? (Y/N)");
+            this.console.println("\n Do you want to get money for the Zombies and Zombiedogs? (Y/N)");
             String zombiesKilledYn = ""; //value to be returned 
             zombiesKilledYn = keyboard.readLine();
             zombiesKilledYn = zombiesKilledYn.trim();
@@ -56,7 +56,7 @@ public class MoneyEarnedView  {
 
                 double dollars = moneyEarned.calcMoneyEarned(zombiesKilled, zombiesDogKilled);
 
-                System.out.println("\nYou have earned " + dollars + " dollars");
+                this.console.println("\nYou have earned " + dollars + " dollars");
             }
             // do the requested action and display the next view
             GameMenuView gmv = new GameMenuView();
@@ -64,7 +64,7 @@ public class MoneyEarnedView  {
             done = gmv.doAction("Y");
 
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
 
     }
@@ -76,7 +76,7 @@ public class MoneyEarnedView  {
         boolean valid = false; // initialize to not valid
 
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many Zombies did you kill?");
+            this.console.println("\n How many Zombies did you kill?");
 try{
            
            String zombiesKilledstring = (keyboard.next()); // get next line typed on keyboard                
@@ -91,11 +91,11 @@ try{
                 valid = true;
                 
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
             }
             
         }
-        System.out.println("\n Good job! You have entered the right value.");
+        this.console.println("\n Good job! You have entered the right value.");
         return zombiesKilled; // return the value entered;
     }
     
@@ -106,7 +106,7 @@ try{
         boolean valid = false; // initialize to not valid
 
         while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n How many Zombies Dog did you kill?");
+            this.console.println("\n How many Zombies Dog did you kill?");
 try{
           
            String zombiesDogKilledstring = (keyboard.next()); // get next line typed on keyboard                
@@ -122,11 +122,11 @@ try{
                 valid = true;
                 
             } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
             }
             
         }
-        System.out.println("\n Good job! You have entered the right value.");
+        this.console.println("\n Good job! You have entered the right value.");
         return zombiesDogKilled; // return the value entered;
    
   }

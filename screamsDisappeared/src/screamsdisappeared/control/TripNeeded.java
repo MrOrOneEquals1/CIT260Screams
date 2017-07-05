@@ -11,18 +11,6 @@ package screamsdisappeared.control;
 public class TripNeeded {
     
     public double calcTripNeeded (double gallonsNeeded,  double bottlePerTrip) {
-        System.out.println (gallonsNeeded);
-        /*if (gallonsNeeded < 0 || gallonsNeeded > 15){ //Gallons needed are out of range
-            return -1;
-        }
-            
-        if (litersNeeded < 0 || litersNeeded > 56.78) { //Liter needed are out of range
-            return -1;
-        }
-    
-        if (bottlePerTrip < 0 || bottlePerTrip > 2) { //Bottle per trip are out of range
-            return -1;
-        }*/
     
         double literNeeded = gallonsNeeded*3.7854118;
         double numbersOfTrip = Math.ceil(literNeeded/(bottlePerTrip*2));//Each bottle will have a capacity of two liters, and the user only can carry up to two bottles per trip

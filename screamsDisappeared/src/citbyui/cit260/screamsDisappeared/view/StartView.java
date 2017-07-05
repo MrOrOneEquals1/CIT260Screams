@@ -45,7 +45,7 @@ public class StartView extends View {
                 this.CityCenter();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -55,11 +55,11 @@ public class StartView extends View {
     }
 
     private void HomeLightOn() {
-        System.out.println("*** HomeLightOn called ***");
+        this.console.println("*** HomeLightOn called ***");
     }
 
     private void CityCenter() {
-        System.out.println("*** CityCenter called ***");
+        this.console.println("*** CityCenter called ***");
     }
 
     

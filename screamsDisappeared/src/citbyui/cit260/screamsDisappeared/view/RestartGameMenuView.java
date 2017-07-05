@@ -64,7 +64,7 @@ public class RestartGameMenuView extends View{
                 break;
              
             default:
-                System.out.println("\n*** “If you don’t see your game listed here, then return to the Main Menu and start a new game");
+                this.console.println("\n*** “If you don’t see your game listed here, then return to the Main Menu and start a new game");
                 rtnValue = false;
                 break;
 
@@ -74,27 +74,27 @@ public class RestartGameMenuView extends View{
     }
 
     private void startGameSavedA() {
-        System.out.println("\n*** startGameSaved1 function called ***");
+        this.console.println("\n*** startGameSaved1 function called ***");
     }
 
     private void startGameSavedB() {
-        System.out.println("\n*** startGameSaved2 function called ***");
+        this.console.println("\n*** startGameSaved2 function called ***");
     }
 
     private void startGameSavedC() {
-        System.out.println("\n*** startGameSaved3 function called ***");
+        this.console.println("\n*** startGameSaved3 function called ***");
     }
 
     private void startGameSavedD() {
-        System.out.println("\n*** startGameSaved4 function called ***");
+        this.console.println("\n*** startGameSaved4 function called ***");
     }
 
     private void startGameSavedE() {
-        System.out.println("\n*** startGameSaved5 function called ***");
+        this.console.println("\n*** startGameSaved5 function called ***");
     }
 
     private void mainMenuView() {
-        System.out.println("\n*** mainMenuView function called ***");
+        this.console.println("\n*** mainMenuView function called ***");
     }
     
 }

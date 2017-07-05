@@ -41,7 +41,7 @@ public class CalculationsMenuView extends View{
                 try {
                     gallonsNeededView.displayGallonsNeededView();
                 } catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("G");
                 }
                 break;
@@ -53,7 +53,7 @@ public class CalculationsMenuView extends View{
                 try {
                     tripNeededView.displayTripNeededView();
                 }catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("T");
                 }
                 break;
@@ -63,7 +63,7 @@ public class CalculationsMenuView extends View{
                 try {
                     moneyEarnedView.displayMoneyEarnedView();
                 } catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("E");
                 }
                 break;  
@@ -75,7 +75,7 @@ public class CalculationsMenuView extends View{
                 try {
                     explosivesNeededView.displayExplosivesNeededView();
                 } catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("X");
                 }
 
@@ -86,7 +86,7 @@ public class CalculationsMenuView extends View{
                 gameMenuView.display();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 

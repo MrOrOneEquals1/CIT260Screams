@@ -8,13 +8,18 @@ package screamsdisappeared.control;
 import byui.cit260.screamsDisappeared.model.Map;
 import byui.cit260.screamsDisappeared.model.Scene;
 import citbyui.cit260.screamsDisappeared.view.StartView;
-
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import screamsdisappeared.ScreamsDisappeared;
 
 /**
  *
  * @author David Vera
  */
 public class MapControl {
+
+    protected final BufferedReader keyboard = ScreamsDisappeared.getInFile();
+    protected final PrintWriter console = ScreamsDisappeared.getOutFile();
 
     static Map createMap() {
         //create the map
@@ -90,9 +95,8 @@ public class MapControl {
         return scenes;
     }
 
-  
-    public static void moveActorsToStarttingLocation(Map map) {
-        System.out.println("\n*** moveActorstoStartLocation function called ***");
+    public void moveActorsToStartingLocation(Map map) {
+        this.console.println("\n*** moveActorstoStartLocation function called ***");
     }
 
     public enum SceneType {

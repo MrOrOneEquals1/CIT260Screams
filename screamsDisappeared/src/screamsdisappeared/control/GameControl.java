@@ -57,7 +57,8 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
 
-        MapControl.moveActorsToStarttingLocation(map);
+        MapControl mc = new MapControl();
+        mc.moveActorsToStartingLocation(map);
 
     }
 
