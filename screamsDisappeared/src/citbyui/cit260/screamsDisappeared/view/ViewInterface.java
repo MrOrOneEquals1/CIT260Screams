@@ -5,14 +5,22 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+
+
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import screamsdisappeared.ScreamsDisappeared;
+
 /**
  *
  * @author carriero
  */
 public interface ViewInterface {
     
+    static final BufferedReader keyboard = ScreamsDisappeared.getInFile();
+    static final PrintWriter console = ScreamsDisappeared.getOutFile();
     public void display();
     public String getInput();
     public boolean doAction(String value);
-   
+
 }

@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.GameControl;
@@ -14,19 +16,23 @@ import screamsdisappeared.control.GameControl;
  * @author carriero
  */
 public abstract class View implements ViewInterface {
-     
+
+    private String message;
     protected String displayMessage;
-    
+
+//    protected final BufferedReader keyboard = ScreamsDisappeared.getInFile();
+//    protected final PrintWriter console = ScreamsDisappeared.getOutFile();
+
     public View() {
     }
-    
+
     public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
     public void display() {
-        
+
         boolean done = false; // set flag to not done
         do {
             // prompt for and get players name
@@ -40,35 +46,38 @@ public abstract class View implements ViewInterface {
 
         } while (!done);
     }
-    
+
     @Override
     public String getInput() {
-        
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+
         String value = ""; //value to be returned
         boolean valid = false; // initialize to not valid
-        
-        while(!valid) { // loop while an invalid value is enter
-            if (displayMessage != null) {
-                System.out.println("\n" + displayMessage);
-            }
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
+        try {
+            while (!valid) { // loop while an invalid value is enter
+                if (displayMessage != null) {
+                    System.out.println("\n" + displayMessage);
+                }
 
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nI*** You must enter a value ***");
+                value = this.keyboard.readLine(); // get next line typed on keyboard
+                value = value.trim(); // trim off leading and trailing blanks
+
+                if (value.length() < 1) { // value is blank
+                    System.out.println("\nI*** You must enter a value ***");
+                    continue;
+                }
+
+                break;  // end the loop
+
             }
-        
-        break;  // end the loop
-        
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
         }
-    
-    return value; // return the value entered
-    
+
+        return value; // return the value entered
+
     }
-    
-       @Override
+
+    @Override
     public boolean doAction(String value) {
 
         value = value.toUpperCase();
@@ -114,22 +123,21 @@ public abstract class View implements ViewInterface {
                 //Display the gallons needed view
                 tripNeededView.displayTripNeededView();               
                 break;*/
-             case "T": // Display the move character menu
+            case "T": // Display the move character menu
                 this.moveCharacterView();
                 // 
                 MoveCharacterView moveCharacterView = new MoveCharacterView();
-                
-                
-                moveCharacterView.display();               
-                break;           
-           /* case "E": // Display the option to enter information to calculate
+
+                moveCharacterView.display();
+                break;
+            /* case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
                 
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
                 
                 moneyEarnedView.displayMoneyEarnedView();               
                 break;*/
-                
+
             case "D": // Display Description of Game
                 this.startSceneDescription();
                 break;
@@ -154,19 +162,18 @@ public abstract class View implements ViewInterface {
                 System.out.println("\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
-                case "Z": // Display the move character menu
+            case "Z": // Display the move character menu
                 this.homeLightOnView();
                 // 
                 HomeLightOnView homeLightOnView = new HomeLightOnView();
-                
-                
+
                 homeLightOnView.display();
 
         }
 
         return rtnValue;
     }
-    
+
     private void startNewGame() {
         // create a new game
         GameControl.createNewGame(ScreamsDisappeared.getPlayer());
@@ -191,7 +198,7 @@ public abstract class View implements ViewInterface {
     private void DisplayRestartGameMenu() {
         System.out.println("\n*** RestartGameMenuView) function called ***");
     }
-    
+
     private void displayGameMenuView() {
         System.out.println("\n*** RestartGameMenuView) function called ***");
     }
@@ -233,11 +240,6 @@ public abstract class View implements ViewInterface {
     }
 
     private void homeLightOnView() {
-      System.out.println("\n*** homeLightOnView function called ***");  
+        System.out.println("\n*** homeLightOnView function called ***");
     }
 }
-
-
-
-
-
