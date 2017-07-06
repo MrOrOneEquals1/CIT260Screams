@@ -5,11 +5,13 @@
  */
 package byui.cit260.screamsDisappeared.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author carriero
  */
-public class Scene {
+public class Scene implements Serializable{
     
     private String description;
     private boolean blocked;

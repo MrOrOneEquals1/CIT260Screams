@@ -22,7 +22,6 @@ public abstract class View implements ViewInterface {
 
 //    protected final BufferedReader keyboard = ScreamsDisappeared.getInFile();
 //    protected final PrintWriter console = ScreamsDisappeared.getOutFile();
-
     public View() {
     }
 
@@ -50,19 +49,24 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
 
+        if (displayMessage != null) {
+            this.console.println("\n" + displayMessage);
+        }
+        return getInputNoMenu();
+    }
+
+    public String getInputNoMenu() {
+
         String value = ""; //value to be returned
         boolean valid = false; // initialize to not valid
         try {
             while (!valid) { // loop while an invalid value is enter
-                if (displayMessage != null) {
-                    this.console.println("\n" + displayMessage);
-                }
 
                 value = this.keyboard.readLine(); // get next line typed on keyboard
                 value = value.trim(); // trim off leading and trailing blanks
 
                 if (value.length() < 1) { // value is blank
-                    ErrorView.display(this.getClass().getName(),"\nI*** You must enter a value ***");
+                    ErrorView.display(this.getClass().getName(), "\nI*** You must enter a value ***");
                     continue;
                 }
 
@@ -70,11 +74,9 @@ public abstract class View implements ViewInterface {
 
             }
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
-
-        return value; // return the value entered
-
+        return value;
     }
 
     @Override
@@ -159,7 +161,7 @@ public abstract class View implements ViewInterface {
                 locationMenuView.display();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
             case "Z": // Display the move character menu

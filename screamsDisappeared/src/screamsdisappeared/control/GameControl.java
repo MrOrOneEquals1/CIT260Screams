@@ -14,12 +14,18 @@ import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.Scene;
 import byui.cit260.screamsDisappeared.model.Weapons;
 import byui.cit260.screamsDisappeared.model.Zombie;
+import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.MapControl.SceneType;
 import java.util.EnumSet;
+
 /**
  *
  * @author
@@ -110,18 +116,18 @@ public class GameControl {
     public static Zombie getClosestZombie(Point currentLocation) {
 
         Zombie closestZombie = null;
-        int previousDistance=100;
-        
+        int previousDistance = 100;
+
         for (Zombie z : Zombie.values()) {
             int distance = Math.abs(currentLocation.x - z.getCoordinates().x) + Math.abs(currentLocation.y - z.getCoordinates().y);
-            
-            if (distance < previousDistance){
-                closestZombie = z;  
-            
-            previousDistance = distance;          
-            } 
+
+            if (distance < previousDistance) {
+                closestZombie = z;
+
+                previousDistance = distance;
+            }
         }
-               
+
         return closestZombie;
 
     }
@@ -137,24 +143,56 @@ public class GameControl {
         locations[0][5].setScene(scenes[SceneType.finishScene.ordinal()]);
         locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
-    public static int getLowestPrice(int []weapons) {
-        
-    int lowestPrice = weapons[0];
-for (Weapons w: Weapons.values())
-    
-for (int i = 1;i< weapons.length ;i++){
 
-if ( weapons[i] < lowestPrice){
+    public static int getLowestPrice(int[] weapons) {
 
-    lowestPrice = weapons[i];
+        int lowestPrice = weapons[0];
+        for (Weapons w : Weapons.values()) {
+            for (int i = 1; i < weapons.length; i++) {
 
-}
+                if (weapons[i] < lowestPrice) {
 
-}
-        
-return lowestPrice;
+                    lowestPrice = weapons[i];
 
+                }
+
+            }
         }
+
+        return lowestPrice;
+
+    }
+
+    public static void saveGame(Game game, String filepath)
+            throws CalculationControlException {
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            Game g = new Game();
+
+            output.writeObject(game);
+            Game g2 = new Game();
+
+        } catch (Exception e) {
+            throw new CalculationControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filepath)
+            throws CalculationControlException {
+        Game game = null;
+
+        try (FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            game = (Game) input.readObject();
+
+        } catch (Exception e) {
+            throw new CalculationControlException(e.getMessage());
+        }
+
+        ScreamsDisappeared.setCurrentGame(game);
+    }
+
     public enum Item {
         knife,
         gas,
@@ -164,5 +202,5 @@ return lowestPrice;
         gun;
 
     }
-    
+
 }

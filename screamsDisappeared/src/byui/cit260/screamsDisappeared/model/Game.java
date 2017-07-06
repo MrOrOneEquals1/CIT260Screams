@@ -16,6 +16,33 @@ public class Game implements Serializable{
     //class instance variables
     private double totalTime;
     private Player player;
+    private Zombie zombie;
+    private Weapons weapons;
+    private ZombieDogs zombieDogs;
+
+    public Zombie getZombie() {
+        return zombie;
+    }
+
+    public void setZombie(Zombie zombie) {
+        this.zombie = zombie;
+    }
+
+    public Weapons getWeapons() {
+        return weapons;
+    }
+
+    public void setWeapons(Weapons weapons) {
+        this.weapons = weapons;
+    }
+
+    public ZombieDogs getZombieDogs() {
+        return zombieDogs;
+    }
+
+    public void setZombieDogs(ZombieDogs zombieDogs) {
+        this.zombieDogs = zombieDogs;
+    }
 
     public Player getPlayer() {
         return player;

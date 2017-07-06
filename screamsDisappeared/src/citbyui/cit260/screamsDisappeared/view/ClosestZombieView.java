@@ -55,7 +55,7 @@ public class ClosestZombieView extends View {
                 break;
 
             case "S": // Return to Help Menu
-                this.saveList();
+//                this.saveList();
                 break;
 
             case "D":

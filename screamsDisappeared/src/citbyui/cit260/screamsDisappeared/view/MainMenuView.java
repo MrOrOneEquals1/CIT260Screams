@@ -70,8 +70,8 @@ public class MainMenuView extends View {
             case "M": // display the game menu
                 //If they haven't started a game yet, start one for them
                 if (ScreamsDisappeared.getCurrentGame() == null) {
-                        doAction("N");
-                        break;
+                    doAction("N");
+                    break;
                 }
                 // Creat GameMenuView object
                 GameMenuView gameMenuView = new GameMenuView();
@@ -86,14 +86,14 @@ public class MainMenuView extends View {
                 //Display the gallons needed view
                 tripNeededView.displayTripNeededView();
                 break;*/
-         /*   case "E": // Display the option to enter information to calculate
+ /*   case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
 
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
 
                 moneyEarnedView.displayMoneyEarnedView();
                 break;
-*/
+             */
 
             case "D": // Display Description of Game
                 this.startSceneDescription();
@@ -116,7 +116,7 @@ public class MainMenuView extends View {
                 locationMenuView.display();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -135,7 +135,19 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        this.console.println("\n*** startExitingGame() function called ***");
+        this.console.println("\nEnter the file path for the file where the game is saved.");
+
+        String filepath = this.getInputNoMenu();
+
+        try {
+            GameControl.getSavedGame(filepath);
+
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuVuew", ex.getMessage());
+        }
+        this.console.println("\nYour game has restarted");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -143,7 +155,17 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        this.console.println("\n*** saveGame() function called ***");
+        this.console.println("\n\nEnter the file path for the file where the game is to be saved.");
+        String filepath = this.getInputNoMenu();
+
+        try {
+            GameControl.saveGame(ScreamsDisappeared.getCurrentGame(), filepath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        this.console.println("\nYour game has been saved.");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void DisplayRestartGameMenu() {

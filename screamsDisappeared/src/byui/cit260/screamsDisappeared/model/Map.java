@@ -5,8 +5,7 @@
  */
 package byui.cit260.screamsDisappeared.model;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
+import citbyui.cit260.screamsDisappeared.view.ErrorView;
 import java.io.Serializable;
 import java.util.Objects;
 import screamsdisappeared.ScreamsDisappeared;
@@ -26,16 +25,13 @@ public class Map implements Serializable {
     private int columnCount;
     private int currentRow;
     private int currentColumn;
-    protected final BufferedReader keyboard = ScreamsDisappeared.getInFile();
-    protected final PrintWriter console = ScreamsDisappeared.getOutFile();
-
     public Map() {
 
     }
 
     public Map(int noOfRows, int noOfColumns) {
         if (noOfRows < 1 || noOfColumns < 1) {
-            this.console.println("The number of rows and columns must be > zero");
+            ErrorView.display(this.getClass().getName(),"The number of rows and columns must be > zero");
             return;
         }
         this.noOfRows = noOfRows;
