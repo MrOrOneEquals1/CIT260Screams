@@ -37,12 +37,11 @@ public class ScreamsDisappeared {
 
             ScreamsDisappeared.inFile = new BufferedReader(new InputStreamReader(System.in));
             ScreamsDisappeared.outFile = new PrintWriter(System.out, true);
-
-            StartProgramView startProgramView = new StartProgramView();
-            startProgramView.display();
-            
             String filePath = "log.txt";
             ScreamsDisappeared.logFile = new PrintWriter(filePath);
+            
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
             
             return;
 
@@ -108,9 +107,7 @@ public class ScreamsDisappeared {
         return logFile;
     }
     
-    public static void setLogFile(PrintWriter logFile) {
-        ScreamsDisappeared.logFile = logFile;
-    }
+
 
     public static BufferedReader getInFile() {
         return inFile;
