@@ -126,10 +126,11 @@ public class ClosestZombieView extends View {
             outFile.write(String.format("%n%n            Zombie List "));
             outFile.write(String.format("%n%-15s%-37s%15s", "Name", "Description", "Location"));
             outFile.write(String.format("%n%-15s%-37s%15s", "----", "-----------", "--------"));
-
+            
             for (Zombie z : Zombie.values()) {
                 outFile.write(String.format("%n%-15s%-37s%15s", z.name(), z.getDescription(), "(" + z.getCoordinates().x + "," + z.getCoordinates().y + ")"));
-            }
+            }            
+            outFile.flush();
         } catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), "Error saving Players names to file");
         }
