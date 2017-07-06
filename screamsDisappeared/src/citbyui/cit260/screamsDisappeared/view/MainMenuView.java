@@ -59,10 +59,10 @@ public class MainMenuView extends View {
                 break;
             case "S": // save the current game
                 this.saveGame();
-                break;
-            case "R": //Menu to restart a saved game
+                break;estart a saved game
                 this.DisplayRestartGameMenu();
                 // Creat RestartGameMenuView object
+            case "R": //Menu to r
                 RestartGameMenuView restartGameMenuView = new RestartGameMenuView();
                 //Display the Restart Game Menu View
                 restartGameMenuView.display();
@@ -78,23 +78,6 @@ public class MainMenuView extends View {
                 // Display the game menu view
                 gameMenuView.display();
                 break;
-            /*case "C": // Display the option to enter information to calculate
-                this.tripNeededView();
-                // Creat GallonsNeededView object
-                TripNeededView tripNeededView = new TripNeededView();
-
-                //Display the gallons needed view
-                tripNeededView.displayTripNeededView();
-                break;*/
- /*   case "E": // Display the option to enter information to calculate
-                this.MoneyEarnedView();
-
-                MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
-
-                moneyEarnedView.displayMoneyEarnedView();
-                break;
-             */
-
             case "D": // Display Description of Game
                 this.startSceneDescription();
                 break;

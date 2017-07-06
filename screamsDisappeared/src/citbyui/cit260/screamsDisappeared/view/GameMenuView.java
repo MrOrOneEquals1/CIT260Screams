@@ -43,7 +43,6 @@ public class GameMenuView extends View {
                 + "\nZ - Closest Zombie List"
                 + "\nR - See the list of the Zombie dogs sort by lowet weight"
                 + "\nW - See the Weapon Lowest price "
-                + "\nS - Save game"
                 + "\nQ - Exit Game"
                 + "\n------------------------------------------");
     }
@@ -105,9 +104,6 @@ public class GameMenuView extends View {
                 break;
             case "W":
                 this.LowestPrice();
-                break;
-            case "S": // Save the current Game
-                this.startSaveGame();
                 break;
             case "Q": // Exit the Game
                 this.startExitGame();
@@ -187,14 +183,6 @@ public class GameMenuView extends View {
         }
     }
 
-    private void startSaveGame() {
-        this.console.println("\n*** startSaveGame function called ***");
-    }
-
-    private void startExitGame() {
-        this.console.println("\n*** startExitGame function called ***");
-    }
-
     private void ZombieDogs() {
         StringBuilder line;
         Game game = ScreamsDisappeared.getCurrentGame();
@@ -250,5 +238,9 @@ public class GameMenuView extends View {
 
         doAction("Z1");
 
+    }
+
+    private void startExitGame() {
+        this.console.println("\n*** startExitGame function called ***");
     }
 }
