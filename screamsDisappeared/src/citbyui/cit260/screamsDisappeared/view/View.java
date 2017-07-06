@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.GameControl;
@@ -14,19 +16,22 @@ import screamsdisappeared.control.GameControl;
  * @author carriero
  */
 public abstract class View implements ViewInterface {
-     
+
+    private String message;
     protected String displayMessage;
-    
+
+//    protected final BufferedReader keyboard = ScreamsDisappeared.getInFile();
+//    protected final PrintWriter console = ScreamsDisappeared.getOutFile();
     public View() {
     }
-    
+
     public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
     public void display() {
-        
+
         boolean done = false; // set flag to not done
         do {
             // prompt for and get players name
@@ -40,35 +45,41 @@ public abstract class View implements ViewInterface {
 
         } while (!done);
     }
-    
+
     @Override
     public String getInput() {
-        
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
+
+        if (displayMessage != null) {
+            this.console.println("\n" + displayMessage);
+        }
+        return getInputNoMenu();
+    }
+
+    public String getInputNoMenu() {
+
         String value = ""; //value to be returned
         boolean valid = false; // initialize to not valid
-        
-        while(!valid) { // loop while an invalid value is enter
-            if (displayMessage != null) {
-                System.out.println("\n" + displayMessage);
-            }
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
+        try {
+            while (!valid) { // loop while an invalid value is enter
 
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nI*** You must enter a value ***");
+                value = this.keyboard.readLine(); // get next line typed on keyboard
+                value = value.trim(); // trim off leading and trailing blanks
+
+                if (value.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), "\nI*** You must enter a value ***");
+                    continue;
+                }
+
+                break;  // end the loop
+
             }
-        
-        break;  // end the loop
-        
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
-    
-    return value; // return the value entered
-    
+        return value;
     }
-    
-       @Override
+
+    @Override
     public boolean doAction(String value) {
 
         value = value.toUpperCase();
@@ -114,22 +125,21 @@ public abstract class View implements ViewInterface {
                 //Display the gallons needed view
                 tripNeededView.displayTripNeededView();               
                 break;*/
-             case "T": // Display the move character menu
+            case "T": // Display the move character menu
                 this.moveCharacterView();
                 // 
                 MoveCharacterView moveCharacterView = new MoveCharacterView();
-                
-                
-                moveCharacterView.display();               
-                break;           
-            case "E": // Display the option to enter information to calculate
+
+                moveCharacterView.display();
+                break;
+            /* case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
                 
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
                 
                 moneyEarnedView.displayMoneyEarnedView();               
-                break;
-                
+                break;*/
+
             case "D": // Display Description of Game
                 this.startSceneDescription();
                 break;
@@ -151,22 +161,21 @@ public abstract class View implements ViewInterface {
                 locationMenuView.display();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
-                case "Z": // Display the move character menu
+            case "Z": // Display the move character menu
                 this.homeLightOnView();
                 // 
                 HomeLightOnView homeLightOnView = new HomeLightOnView();
-                
-                
+
                 homeLightOnView.display();
 
         }
 
         return rtnValue;
     }
-    
+
     private void startNewGame() {
         // create a new game
         GameControl.createNewGame(ScreamsDisappeared.getPlayer());
@@ -177,67 +186,62 @@ public abstract class View implements ViewInterface {
     }
 
     private void startExistingGame() {
-        System.out.println("\n*** startExitingGame() function called ***");
+        this.console.println("\n*** startExitingGame() function called ***");
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n*** displayHelpMenu() function called ***");
+        this.console.println("\n*** displayHelpMenu() function called ***");
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame() function called ***");
+        this.console.println("\n*** saveGame() function called ***");
     }
 
     private void DisplayRestartGameMenu() {
-        System.out.println("\n*** RestartGameMenuView) function called ***");
+        this.console.println("\n*** RestartGameMenuView) function called ***");
     }
-    
+
     private void displayGameMenuView() {
-        System.out.println("\n*** RestartGameMenuView) function called ***");
+        this.console.println("\n*** RestartGameMenuView) function called ***");
     }
 
     private void tripNeededView() {
-        System.out.println("\n*** tripNeededView) function called ***");
+        this.console.println("\n*** tripNeededView) function called ***");
     }
 
     private void MoneyEarnedView() {
-        System.out.println("\n*** MoneyEarnedView) function called ***");
+        this.console.println("\n*** MoneyEarnedView) function called ***");
     }
 
     private void ExplosivesNeededView() {
-        System.out.println("\n*** explosivesNeededView) function called ***");
+        this.console.println("\n*** explosivesNeededView) function called ***");
     }
 
     private void startSceneDescription() {
-        System.out.println("\n*** startSceneDiscription) function called ***");
+        this.console.println("\n*** startSceneDiscription) function called ***");
     }
 
     private void startLeaveScene() {
-        System.out.println("\n*** startLeaveScene) function called ***");
+        this.console.println("\n*** startLeaveScene) function called ***");
     }
 
     private void startPickUpObject() {
-        System.out.println("\n*** startPickUpObject function called ***");
+        this.console.println("\n*** startPickUpObject function called ***");
     }
 
     private void startUseObject() {
-        System.out.println("\n*** startUseObject function called ***");
+        this.console.println("\n*** startUseObject function called ***");
     }
 
     private void locationMenuView() {
-        System.out.println("\n*** locationMenuView function called ***");
+        this.console.println("\n*** locationMenuView function called ***");
     }
 
     private void moveCharacterView() {
-        System.out.println("\n*** moveCharacterView function called ***");
+        this.console.println("\n*** moveCharacterView function called ***");
     }
 
     private void homeLightOnView() {
-      System.out.println("\n*** homeLightOnView function called ***");  
+        this.console.println("\n*** homeLightOnView function called ***");
     }
 }
-
-
-
-
-

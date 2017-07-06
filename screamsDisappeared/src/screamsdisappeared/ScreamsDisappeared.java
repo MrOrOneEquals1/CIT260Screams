@@ -8,10 +8,17 @@ package screamsdisappeared;
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.ZombieDogs;
+import citbyui.cit260.screamsDisappeared.view.ErrorView;
 import citbyui.cit260.screamsDisappeared.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,47 +26,63 @@ import java.util.List;
  */
 public class ScreamsDisappeared {
 
+    public static PrintWriter logFile = null;
+        
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-        StartProgramView startProgramView = new StartProgramView();
+
         try {
-        startProgramView.display();
-        } catch (Throwable te) {
-            System.out.println(te.getMessage());
-            te.printStackTrace();
+
+            ScreamsDisappeared.inFile = new BufferedReader(new InputStreamReader(System.in));
+            ScreamsDisappeared.outFile = new PrintWriter(System.out, true);
+
+            StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
+            
+            String filePath = "log.txt";
+            ScreamsDisappeared.logFile = new PrintWriter(filePath);
+            
+            return;
+
+           
+        } catch (Exception e) {
+            
+            ErrorView.display("ScreamsDisappeared","Exception: " + e.toString()
+                    + "\nCause: " + e.getCause()
+                    + "\nMessage: " + e.getMessage());
+
+            e.printStackTrace();
+
+        } finally {
+            try {
+                if (ScreamsDisappeared.inFile != null) {
+                    ScreamsDisappeared.inFile.close();
+                }
+
+                if (ScreamsDisappeared.outFile != null) {
+                    ScreamsDisappeared.outFile.close();
+                }
+                
+                if (ScreamsDisappeared.logFile !=null) {
+                    ScreamsDisappeared.logFile.close();
+                }
+                
+            } catch (IOException ex) {
+                ErrorView.display("ScreamsDisappeared","Error closing files");
+                return;
+            }
+
         }
-        
-//        ZombieDogs Z1 = new ZombieDogs("Pug", "Small", "10 Kilos");
-//        ZombieDogs Z2 = new ZombieDogs("Beagle", "Medium", "15 Kilos");
-//        ZombieDogs Z3 = new ZombieDogs("Rottweiler", "Big", "30 Kilos");
-//        ZombieDogs Z4 = new ZombieDogs("Bulldog", "Big", "35 Kilos");
-//        ZombieDogs Z5 = new ZombieDogs("Doberman", "Big", "40 Kilos");
-//        
-//        List<ZombieDogs> zombieDogs = new ArrayList<>();
-//        
-//        zombieDogs.add(Z1);
-//        zombieDogs.add(Z2);
-//        zombieDogs.add(Z3);
-//        zombieDogs.add(Z4);
-//        zombieDogs.add(Z5);
-//        
-//        Collections.sort(zombieDogs);
-//        
-//        System.out.println("Race     \tSize     \tWeight");
-//        for (ZombieDogs element: zombieDogs){
-//            
-//            System.out.println(element);
-//        }
     }
 
     private static Game currentGame = null;
     private static Player player = null;
-    
+
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+
     public static void setCurrentGame(Game currentGame) {
         ScreamsDisappeared.currentGame = currentGame;
     }
@@ -75,6 +98,22 @@ public class ScreamsDisappeared {
     public static Player getPlayer() {
         return player;
     }
-}
 
-   
+    public static PrintWriter getOutFile() {
+        return outFile;
+       
+    }
+    
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+    
+    public static void setLogFile(PrintWriter logFile) {
+        ScreamsDisappeared.logFile = logFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+ 
+}

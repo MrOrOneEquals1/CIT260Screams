@@ -41,7 +41,7 @@ public class CalculationsMenuView extends View{
                 try {
                     gallonsNeededView.displayGallonsNeededView();
                 } catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("G");
                 }
                 break;
@@ -53,16 +53,21 @@ public class CalculationsMenuView extends View{
                 try {
                     tripNeededView.displayTripNeededView();
                 }catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("T");
                 }
                 break;
             case "E": // Display the option to enter information to calculate
 
-                MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
-
-                moneyEarnedView.displayMoneyEarnedView();
-                break;
+               MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
+                try {
+                    moneyEarnedView.displayMoneyEarnedView();
+                } catch (CalculationControlException me) {
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
+                    doAction("E");
+                }
+                break;  
+                
 
             case "X": // Display the option to enter information to calculate
 
@@ -70,7 +75,7 @@ public class CalculationsMenuView extends View{
                 try {
                     explosivesNeededView.displayExplosivesNeededView();
                 } catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("X");
                 }
 
@@ -81,7 +86,7 @@ public class CalculationsMenuView extends View{
                 gameMenuView.display();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 

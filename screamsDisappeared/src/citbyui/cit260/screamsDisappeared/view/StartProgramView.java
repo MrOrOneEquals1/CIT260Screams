@@ -22,12 +22,12 @@ public class StartProgramView extends View{
         promptMessage = "\nWhat is the name of the player trying to escape?";
         //display the banner when view is created
         displayBanner();
-        System.out.println(promptMessage);
+        this.console.println(promptMessage);
     }
 
     private void displayBanner() {
         
-        System.out.println(
+        this.console.println(
                 "\n**************************************************"
                 +"\n Welcome to Screams of the Disappeared!"
                 +"\nYou will be asked to solve puzzles and attempt to "
@@ -44,49 +44,12 @@ public class StartProgramView extends View{
         );
     }
 
-//    public void displayStartProgramView() {
-//        
-//        boolean done = false; // set flag to not done
-//        do {
-//            // prompt for and get players name
-//            String playersName = this.getPlayersName();
-//            if (playersName.toUpperCase().equals("Q")) // user want to quit
-//                return; //exit the game
-//            
-//            // do the requested action and display the next view
-//            done = this.doAction(playersName);
-//            
-//        } while (!done);
-//    }
-//
-//    public String getPlayersName() {
-//        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-//        String value = ""; //value to be returned
-//        boolean valid = false; // initialize to not valid
-//        
-//        while(!valid) { // loop while an invalid value is enter
-//            System.out.println("\n" + this.promptMessage);
-//            
-//            value = keyboard.nextLine(); // get next line typed on keyboard
-//            value = value.trim(); // trim off leading and trailing blanks
-//
-//            if (value.length() < 1) { // value is blank
-//                System.out.println("\nInvalid value: value cannot be blank");
-//                continue;
-//            }
-//        
-//        break;  // end the loop
-//        
-//        }
-//    
-//    return value; // return the value entered
-//    
-//    }
+
 @Override
     public boolean doAction(String playersName) {
         
         if (playersName.length() <2) {
-            System.out.println("\nInvalid Players Name:  The name must be greater than one character in length");
+            ErrorView.display(this.getClass().getName(),"\nInvalid Players Name:  The name must be greater than one character in length");
             return false;
         }
         
@@ -95,7 +58,7 @@ public class StartProgramView extends View{
         
         
         if (player == null) { // if unsuccessful
-            System.out.println("\nError creating the player.");
+            ErrorView.display(this.getClass().getName(),"\nError creating the player.");
             return false;
         }
         //display next view
@@ -109,7 +72,7 @@ public class StartProgramView extends View{
 
         // display a custom welcome message
         
-        System.out.println("\n==============================="
+        this.console.println("\n==============================="
                           + "\n Welcome to the game " + player.getName()
                           + "\n We hope you have a lot of fun!"
                           + "\n=============================="

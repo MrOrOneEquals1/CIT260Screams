@@ -15,7 +15,7 @@ public class MoveCharacterView extends View{
     
     
     void displayMenu() {
-       System.out.println("\n*** displayMenu stub function called ***");
+       this.console.println("\n*** displayMenu stub function called ***");
    }
     private String menu;
     private String promptMessage;
@@ -36,46 +36,7 @@ public class MoveCharacterView extends View{
                 + "\nQ - Exit game"
                 + "\n------------------------------------------");
   }
- /*public void displayMoveCharacterView() {
 
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-            {
-                return; // exit the game
-            }
-           // do the requested action and display the next view
-          done = this.doAction(menuOption);
-
-        } while (!done);
-
-    }
-   private String getMenuOption() {
-        System.out.println(menu);
-
-        Scanner keyboard = new Scanner(System.in);  //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-        promptMessage = "Please choose the action that you want to do.";
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break;  // end the loop
-
-        }
-
-        return value; // return the value entered
-    }*/
     @Override
    public boolean doAction(String choice) {
         
@@ -114,7 +75,7 @@ public class MoveCharacterView extends View{
                 this.startExitGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -124,39 +85,39 @@ public class MoveCharacterView extends View{
     }
 
     private void moveNextLocation() {
-        System.out.println("\n*** moveNextLocation function called");
+        this.console.println("\n*** moveNextLocation function called");
     }
 
     private void returnPreviousLocation() {
-        System.out.println("\n*** returnPreviousLocation function called");
+        this.console.println("\n*** returnPreviousLocation function called");
     }
 
     private void outOfCar() {
-        System.out.println("\n*** outOfCar function called");
+        this.console.println("\n*** outOfCar function called");
     }
 
     private void inToCar() {
-        System.out.println("\n*** inToCar function called");
+        this.console.println("\n*** inToCar function called");
     }
 
     private void outOfRoom() {
-        System.out.println("\n*** outOfRoom function called");
+        this.console.println("\n*** outOfRoom function called");
     }
 
     private void intToRoom() {
-        System.out.println("\n*** inToRoom function called");
+        this.console.println("\n*** inToRoom function called");
     }
 
     private void returnPreviousMenu() {
-        System.out.println("\n*** returnPreviousMenu function called");
+        this.console.println("\n*** returnPreviousMenu function called");
     }
 
     private void startExitGame() {
-        System.out.println("\n*** startExitGame function called");
+        this.console.println("\n*** startExitGame function called");
     }
 
     private void locationMenuView() {
-         System.out.println("\n*** locationMenuView function called");
+         this.console.println("\n*** locationMenuView function called");
     }
 
     

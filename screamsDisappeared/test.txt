@@ -1,0 +1,32 @@
+The closest zombie is Lori. Description is Dopey.  Located at (0, 1).
+
+Here is the complete list of Zombies, their descriptions, and locations.
+
+            Zombie List 
+Name           Description                                 Location
+----           -----------                                 --------
+John           Smart, strong                                  (5,8)
+Sarah          Intuitive                                      (1,7)
+Sam            Quick                                          (7,0)
+Herman         Smart                                          (1,6)
+James          Strong                                         (7,1)
+Samantha       Can't walk                                     (7,7)
+Theresa        Lazy                                           (8,5)
+Franklin       Useless                                        (5,5)
+Libby          Dumb                                           (0,6)
+Brian          Doesn't understand English                     (7,2)
+Abigail        Is a good hider                                (8,2)
+Charles        Tells funny jokes before he eats you           (8,8)
+Oliver         Cries a lot                                    (8,5)
+Cleopatra      Bald                                           (5,5)
+Blair          Grumpy                                         (3,6)
+Scott          Bashful                                        (0,2)
+Lori           Dopey                                          (0,1)
+Heidi          Sleepy                                         (6,8)
+Stuart         Runs fast                                      (5,4)
+Kelsy          Very slow                                      (1,4)
+Cameron        Heavy                                          (3,8)
+Dana           Has turned others to Zombies                   (8,5)
+Callie         Mean and Nasty                                 (4,0)
+DD             Wants to fight                                 (1,3)
+Kayla          Hungry for food                                (4,7)

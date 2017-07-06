@@ -15,32 +15,12 @@ public class MoneyEarned {
         double moneyPerZombie = 1.0;
         double moneyPerZombieDog = 0.5;
 
-        if (zombiesKilled < 0) {  //zombies killed is negative
-            System.out.println("\nInvalid value: value cannot be negative");
-            return -1;
-        }
+        double moneyFromZombies = (zombiesKilled * moneyPerZombie);
+        double moneyFromZombieDogs = (zombieDogsKilled * moneyPerZombieDog);
 
-        if (zombiesKilled > 25) {  //zombies killed is more than 25
-            System.out.println("\nInvalid value: value cannot be more than 25");
-            return -1;
-        }
-
-        if (zombieDogsKilled < 0) {  //zombieDogs killed is negative
-            System.out.println("\nInvalid value: value cannot be negative");
-            return -1;
-        }
-
-        if (zombieDogsKilled > 25) {  //zombieDogs killed is more than 25
-            System.out.println("\nInvalid value: value cannot be more than 25");
-            return -1;
-        }
-
-            double moneyFromZombies = (zombiesKilled * moneyPerZombie);
-            double moneyFromZombieDogs = (zombieDogsKilled * moneyPerZombieDog);
-
-            double moneyEarned = moneyFromZombies + moneyFromZombieDogs;
-            return moneyEarned;
-
-        }
+        double moneyEarned = moneyFromZombies + moneyFromZombieDogs;
+        return moneyEarned;
 
     }
+
+}

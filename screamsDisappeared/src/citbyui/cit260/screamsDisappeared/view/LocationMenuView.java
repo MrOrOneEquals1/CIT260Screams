@@ -7,6 +7,8 @@ package citbyui.cit260.screamsDisappeared.view;
 
 import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +31,6 @@ public class LocationMenuView extends View {
                 + "\nM - Main Menu"
                 //+ "\nC - Calculate the Trip Needed"
                 + "\nT - Go to Move Character Menu"
-                + "\nE - Earn Money"
                 + "\nX - Explosives Needed"
                 + "\n------------------------------------------");
     }
@@ -69,7 +70,7 @@ public class LocationMenuView extends View {
                 //Display the gallons needed view
                 try {tripNeededView.displaytripNeededView();
                 }catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("C");
                 }
                 break;*/
@@ -82,13 +83,20 @@ public class LocationMenuView extends View {
                 moveCharacterView.display();
                 break;
                 
-            case "E": // Display the option to enter information to calculate
+           /* case "E": // Display the option to enter information to calculate
                 this.MoneyEarnedView();
 
                 MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
 
+        {
+            try {
                 moneyEarnedView.displayMoneyEarnedView();
-                break;
+            } catch (CalculationControlException ex) {
+              ErrorView.display(this.getClass().getName(),me.getMessage());
+                    doAction("X");  
+            }
+        }
+                break;*/
 
             case "X": // Display the option to enter information to calculate
                 this.ExplosivesNeededView();
@@ -97,13 +105,13 @@ public class LocationMenuView extends View {
                 try {
                     explosivesNeededView.displayExplosivesNeededView();
                 } catch (CalculationControlException me) {
-                    System.out.println(me.getMessage());
+                    ErrorView.display(this.getClass().getName(),me.getMessage());
                     doAction("X");
                 }
 
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -113,27 +121,27 @@ public class LocationMenuView extends View {
     }
 
     private void startSceneDescription() {
-        System.out.println("\n*** SceneDescription function called ***");
+        this.console.println("\n*** SceneDescription function called ***");
     }
 
     private void startLeaveScene() {
-        System.out.println("\n*** LeaveScene function called ***");
+        this.console.println("\n*** LeaveScene function called ***");
     }
 
     private void startPickUpObject() {
-        System.out.println("\n*** PickUpObject function called ***");
+        this.console.println("\n*** PickUpObject function called ***");
     }
 
     private void startUseObject() {
-        System.out.println("\n*** UseObject function called ***");
+        this.console.println("\n*** UseObject function called ***");
     }
 
     private void mainMenuView() {
-        System.out.println("\n*** MainMenu function called ***");
+        this.console.println("\n*** MainMenu function called ***");
     }
 
     /*private void tripNeededView() {
-        System.out.println("\n*** tripNeededView function called ***");
+        this.console.println("\n*** tripNeededView function called ***");
     }*/
 
     private void MoneyEarnedView() {
@@ -145,7 +153,7 @@ public class LocationMenuView extends View {
     }
 
     private void moveCharacterView() {
-        System.out.println("\n*** moveCharacterView function called ***");
+        this.console.println("\n*** moveCharacterView function called ***");
     }
 
     
