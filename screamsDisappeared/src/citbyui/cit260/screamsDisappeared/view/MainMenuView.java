@@ -59,9 +59,9 @@ public class MainMenuView extends View {
                 break;
             case "S": // save the current game
                 this.saveGame();
-                break;estart a saved game
-                this.DisplayRestartGameMenu();
-                // Creat RestartGameMenuView object
+                //start a saved game
+                break;
+
             case "R": //Menu to r
                 RestartGameMenuView restartGameMenuView = new RestartGameMenuView();
                 //Display the Restart Game Menu View
