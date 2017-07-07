@@ -100,7 +100,10 @@ public class GameMenuView extends View {
                 doAction("Z");
                 break;
             case "R":
-                this.ZombieDogs();
+                ZombieDogsView zombieDogsView = new ZombieDogsView();
+                zombieDogsView.display();
+                doAction("R");
+                
                 break;
             case "W":
                 this.LowestPrice();
@@ -183,7 +186,7 @@ public class GameMenuView extends View {
         }
     }
 
-    private void ZombieDogs() {
+    /*private void ZombieDogs() {
         StringBuilder line;
         Game game = ScreamsDisappeared.getCurrentGame();
 
@@ -212,7 +215,7 @@ public class GameMenuView extends View {
 
         doAction("R1");
 
-    }
+    }*/
 
     private void LowestPrice() {
         StringBuilder line;

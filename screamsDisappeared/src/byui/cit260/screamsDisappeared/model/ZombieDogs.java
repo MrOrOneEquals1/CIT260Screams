@@ -29,15 +29,18 @@ Doberman (40);
 
 private final int weight;
 private final Point coordinates;
+//private final String description;
 
     ZombieDogs(int weight) {
 
     this.weight = weight;
-
+    //this.description = description;
     Random rand = new Random();
     coordinates = new Point (rand.nextInt(10),rand.nextInt(10));
 
     }
+    
+    
 
     public int getWeight() {
         return weight;
@@ -57,6 +60,10 @@ private final Point coordinates;
                     + getCoordinates().y + ").";
 
     }
+
+    /*public String getDescription() {
+        return description;
+    }*/
 
     
 

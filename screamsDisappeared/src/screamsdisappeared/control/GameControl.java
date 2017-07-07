@@ -14,6 +14,7 @@ import byui.cit260.screamsDisappeared.model.Player;
 import byui.cit260.screamsDisappeared.model.Scene;
 import byui.cit260.screamsDisappeared.model.Weapons;
 import byui.cit260.screamsDisappeared.model.Zombie;
+import byui.cit260.screamsDisappeared.model.ZombieDogs;
 import citbyui.cit260.screamsDisappeared.exceptions.CalculationControlException;
 import java.awt.Point;
 import java.io.FileInputStream;
@@ -191,6 +192,25 @@ public class GameControl {
         }
 
         ScreamsDisappeared.setCurrentGame(game);
+    }
+
+    
+
+    public static ZombieDogs getZombieDogs(Point currentLocation) {
+        ZombieDogs zombieDogs = null;
+        int previousDistance = 100;
+
+        for (ZombieDogs z : ZombieDogs.values()) {
+            int distance = Math.abs(currentLocation.x - z.getCoordinates().x) + Math.abs(currentLocation.y - z.getCoordinates().y);
+
+            if (distance < previousDistance) {
+                zombieDogs = z;
+
+                previousDistance = distance;
+            }
+        }
+
+        return zombieDogs;
     }
 
     public enum Item {
