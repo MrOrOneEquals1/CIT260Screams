@@ -55,15 +55,18 @@ public class ClosestZombieView extends View {
                 break;
 
             case "S": // Return to Help Menu
-//                this.saveList();
+                try {
+                    this.saveList();
+                } catch (CalculationControlException me) {
+                    ErrorView.display(this.getClass().getName(), me.getMessage());
+                }
                 break;
-
             case "D":
                 this.closestZombie();
                 break;
 
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try Again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try Again");
                 rtnValue = false;
                 break;
 
@@ -123,46 +126,41 @@ public class ClosestZombieView extends View {
             outFile.write(String.format("%n%n            Zombie List "));
             outFile.write(String.format("%n%-15s%-37s%15s", "Name", "Description", "Location"));
             outFile.write(String.format("%n%-15s%-37s%15s", "----", "-----------", "--------"));
-
+            
             for (Zombie z : Zombie.values()) {
-                //line = new StringBuilder("                                                                                       ");
                 outFile.write(String.format("%n%-15s%-37s%15s", z.name(), z.getDescription(), "(" + z.getCoordinates().x + "," + z.getCoordinates().y + ")"));
-//                line.insert(15, z.getDescription());
-//                line.insert(53, "(" + z.getCoordinates().x + ", ");
-//                line.insert(56, z.getCoordinates().y + ")");
-//                outFile.write(line.toString());
-            }
+            }            
+            outFile.flush();
         } catch (IOException ex) {
-            ErrorView.display(this.getClass().getName(),"Error saving Players names to file");
+            ErrorView.display(this.getClass().getName(), "Error saving Players names to file");
         }
-        this.console.println("The list has been saved to " + fileLocation);
+        this.console.println("\nThe list has been saved to " + fileLocation);
 
     }
 
     private String fileLocation() {
 
-
         boolean valid = false; // initialize to not valid
         String fileLocation = null;
-        
+
         try {
-        while (!valid) { // loop while an invalid value is enter
-            this.console.println("\n What is the name of the file you want to save?");
+            while (!valid) { // loop while an invalid value is enter
+                this.console.println("\n What is the name of the file you want to save?");
 
                 fileLocation = (this.keyboard.readLine()); // get next line typed on keyboard                
-                
-                if (fileLocation.length() < 1) {
-                    ErrorView.display(this.getClass().getName(),"\nYou must enter a valid name.");
+
+                if (fileLocation == null || fileLocation.length() < 1 ) {
+                    ErrorView.display(this.getClass().getName(), "\nYou must enter a valid name.");
                     valid = false;
+                } else {
+                    valid = true;
                 }
-
-                valid = true;
-
             }
-        
+
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
-        }return fileLocation;
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
+        }
+        return fileLocation;
     }
-        
+
 }
