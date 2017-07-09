@@ -106,8 +106,9 @@ public class GameMenuView extends View {
                 
                 break;
             case "W":
-                this.LowestPrice();
-                break;
+                 LocationWeaponsView locationWeaponsView  = new LocationWeaponsView ();
+                locationWeaponsView .display();
+                doAction("W");
             case "Q": // Exit the Game
                 this.startExitGame();
                 break;
