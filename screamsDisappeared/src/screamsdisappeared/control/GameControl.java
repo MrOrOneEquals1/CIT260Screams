@@ -145,22 +145,22 @@ public class GameControl {
         locations[0][6].setScene(scenes[SceneType.startingScene.ordinal()]);
     }
 
-    public static int getLowestPrice(int[] weapons) {
+    public static Weapons getLocationWeapons(Point currentLocation) {
 
-        int lowestPrice = weapons[0];
-        for (Weapons w : Weapons.values()) {
-            for (int i = 1; i < weapons.length; i++) {
+        Weapons locationWeapons = null;
+        int previousDistance = 100;
 
-                if (weapons[i] < lowestPrice) {
+        for (Weapons z : Weapons.values()) {
+            int distance = Math.abs(currentLocation.x - z.getCoordinates().x) + Math.abs(currentLocation.y - z.getCoordinates().y);
 
-                    lowestPrice = weapons[i];
+            if (distance < previousDistance) {
+                locationWeapons = z;
 
-                }
-
+                previousDistance = distance;
             }
         }
 
-        return lowestPrice;
+        return locationWeapons;
 
     }
 
@@ -212,6 +212,8 @@ public class GameControl {
 
         return zombieDogs;
     }
+
+    
 
     public enum Item {
         knife,
