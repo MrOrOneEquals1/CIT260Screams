@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import screamsdisappeared.ScreamsDisappeared;
 import screamsdisappeared.control.GameControl;
+import byui.cit260.screamsDisappeared.model.AsciiArt;
 
 /**
  *
@@ -59,7 +60,7 @@ public abstract class View implements ViewInterface {
 
         String value = ""; //value to be returned
         value = value.toUpperCase();
-        
+
         boolean valid = false; // initialize to not valid
         try {
             while (!valid) { // loop while an invalid value is enter
@@ -70,13 +71,13 @@ public abstract class View implements ViewInterface {
                 if (value.length() < 1) { // value is blank
                     ErrorView.display(this.getClass().getName(), "\n*** You must enter a value ***");
                     continue;
-                }
-                else if ("uuddlrlrba".equals(value)) {
-                    
-                    System.out.println ("Success!!!");
+                } else if ("uuddlrlrba".equals(value)) {
+
+                    String selected = AsciiArt.getRandom();
+                    System.out.println(selected);
                     continue;
                 }
-                
+
                 break;  // end the loop
 
             }
@@ -85,6 +86,8 @@ public abstract class View implements ViewInterface {
         }
         return value;
     }
+
+
 
     @Override
     public boolean doAction(String value) {
