@@ -58,6 +58,8 @@ public abstract class View implements ViewInterface {
     public String getInputNoMenu() {
 
         String value = ""; //value to be returned
+        value = value.toUpperCase();
+        
         boolean valid = false; // initialize to not valid
         try {
             while (!valid) { // loop while an invalid value is enter
@@ -69,7 +71,12 @@ public abstract class View implements ViewInterface {
                     ErrorView.display(this.getClass().getName(), "\n*** You must enter a value ***");
                     continue;
                 }
-
+                else if ("uuddlrlrba".equals(value)) {
+                    
+                    System.out.println ("Success!!!");
+                    continue;
+                }
+                
                 break;  // end the loop
 
             }

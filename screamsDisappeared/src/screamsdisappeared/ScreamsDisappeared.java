@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public class ScreamsDisappeared {
 
     public static PrintWriter logFile = null;
-        
+
     /**
      * @param args the command line arguments
      */
@@ -39,16 +39,15 @@ public class ScreamsDisappeared {
             ScreamsDisappeared.outFile = new PrintWriter(System.out, true);
             String filePath = "log.txt";
             ScreamsDisappeared.logFile = new PrintWriter(filePath);
-            
+
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
-            
+
             return;
 
-           
         } catch (Exception e) {
-            
-            ErrorView.display("ScreamsDisappeared","Exception: " + e.toString()
+
+            ErrorView.display("ScreamsDisappeared", "Exception: " + e.toString()
                     + "\nCause: " + e.getCause()
                     + "\nMessage: " + e.getMessage());
 
@@ -63,13 +62,13 @@ public class ScreamsDisappeared {
                 if (ScreamsDisappeared.outFile != null) {
                     ScreamsDisappeared.outFile.close();
                 }
-                
-                if (ScreamsDisappeared.logFile !=null) {
+
+                if (ScreamsDisappeared.logFile != null) {
                     ScreamsDisappeared.logFile.close();
                 }
-                
+
             } catch (IOException ex) {
-                ErrorView.display("ScreamsDisappeared","Error closing files");
+                ErrorView.display("ScreamsDisappeared", "Error closing files");
                 return;
             }
 
@@ -89,7 +88,7 @@ public class ScreamsDisappeared {
     public static void setPlayer(Player player) {
         ScreamsDisappeared.player = player;
     }
-
+    
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -100,17 +99,15 @@ public class ScreamsDisappeared {
 
     public static PrintWriter getOutFile() {
         return outFile;
-       
+
     }
-    
+
     public static PrintWriter getLogFile() {
         return logFile;
     }
-    
-
 
     public static BufferedReader getInFile() {
         return inFile;
     }
- 
+
 }
