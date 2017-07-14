@@ -31,6 +31,7 @@ public class LocationMenuView extends View {
                 + "\nM - Main Menu"
                 //+ "\nC - Calculate the Trip Needed"
                 + "\nT - Go to Move Character Menu"
+                + "\nY - Go to Location with Weapon"
                 + "\nX - Explosives Needed"
                 + "\n------------------------------------------");
     }
@@ -83,20 +84,14 @@ public class LocationMenuView extends View {
                 moveCharacterView.display();
                 break;
                 
-           /* case "E": // Display the option to enter information to calculate
-                this.MoneyEarnedView();
+           case "Y": // Display the option to choose the weapon
+                this.locationWithWeaponView();
+                // Creat LocationWithWeaponView object
+                LocationWithWeaponView locationWithWeaponView = new LocationWithWeaponView();
 
-                MoneyEarnedView moneyEarnedView = new MoneyEarnedView();
-
-        {
-            try {
-                moneyEarnedView.displayMoneyEarnedView();
-            } catch (CalculationControlException ex) {
-              ErrorView.display(this.getClass().getName(),me.getMessage());
-                    doAction("X");  
-            }
-        }
-                break;*/
+                //Display the location weapon view
+                locationWithWeaponView.display();
+                break;
 
             case "X": // Display the option to enter information to calculate
                 this.ExplosivesNeededView();
@@ -154,6 +149,10 @@ public class LocationMenuView extends View {
 
     private void moveCharacterView() {
         this.console.println("\n*** moveCharacterView function called ***");
+    }
+
+    private void locationWithWeaponView() {
+        this.console.println("\n*** locationWithWeaponView function called ***");
     }
 
     

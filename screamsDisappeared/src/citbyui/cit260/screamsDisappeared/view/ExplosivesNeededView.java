@@ -36,7 +36,7 @@ public class ExplosivesNeededView {
     public ExplosivesNeededView() {
         this.display = "\n"
                 + "\n------------------------------------------"
-                + "\n|       Explosives Needed                   |"
+                + "\n|       Explosives Needed  Description   |"
                 + "\n------------------------------------------";
     }
 
@@ -55,7 +55,13 @@ public class ExplosivesNeededView {
 
                 return;
             } else {
-                this.console.println("\n Thank you for your intersting in the game");
+                this.console.println("\n Thank you for your intersting in the game"
+                                    + "\nBe careful with explosives, as you can kill"
+                                    + "\nyourself if you are not careful."
+                                    + "\nYou must calculate the amount of explosives to use prior their use."
+                                    + "\nFind out the volume of the room and then use only 1 cubic inch for"
+                                    + "\neach cubic yard of room.  (Hint: there are 27 cubic feet in 1 cubic yard)"
+                                    + "\n------------------------------------------");
             }
             {
 
