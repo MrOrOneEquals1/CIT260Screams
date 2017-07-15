@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.screamsDisappeared.view;
 
+import byui.cit260.screamsDisappeared.model.DistanceLocations;
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
 import byui.cit260.screamsDisappeared.model.Weapons;
@@ -43,6 +44,7 @@ public class GameMenuView extends View {
                 + "\nZ - Closest Zombie List"
                 + "\nR - See the list of the Zombie dogs sort by lowet weight"
                 + "\nW - See the Weapon Lowest price "
+                + "\nJ - See the distnces of the locations"
                 + "\nQ - Exit Game"
                 + "\n------------------------------------------");
     }
@@ -109,6 +111,12 @@ public class GameMenuView extends View {
                  LocationWeaponsView locationWeaponsView  = new LocationWeaponsView ();
                 locationWeaponsView .display();
                 doAction("W");
+            case "J":
+                 DistancesView distancesView  = new DistancesView ();
+                distancesView .display();
+                doAction("J");    
+                
+                
             case "Q": // Exit the Game
                 this.startExitGame();
                 break;
