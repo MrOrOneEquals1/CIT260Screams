@@ -6,6 +6,7 @@
 package screamsdisappeared.control;
 
 import byui.cit260.screamsDisappeared.model.Car;
+import byui.cit260.screamsDisappeared.model.DistanceLocations;
 import byui.cit260.screamsDisappeared.model.Game;
 import byui.cit260.screamsDisappeared.model.InventoryItem;
 import byui.cit260.screamsDisappeared.model.Location;
@@ -211,6 +212,24 @@ public class GameControl {
         }
 
         return zombieDogs;
+    }
+
+    public static DistanceLocations getDistances(Point currentLocation) {
+        DistanceLocations distances = null;
+        int previousDistance = 100;
+
+        for (DistanceLocations z : DistanceLocations.values()) {
+            int distance = Math.abs(currentLocation.x - z.getCoordinates().x) + Math.abs(currentLocation.y - z.getCoordinates().y);
+
+            if (distance < previousDistance) {
+                distances = z;
+
+                previousDistance = distance;
+            }
+        }
+
+        return distances;
+        
     }
 
     
